@@ -1,6 +1,6 @@
 package main.gym_system;
 
-import database.DataBase;
+import main.database.DataBase;
 import java.sql.Connection;
 
 /**
