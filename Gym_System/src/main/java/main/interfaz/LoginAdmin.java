@@ -11,7 +11,7 @@ public class LoginAdmin extends javax.swing.JPanel {
     /**
      * Creates new form LoginAdmin
      */
-    java.awt.Font fuente = new java.awt.Font("FreeMono", java.awt.Font.PLAIN, 18);
+    java.awt.Font fuente = new java.awt.Font("FreeMono", java.awt.Font.BOLD, 18);
 
     public LoginAdmin() {
         initComponents();
@@ -46,6 +46,7 @@ public class LoginAdmin extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        bt_Atras = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(242, 140, 40));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -138,7 +139,7 @@ public class LoginAdmin extends javax.swing.JPanel {
         jLabel3.setText("Login Admin");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 480, 530));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 480, 530));
 
         jPanel3.setBackground(new java.awt.Color(255, 85, 30));
 
@@ -173,13 +174,30 @@ public class LoginAdmin extends javax.swing.JPanel {
                 .addContainerGap(67, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, 320, 530));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, 320, 530));
+
+        bt_Atras.setFont(new java.awt.Font("FreeMono", 1, 36)); // NOI18N
+        bt_Atras.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Atras.setText("Atras");
+        bt_Atras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Atras.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_AtrasMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bt_AtrasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bt_AtrasMouseExited(evt);
+            }
+        });
+        jPanel1.add(bt_Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,7 +272,7 @@ public class LoginAdmin extends javax.swing.JPanel {
 
         if (usuario.equals("Marco") && password.equals("123456")) {
             error.setText("");
-            Admin admin = new Admin();
+            Admin admin = new Admin(usuario);
             admin.setSize(1000, 600);
             admin.setLocation(0, 0);
 
@@ -281,9 +299,36 @@ public class LoginAdmin extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPassActionPerformed
 
+    private void bt_AtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AtrasMouseClicked
+        // TODO add your handling code here:
+        Roles rol = new Roles();
+        rol.setSize(1000, 600);
+        rol.setLocation(0, 0);
+
+        java.awt.Window parentWindow = javax.swing.SwingUtilities.getWindowAncestor(this);
+        if (parentWindow instanceof javax.swing.JFrame) {
+            javax.swing.JFrame frame = (javax.swing.JFrame) parentWindow;
+            frame.getContentPane().removeAll();
+            frame.getContentPane().add(rol);
+            frame.getContentPane().revalidate();
+            frame.getContentPane().repaint();
+        }
+    }//GEN-LAST:event_bt_AtrasMouseClicked
+
+    private void bt_AtrasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AtrasMouseEntered
+        // TODO add your handling code here:
+        bt_Atras.setForeground(new Color(255, 85, 30));
+    }//GEN-LAST:event_bt_AtrasMouseEntered
+
+    private void bt_AtrasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AtrasMouseExited
+        // TODO add your handling code here:
+        bt_Atras.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_bt_AtrasMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg_login;
+    private javax.swing.JLabel bt_Atras;
     private javax.swing.JLabel bt_Login;
     private javax.swing.JLabel error;
     private javax.swing.JLabel jLabel1;

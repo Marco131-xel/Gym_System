@@ -1,5 +1,6 @@
 package main.interfaz;
 
+import java.awt.Color;
 /**
  *
  * @author marco
@@ -12,7 +13,7 @@ public class Roles extends javax.swing.JPanel {
     public Roles() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -23,45 +24,279 @@ public class Roles extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        bt_admin = new javax.swing.JButton();
+        admin = new javax.swing.JLabel();
+        coach = new javax.swing.JLabel();
+        barra = new javax.swing.JPanel();
+        roles = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        bgAdmin = new javax.swing.JPanel();
+        bt_Admin = new javax.swing.JLabel();
+        bgCoach = new javax.swing.JPanel();
+        bt_Coach = new javax.swing.JLabel();
+        bgInve = new javax.swing.JPanel();
+        bt_Inve = new javax.swing.JLabel();
+        bgRecep = new javax.swing.JPanel();
+        bt_Rececp = new javax.swing.JLabel();
+        bgClient = new javax.swing.JPanel();
+        bt_Client = new javax.swing.JLabel();
+        inve = new javax.swing.JLabel();
+        recep = new javax.swing.JLabel();
+        cliente = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        bt_admin.setText("admin");
-        bt_admin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_adminActionPerformed(evt);
+        admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin.png"))); // NOI18N
+        jPanel1.add(admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
+
+        coach.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/coach.png"))); // NOI18N
+        jPanel1.add(coach, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, -1, -1));
+
+        barra.setBackground(new java.awt.Color(255, 85, 30));
+
+        roles.setFont(new java.awt.Font("FreeMono", 1, 48)); // NOI18N
+        roles.setForeground(new java.awt.Color(255, 255, 255));
+        roles.setText("Roles");
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym1.png"))); // NOI18N
+
+        javax.swing.GroupLayout barraLayout = new javax.swing.GroupLayout(barra);
+        barra.setLayout(barraLayout);
+        barraLayout.setHorizontalGroup(
+            barraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraLayout.createSequentialGroup()
+                .addContainerGap(403, Short.MAX_VALUE)
+                .addComponent(roles)
+                .addGap(354, 354, 354)
+                .addComponent(jLabel3)
+                .addGap(34, 34, 34))
+        );
+        barraLayout.setVerticalGroup(
+            barraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraLayout.createSequentialGroup()
+                .addContainerGap(9, Short.MAX_VALUE)
+                .addGroup(barraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(roles))
+                .addGap(17, 17, 17))
+        );
+
+        jPanel1.add(barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 90));
+
+        bgAdmin.setBackground(new java.awt.Color(255, 85, 30));
+
+        bt_Admin.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        bt_Admin.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Admin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        bt_Admin.setText("Entrar");
+        bt_Admin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Admin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_AdminMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bt_AdminMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bt_AdminMouseExited(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Roles");
+        javax.swing.GroupLayout bgAdminLayout = new javax.swing.GroupLayout(bgAdmin);
+        bgAdmin.setLayout(bgAdminLayout);
+        bgAdminLayout.setHorizontalGroup(
+            bgAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgAdminLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(bt_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        bgAdminLayout.setVerticalGroup(
+            bgAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgAdminLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(bt_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(452, 452, 452)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(462, 462, 462)
-                        .addComponent(bt_admin)))
-                .addContainerGap(462, Short.MAX_VALUE))
+        jPanel1.add(bgAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, 40));
+
+        bgCoach.setBackground(new java.awt.Color(255, 85, 30));
+
+        bt_Coach.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        bt_Coach.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Coach.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        bt_Coach.setText("Entrar");
+        bt_Coach.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Coach.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_CoachMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bt_CoachMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bt_CoachMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout bgCoachLayout = new javax.swing.GroupLayout(bgCoach);
+        bgCoach.setLayout(bgCoachLayout);
+        bgCoachLayout.setHorizontalGroup(
+            bgCoachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(bt_Coach, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(237, 237, 237)
-                .addComponent(jLabel1)
-                .addGap(67, 67, 67)
-                .addComponent(bt_admin)
-                .addContainerGap(243, Short.MAX_VALUE))
+        bgCoachLayout.setVerticalGroup(
+            bgCoachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgCoachLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(bt_Coach, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        jPanel1.add(bgCoach, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, -1, -1));
+
+        bgInve.setBackground(new java.awt.Color(255, 85, 30));
+
+        bt_Inve.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        bt_Inve.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Inve.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        bt_Inve.setText("Entrar");
+        bt_Inve.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Inve.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_InveMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bt_InveMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bt_InveMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout bgInveLayout = new javax.swing.GroupLayout(bgInve);
+        bgInve.setLayout(bgInveLayout);
+        bgInveLayout.setHorizontalGroup(
+            bgInveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgInveLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(bt_Inve, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        bgInveLayout.setVerticalGroup(
+            bgInveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgInveLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(bt_Inve, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.add(bgInve, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 390, -1, -1));
+
+        bgRecep.setBackground(new java.awt.Color(255, 85, 30));
+
+        bt_Rececp.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        bt_Rececp.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Rececp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        bt_Rececp.setText("Entrar");
+        bt_Rececp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Rececp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_RececpMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bt_RececpMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bt_RececpMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout bgRecepLayout = new javax.swing.GroupLayout(bgRecep);
+        bgRecep.setLayout(bgRecepLayout);
+        bgRecepLayout.setHorizontalGroup(
+            bgRecepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bgRecepLayout.createSequentialGroup()
+                .addComponent(bt_Rececp, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        bgRecepLayout.setVerticalGroup(
+            bgRecepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgRecepLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(bt_Rececp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.add(bgRecep, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 390, 110, -1));
+
+        bgClient.setBackground(new java.awt.Color(255, 85, 30));
+
+        bt_Client.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        bt_Client.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Client.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        bt_Client.setText("Entrar");
+        bt_Client.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Client.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_ClientMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bt_ClientMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bt_ClientMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout bgClientLayout = new javax.swing.GroupLayout(bgClient);
+        bgClient.setLayout(bgClientLayout);
+        bgClientLayout.setHorizontalGroup(
+            bgClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(bt_Client, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        );
+        bgClientLayout.setVerticalGroup(
+            bgClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgClientLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(bt_Client, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.add(bgClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 390, 100, -1));
+
+        inve.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chain.png"))); // NOI18N
+        jPanel1.add(inve, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, -1, -1));
+
+        recep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/service.png"))); // NOI18N
+        jPanel1.add(recep, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 230, -1, -1));
+
+        cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/customer.png"))); // NOI18N
+        jPanel1.add(cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 230, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel1.setText("Cliente");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 170, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel2.setText("Admin");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel4.setText("Inventario");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel5.setText("Recepcionista");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 170, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel6.setText("Entrenador");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -71,32 +306,128 @@ public class Roles extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bt_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_adminActionPerformed
+    private void bt_AdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AdminMouseClicked
         // TODO add your handling code here:
         LoginAdmin login = new LoginAdmin();
-        login.setSize(1000,600);
+        login.setSize(1000, 600);
         login.setLocation(0, 0);
-        
+
         java.awt.Window parentWindow = javax.swing.SwingUtilities.getWindowAncestor(this);
         if (parentWindow instanceof javax.swing.JFrame) {
             javax.swing.JFrame frame = (javax.swing.JFrame) parentWindow;
             frame.getContentPane().removeAll();
             frame.getContentPane().add(login);
             frame.getContentPane().revalidate();
-            frame.getContentPane().repaint();   
+            frame.getContentPane().repaint();
         }
-    }//GEN-LAST:event_bt_adminActionPerformed
+    }//GEN-LAST:event_bt_AdminMouseClicked
+
+    private void bt_AdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AdminMouseEntered
+        // TODO add your handling code here:
+        bgAdmin.setBackground(new Color(242, 140, 40));
+        bt_Admin.setForeground(Color.white);
+    }//GEN-LAST:event_bt_AdminMouseEntered
+
+    private void bt_AdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AdminMouseExited
+        // TODO add your handling code here:
+        bgAdmin.setBackground(new Color(255, 85, 30));
+        bt_Admin.setForeground(Color.white);
+    }//GEN-LAST:event_bt_AdminMouseExited
+
+    private void bt_CoachMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_CoachMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_bt_CoachMouseClicked
+
+    private void bt_CoachMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_CoachMouseEntered
+        // TODO add your handling code here:
+        bgCoach.setBackground(new Color(242, 140, 40));
+        bt_Coach.setForeground(Color.white);
+    }//GEN-LAST:event_bt_CoachMouseEntered
+
+    private void bt_CoachMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_CoachMouseExited
+        // TODO add your handling code here:
+        bgCoach.setBackground(new Color(255, 85, 30));
+        bt_Coach.setForeground(Color.white);
+    }//GEN-LAST:event_bt_CoachMouseExited
+
+    private void bt_InveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_InveMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_InveMouseClicked
+
+    private void bt_InveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_InveMouseEntered
+        // TODO add your handling code here:
+        bgInve.setBackground(new Color(242, 140, 40));
+        bt_Inve.setForeground(Color.white);
+    }//GEN-LAST:event_bt_InveMouseEntered
+
+    private void bt_InveMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_InveMouseExited
+        // TODO add your handling code here:
+        bgInve.setBackground(new Color(255, 85, 30));
+        bt_Inve.setForeground(Color.white);
+    }//GEN-LAST:event_bt_InveMouseExited
+
+    private void bt_RececpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_RececpMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_RececpMouseClicked
+
+    private void bt_RececpMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_RececpMouseEntered
+        // TODO add your handling code here:
+        bgRecep.setBackground(new Color(242, 140, 40));
+        bt_Rececp.setForeground(Color.white);
+    }//GEN-LAST:event_bt_RececpMouseEntered
+
+    private void bt_RececpMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_RececpMouseExited
+        // TODO add your handling code here:
+        bgRecep.setBackground(new Color(255, 85, 30));
+        bt_Rececp.setForeground(Color.white);
+    }//GEN-LAST:event_bt_RececpMouseExited
+
+    private void bt_ClientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ClientMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_ClientMouseClicked
+
+    private void bt_ClientMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ClientMouseEntered
+        // TODO add your handling code here:
+        bgClient.setBackground(new Color(242, 140, 40));
+        bt_Client.setForeground(Color.white);
+    }//GEN-LAST:event_bt_ClientMouseEntered
+
+    private void bt_ClientMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ClientMouseExited
+        // TODO add your handling code here:
+        bgClient.setBackground(new Color(255, 85, 30));
+        bt_Client.setForeground(Color.white);
+    }//GEN-LAST:event_bt_ClientMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bt_admin;
+    private javax.swing.JLabel admin;
+    private javax.swing.JPanel barra;
+    private javax.swing.JPanel bgAdmin;
+    private javax.swing.JPanel bgClient;
+    private javax.swing.JPanel bgCoach;
+    private javax.swing.JPanel bgInve;
+    private javax.swing.JPanel bgRecep;
+    private javax.swing.JLabel bt_Admin;
+    private javax.swing.JLabel bt_Client;
+    private javax.swing.JLabel bt_Coach;
+    private javax.swing.JLabel bt_Inve;
+    private javax.swing.JLabel bt_Rececp;
+    private javax.swing.JLabel cliente;
+    private javax.swing.JLabel coach;
+    private javax.swing.JLabel inve;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel recep;
+    private javax.swing.JLabel roles;
     // End of variables declaration//GEN-END:variables
 }

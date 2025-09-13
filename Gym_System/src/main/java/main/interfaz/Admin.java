@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package main.interfaz;
 
 /**
@@ -13,10 +9,11 @@ public class Admin extends javax.swing.JPanel {
     /**
      * Creates new form Admin
      */
-    public Admin() {
+    public Admin(String user) {
         initComponents();
+        txt_User.setText(user);
     }
-
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,32 +24,172 @@ public class Admin extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        xd = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        txt_User = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        txt_DPI = new javax.swing.JTextField();
+        txt_nombre = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        com_Rol = new javax.swing.JComboBox<>();
+        com_Sucursal = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel10 = new javax.swing.JLabel();
+        bt_Crear = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(1000, 600));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        xd.setFont(new java.awt.Font("FreeMono", 1, 48)); // NOI18N
-        xd.setForeground(new java.awt.Color(0, 0, 0));
-        xd.setText("siuuuuu");
+        jPanel2.setBackground(new java.awt.Color(255, 85, 30));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(350, 350, 350)
-                .addComponent(xd, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(373, Short.MAX_VALUE))
+        jLabel1.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Administrador");
+
+        jLabel9.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Empleados");
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym1.png"))); // NOI18N
+
+        txt_User.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        txt_User.setForeground(new java.awt.Color(255, 255, 255));
+        txt_User.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(385, 385, 385)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(jLabel9)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 319, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addGap(39, 39, 39))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(txt_User, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21))))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(238, 238, 238)
-                .addComponent(xd, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(259, Short.MAX_VALUE))
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addGap(17, 17, 17))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel11)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_User)
+                .addContainerGap(54, Short.MAX_VALUE))
         );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 130));
+
+        jLabel2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel2.setText("Rol");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel3.setText("DPI");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel4.setText("Nombre");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel5.setText("Apellido");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel6.setText("Telefono");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel7.setText("Atras");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 550, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel8.setText("Sucursal");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, -1, -1));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 420, 220, -1));
+        jPanel1.add(txt_DPI, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 220, -1));
+        jPanel1.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 220, -1));
+        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, 220, -1));
+        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, 220, -1));
+
+        com_Rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        com_Rol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                com_RolActionPerformed(evt);
+            }
+        });
+        jPanel1.add(com_Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 340, 180, -1));
+
+        com_Sucursal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        com_Sucursal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                com_SucursalActionPerformed(evt);
+            }
+        });
+        jPanel1.add(com_Sucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, 180, -1));
+
+        jScrollPane1.setBackground(new java.awt.Color(255, 85, 30));
+        jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
+
+        jTextArea1.setBackground(new java.awt.Color(255, 85, 30));
+        jTextArea1.setColumns(20);
+        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 470, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel10.setText("Direccion");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, -1, -1));
+
+        bt_Crear.setText("Crear");
+        bt_Crear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_CrearActionPerformed(evt);
+            }
+        });
+        jPanel1.add(bt_Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 500, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -66,9 +203,42 @@ public class Admin extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bt_CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_CrearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_CrearActionPerformed
+
+    private void com_SucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_com_SucursalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_com_SucursalActionPerformed
+
+    private void com_RolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_com_RolActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_com_RolActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bt_Crear;
+    private javax.swing.JComboBox<String> com_Rol;
+    private javax.swing.JComboBox<String> com_Sucursal;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel xd;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField txt_DPI;
+    private javax.swing.JLabel txt_User;
+    private javax.swing.JTextField txt_nombre;
     // End of variables declaration//GEN-END:variables
 }
