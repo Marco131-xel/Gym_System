@@ -40,6 +40,6 @@ INSERT INTO sucursal (nombre, region, cantidad_maquinas) VALUES
 
 INSERT INTO rol (nombre) VALUES ('Recepcionista'), ('Entrenador'), ('Inventario');
 
-INSERT INTO empleado (dpi, nombre, apellido, telefono, direccion, id_sucursal, id_rol)
+INSERT INTO empleado (dpi, nombre, apellido, password, telefono, direccion, id_sucursal, id_rol)
 VALUES 
-(1234567890101, 'Juan', 'Pérez', '5555-1234', 'Zona 1, Ciudad', 1, 1);
+(1234567890101, 'Juan', 'Pérez', '123456','55551234', 'Zona 1, Ciudad', 1, 1);

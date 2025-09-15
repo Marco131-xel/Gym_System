@@ -10,6 +10,7 @@ public class Empleado {
     private long dpi;
     private String nombre;
     private String apellido;
+    private String password;
     private String telefono;
     private String direccion;
     private int idSucursal;
@@ -18,10 +19,11 @@ public class Empleado {
     public Empleado () {
     }
 
-    public Empleado(long dpi, String nombre, String apellido, String telefono, String direccion, int idSucursal, int idRol) {
+    public Empleado(long dpi, String nombre, String apellido, String password, String telefono, String direccion, int idSucursal, int idRol) {
         this.dpi = dpi;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.password = password;
         this.telefono = telefono;
         this.direccion = direccion;
         this.idSucursal = idSucursal;
@@ -60,6 +62,14 @@ public class Empleado {
         this.apellido = apellido;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getTelefono() {
         return telefono;
     }
@@ -92,8 +102,4 @@ public class Empleado {
         this.idRol = idRol;
     }
 
-    @Override
-    public String toString() {
-        return "Empleado{" + "id=" + id + ", dpi=" + dpi + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono + ", direccion=" + direccion + ", idSucursal=" + idSucursal + ", idRol=" + idRol + '}';
-    }
 }

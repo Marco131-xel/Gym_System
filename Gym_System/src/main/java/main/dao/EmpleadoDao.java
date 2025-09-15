@@ -18,21 +18,22 @@ public class EmpleadoDao {
 
     // funcion para crear empleados
     public void crear(Empleado emp) {
-        String sql = "INSERT INTO empleado (dpi, nombre, apellido, telefono, direccion, id_sucursal, id_rol) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO empleado (dpi, nombre, apellido, password, telefono, direccion, id_sucursal, id_rol) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
 
             stmt.setLong(1, emp.getDpi());
             stmt.setString(2, emp.getNombre());
             stmt.setString(3, emp.getApellido());
-            stmt.setString(4, emp.getTelefono());
-            stmt.setString(5, emp.getDireccion());
-            stmt.setInt(6, emp.getIdSucursal());
-            stmt.setInt(7, emp.getIdRol());
+            stmt.setString(4, emp.getPassword());
+            stmt.setString(5, emp.getTelefono());
+            stmt.setString(6, emp.getDireccion());
+            stmt.setInt(7, emp.getIdSucursal());
+            stmt.setInt(8, emp.getIdRol());
 
             stmt.executeUpdate();
-            System.out.println("Empleado insertado correctamente.");
+            System.out.println("Empleado insertado correctamente");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -54,6 +55,7 @@ public class EmpleadoDao {
                     emp.setDpi(rs.getLong("dpi"));
                     emp.setNombre(rs.getString("nombre"));
                     emp.setApellido(rs.getString("apellido"));
+                    emp.setPassword(rs.getString("password"));
                     emp.setTelefono(rs.getString("telefono"));
                     emp.setDireccion(rs.getString("direccion"));
                     emp.setIdSucursal(rs.getInt("id_sucursal"));
@@ -80,6 +82,7 @@ public class EmpleadoDao {
                 emp.setDpi(rs.getLong("dpi"));
                 emp.setNombre(rs.getString("nombre"));
                 emp.setApellido(rs.getString("apellido"));
+                emp.setPassword(rs.getString("password"));
                 emp.setTelefono(rs.getString("telefono"));
                 emp.setDireccion(rs.getString("direccion"));
                 emp.setIdSucursal(rs.getInt("id_sucursal"));
@@ -95,18 +98,19 @@ public class EmpleadoDao {
 
     // funcion para editar empleados
     public void actualizar(Empleado emp) {
-        String sql = "UPDATE empleado SET nombre=?, apellido=?, telefono=?, "
-                + "direccion=?, id_sucursal=?, id_rol=? WHERE dpi=?";
+        String sql = "UPDATE empleado SET nombre=?, apellido=?, password=?, "
+                + "telefono=?, direccion=?, id_sucursal=?, id_rol=? WHERE dpi=?";
 
         try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
 
             stmt.setString(1, emp.getNombre());
             stmt.setString(2, emp.getApellido());
-            stmt.setString(3, emp.getTelefono());
-            stmt.setString(4, emp.getDireccion());
-            stmt.setInt(5, emp.getIdSucursal());
-            stmt.setInt(6, emp.getIdRol());
-            stmt.setLong(7, emp.getDpi());
+            stmt.setString(3, emp.getPassword());
+            stmt.setString(4, emp.getTelefono());
+            stmt.setString(5, emp.getDireccion());
+            stmt.setInt(6, emp.getIdSucursal());
+            stmt.setInt(7, emp.getIdRol());
+            stmt.setLong(8, emp.getDpi());
 
             stmt.executeUpdate();
             System.out.println("Empleado actualizado correctamente.");

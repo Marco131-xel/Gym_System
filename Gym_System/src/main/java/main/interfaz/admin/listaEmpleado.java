@@ -51,17 +51,17 @@ public class listaEmpleado extends javax.swing.JPanel {
         tab_Emp.setForeground(new java.awt.Color(255, 255, 255));
         tab_Emp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "DPI", "Nombre", "Apellido", "Telefono", "Direccion", "Sucursal", "Rol"
+                "DPI", "Nombre", "Apellido", "Password", "Telefono", "Direccion", "Sucursal", "Rol"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -73,12 +73,13 @@ public class listaEmpleado extends javax.swing.JPanel {
             tab_Emp.getColumnModel().getColumn(0).setResizable(false);
             tab_Emp.getColumnModel().getColumn(1).setResizable(false);
             tab_Emp.getColumnModel().getColumn(2).setResizable(false);
-            tab_Emp.getColumnModel().getColumn(3).setMinWidth(100);
-            tab_Emp.getColumnModel().getColumn(3).setMaxWidth(100);
-            tab_Emp.getColumnModel().getColumn(4).setResizable(false);
-            tab_Emp.getColumnModel().getColumn(5).setMinWidth(100);
-            tab_Emp.getColumnModel().getColumn(5).setMaxWidth(100);
-            tab_Emp.getColumnModel().getColumn(6).setResizable(false);
+            tab_Emp.getColumnModel().getColumn(3).setResizable(false);
+            tab_Emp.getColumnModel().getColumn(4).setMinWidth(100);
+            tab_Emp.getColumnModel().getColumn(4).setMaxWidth(100);
+            tab_Emp.getColumnModel().getColumn(5).setResizable(false);
+            tab_Emp.getColumnModel().getColumn(6).setMinWidth(100);
+            tab_Emp.getColumnModel().getColumn(6).setMaxWidth(100);
+            tab_Emp.getColumnModel().getColumn(7).setResizable(false);
         }
 
         jLabel1.setFont(new java.awt.Font("FreeMono", 1, 36)); // NOI18N
@@ -138,17 +139,19 @@ public class listaEmpleado extends javax.swing.JPanel {
                 .addComponent(txt_DPI_Mod, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(139, 139, 139))
             .addGroup(puertaLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 924, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(38, Short.MAX_VALUE))
-            .addGroup(puertaLayout.createSequentialGroup()
                 .addGap(238, 238, 238)
                 .addComponent(bt_Eliminar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 388, Short.MAX_VALUE)
                 .addComponent(bt_modificar)
                 .addGap(119, 119, 119))
+            .addGroup(puertaLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(puertaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         puertaLayout.setVerticalGroup(
             puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,12 +228,12 @@ public class listaEmpleado extends javax.swing.JPanel {
                 long dpi = emp.getDpi();
                 String nombre = emp.getNombre();
                 String apellido = emp.getApellido();
+                String password = emp.getPassword();
                 String telefono = emp.getTelefono();
                 String direccion = emp.getDireccion();
                 int sucursal = emp.getIdSucursal();
                 int rol = emp.getIdRol();
-                int id = emp.getId();
-                mostrarPanel(new modEmpleado(dpi, nombre, apellido, telefono, direccion, sucursal, rol));
+                mostrarPanel(new modEmpleado(dpi, nombre, apellido, password, telefono, direccion, sucursal, rol));
                 
             } else {
                 JOptionPane.showMessageDialog(this, "No se encontro empleado con ese DPI");
@@ -255,6 +258,7 @@ public class listaEmpleado extends javax.swing.JPanel {
                 emp.getDpi(),
                 emp.getNombre(),
                 emp.getApellido(),
+                emp.getPassword(),
                 emp.getTelefono(),
                 emp.getDireccion(),
                 Utils.getSucursalNombre(emp.getIdSucursal()),

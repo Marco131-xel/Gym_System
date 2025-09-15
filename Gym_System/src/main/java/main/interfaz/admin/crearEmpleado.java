@@ -3,6 +3,7 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 import main.models.Empleado;
 import main.dao.EmpleadoDao;
+import main.utils.Utils;
 
 /**
  *
@@ -45,17 +46,19 @@ public class crearEmpleado extends javax.swing.JPanel {
         bt_Crear = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         estado = new javax.swing.JTextPane();
+        jLabel8 = new javax.swing.JLabel();
+        txt_password = new javax.swing.JTextField();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(txt_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 230, 30));
-        jPanel1.add(txt_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 90, 230, 30));
+        jPanel1.add(txt_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 70, 230, 30));
+        jPanel1.add(txt_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 140, 230, 30));
         jPanel1.add(txt_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 230, 30));
 
         jLabel1.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 85, 30));
         jLabel1.setText("Telefono");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 85, 30));
@@ -69,9 +72,9 @@ public class crearEmpleado extends javax.swing.JPanel {
 
         jLabel4.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 85, 30));
-        jLabel4.setText("Apellido");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
-        jPanel1.add(txt_Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 230, 30));
+        jLabel4.setText("Password");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+        jPanel1.add(txt_Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 230, 30));
 
         jLabel5.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 85, 30));
@@ -82,7 +85,7 @@ public class crearEmpleado extends javax.swing.JPanel {
         jLabel6.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 85, 30));
         jLabel6.setText("Direccion");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 85, 30));
@@ -138,6 +141,12 @@ public class crearEmpleado extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 380, 190, 50));
 
+        jLabel8.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel8.setText("Apellido");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+        jPanel1.add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 230, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -158,32 +167,14 @@ public class crearEmpleado extends javax.swing.JPanel {
             String apellido = txt_Apellido.getText();
             String telefono = txt_Telefono.getText();
             String direccion = txt_Direccion.getText();
+            String password = txt_password.getText();
             String rol = (String) com_Rol.getSelectedItem();
             String sucursal = (String) com_Sucursal.getSelectedItem();
-
-            int idRol = switch (rol) {
-                case "Recepcionista" ->
-                    1;
-                case "Entrenador" ->
-                    2;
-                case "Inventario" ->
-                    3;
-                default ->
-                    0;
-            };
-
-            int idSucursal = switch (sucursal) {
-                case "Central" ->
-                    1;
-                case "Norte" ->
-                    2;
-                case "Sur" ->
-                    3;
-                default ->
-                    0;
-            };
-
-            Empleado emp = new Empleado(dpi, nombre, apellido, telefono, direccion, idSucursal, idRol);
+            
+            int idSucursal = Utils.obtenerIdSucursal(sucursal);
+            int idRol = Utils.obtenerIdRol(rol);
+            
+            Empleado emp = new Empleado(dpi, nombre, apellido, password, telefono, direccion, idSucursal, idRol);
             EmpleadoDao dao = new EmpleadoDao();
             dao.crear(emp);
             estado.setText("Empleado creado");
@@ -219,6 +210,7 @@ public class crearEmpleado extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField txt_Apellido;
@@ -226,5 +218,6 @@ public class crearEmpleado extends javax.swing.JPanel {
     private javax.swing.JTextField txt_Direccion;
     private javax.swing.JTextField txt_Nombre;
     private javax.swing.JTextField txt_Telefono;
+    private javax.swing.JTextField txt_password;
     // End of variables declaration//GEN-END:variables
 }

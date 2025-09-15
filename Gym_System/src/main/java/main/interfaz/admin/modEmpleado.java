@@ -15,8 +15,8 @@ public class modEmpleado extends javax.swing.JPanel {
     /**
      * Creates new form modEmpleado
      */
-    public modEmpleado(long dpi, String nombre, String apellido, String telefono,
-            String direccion, int sucursal, int rol) {
+    public modEmpleado(long dpi, String nombre, String apellido, String password,
+            String telefono, String direccion, int sucursal, int rol) {
         initComponents();
         String strDPI = Long.toString(dpi);
         String nsucursal = Utils.getSucursalNombre(sucursal);
@@ -24,6 +24,7 @@ public class modEmpleado extends javax.swing.JPanel {
         txt_DPI.setText(strDPI);
         txt_Nombre.setText(nombre);
         txt_Apellido.setText(apellido);
+        txt_Password.setText(password);
         txt_Telefono.setText(telefono);
         txt_Direccion.setText(direccion);
         com_Sucursal.setSelectedItem(nsucursal);
@@ -58,12 +59,14 @@ public class modEmpleado extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_DPI = new javax.swing.JTextPane();
+        jLabel9 = new javax.swing.JLabel();
+        txt_Password = new javax.swing.JTextField();
 
         puerta.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 85, 30));
-        jLabel1.setText("Telefono");
+        jLabel1.setText("Password");
 
         jLabel2.setFont(new java.awt.Font("FreeMono", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 85, 30));
@@ -80,6 +83,12 @@ public class modEmpleado extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 85, 30));
         jLabel5.setText("Nombre");
+
+        txt_Direccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_DireccionActionPerformed(evt);
+            }
+        });
 
         txt_Telefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +107,11 @@ public class modEmpleado extends javax.swing.JPanel {
         jLabel7.setText("DPI");
 
         com_Rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Recepcionista", "Entrenador", "Inventario" }));
+        com_Rol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                com_RolActionPerformed(evt);
+            }
+        });
 
         bt_Cancelar.setBackground(new java.awt.Color(204, 0, 0));
         bt_Cancelar.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
@@ -132,47 +146,20 @@ public class modEmpleado extends javax.swing.JPanel {
         txt_DPI.setFocusable(false);
         jScrollPane1.setViewportView(txt_DPI);
 
+        jLabel9.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel9.setText("Telefono");
+
+        txt_Password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_PasswordActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout puertaLayout = new javax.swing.GroupLayout(puerta);
         puerta.setLayout(puertaLayout);
         puertaLayout.setHorizontalGroup(
             puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, puertaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bt_modificar)
-                .addGap(49, 49, 49))
-            .addGroup(puertaLayout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(puertaLayout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(318, 318, 318)
-                        .addComponent(com_Sucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(puertaLayout.createSequentialGroup()
-                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(puertaLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(txt_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(puertaLayout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(txt_Direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(puertaLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(txt_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(206, 206, 206)
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addComponent(com_Rol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 242, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, puertaLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(bt_Cancelar)
-                        .addGap(221, 221, 221))))
             .addGroup(puertaLayout.createSequentialGroup()
                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(puertaLayout.createSequentialGroup()
@@ -184,11 +171,59 @@ public class modEmpleado extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, puertaLayout.createSequentialGroup()
-                    .addContainerGap(540, Short.MAX_VALUE)
-                    .addComponent(jLabel8)
-                    .addGap(348, 348, 348)))
+            .addGroup(puertaLayout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(puertaLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel9)
+                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(puertaLayout.createSequentialGroup()
+                                .addGap(476, 476, 476)
+                                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, puertaLayout.createSequentialGroup()
+                                        .addComponent(bt_modificar)
+                                        .addGap(49, 49, 49))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, puertaLayout.createSequentialGroup()
+                                        .addComponent(bt_Cancelar)
+                                        .addGap(221, 221, 221))))
+                            .addGroup(puertaLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(puertaLayout.createSequentialGroup()
+                            .addComponent(jLabel5)
+                            .addGap(18, 18, 18)
+                            .addComponent(txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, puertaLayout.createSequentialGroup()
+                            .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(puertaLayout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txt_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, puertaLayout.createSequentialGroup()
+                                    .addGap(0, 0, Short.MAX_VALUE)
+                                    .addComponent(jLabel8)
+                                    .addGap(33, 33, 33))
+                                .addGroup(puertaLayout.createSequentialGroup()
+                                    .addComponent(jLabel1)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txt_Password, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel6)
+                                    .addGap(68, 68, 68)))
+                            .addComponent(com_Sucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(167, 167, 167)))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, puertaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(com_Rol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_Direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(88, 88, 88))
         );
         puertaLayout.setVerticalGroup(
             puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,6 +233,18 @@ public class modEmpleado extends javax.swing.JPanel {
                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(puertaLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(txt_Direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(54, 54, 54)
+                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(com_Sucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(61, 61, 61)
+                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(com_Rol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addGap(86, 86, 86)
                         .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(bt_modificar)
                             .addComponent(bt_Cancelar))
@@ -212,32 +259,25 @@ public class modEmpleado extends javax.swing.JPanel {
                                 .addGap(52, 52, 52)
                                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel5)
-                                    .addComponent(txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(com_Sucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(38, 38, 38)
-                                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel6)
-                                        .addComponent(com_Rol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE))
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE))
                             .addGroup(puertaLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txt_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(38, 38, 38)))
                         .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(txt_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(40, 40, 40)
-                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(txt_Direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(70, 70, 70))))
-            .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(puertaLayout.createSequentialGroup()
-                    .addGap(167, 167, 167)
-                    .addComponent(jLabel8)
-                    .addContainerGap(278, Short.MAX_VALUE)))
+                            .addComponent(txt_Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(puertaLayout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(jLabel9))
+                            .addGroup(puertaLayout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(txt_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(66, 66, 66))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -275,6 +315,7 @@ public class modEmpleado extends javax.swing.JPanel {
             long dpi = Long.parseLong(txt_DPI.getText());
             String nombre = txt_Nombre.getText();
             String apellido = txt_Apellido.getText();
+            String password = txt_Password.getText();
             String telefono = txt_Telefono.getText();
             String direccion = txt_Direccion.getText();
             String rol = (String) com_Rol.getSelectedItem();
@@ -283,7 +324,7 @@ public class modEmpleado extends javax.swing.JPanel {
             int idSucursal = Utils.obtenerIdSucursal(sucursal);
             int idRol = Utils.obtenerIdRol(rol);
 
-            Empleado emp = new Empleado(dpi, nombre, apellido, telefono, direccion, idSucursal, idRol);
+            Empleado emp = new Empleado(dpi, nombre, apellido, password, telefono, direccion, idSucursal, idRol);
             EmpleadoDao dao = new EmpleadoDao();
             dao.actualizar(emp);
             JOptionPane.showMessageDialog(this, "Empleado Modificado");
@@ -292,6 +333,18 @@ public class modEmpleado extends javax.swing.JPanel {
 
         }
     }//GEN-LAST:event_bt_modificarActionPerformed
+
+    private void com_RolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_com_RolActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_com_RolActionPerformed
+
+    private void txt_PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_PasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_PasswordActionPerformed
+
+    private void txt_DireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_DireccionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_DireccionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -307,12 +360,14 @@ public class modEmpleado extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel puerta;
     private javax.swing.JTextField txt_Apellido;
     private javax.swing.JTextPane txt_DPI;
     private javax.swing.JTextField txt_Direccion;
     private javax.swing.JTextField txt_Nombre;
+    private javax.swing.JTextField txt_Password;
     private javax.swing.JTextField txt_Telefono;
     // End of variables declaration//GEN-END:variables
 }
