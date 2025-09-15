@@ -1,4 +1,4 @@
-package main.interfaz;
+ package main.interfaz;
 
 import java.awt.Color;
 /**

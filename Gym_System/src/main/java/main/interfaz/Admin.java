@@ -1,5 +1,10 @@
 package main.interfaz;
 
+import java.awt.Color;
+import javax.swing.JPanel;
+import main.interfaz.admin.Perfil;
+import main.interfaz.admin.crearEmpleado;
+import main.interfaz.admin.listaEmpleado;
 /**
  *
  * @author marco
@@ -9,11 +14,13 @@ public class Admin extends javax.swing.JPanel {
     /**
      * Creates new form Admin
      */
+    
     public Admin(String user) {
         initComponents();
         txt_User.setText(user);
+        mostrarPanel(new crearEmpleado());
     }
-   
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -24,172 +31,120 @@ public class Admin extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        Barra = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        bt_Crear = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         txt_User = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        txt_DPI = new javax.swing.JTextField();
-        txt_nombre = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        com_Rol = new javax.swing.JComboBox<>();
-        com_Sucursal = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jLabel10 = new javax.swing.JLabel();
-        bt_Crear = new javax.swing.JButton();
+        bt_Lista = new javax.swing.JLabel();
+        bt_Reportes = new javax.swing.JLabel();
+        puerta = new javax.swing.JPanel();
 
         setPreferredSize(new java.awt.Dimension(1000, 600));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(255, 85, 30));
+        Barra.setBackground(new java.awt.Color(255, 85, 30));
+        Barra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BarraMouseClicked(evt);
+            }
+        });
+        Barra.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Administrador");
+        Barra.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 34, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Empleados");
+        bt_Crear.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        bt_Crear.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Crear.setText("Crear Empleado");
+        bt_Crear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Crear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_CrearMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bt_CrearMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bt_CrearMouseExited(evt);
+            }
+        });
+        Barra.add(bt_Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym1.png"))); // NOI18N
+        Barra.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(897, 6, -1, -1));
 
         txt_User.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         txt_User.setForeground(new java.awt.Color(255, 255, 255));
         txt_User.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txt_User.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txt_User.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt_UserMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txt_UserMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txt_UserMouseExited(evt);
+            }
+        });
+        Barra.add(txt_User, new org.netbeans.lib.awtextra.AbsoluteConstraints(886, 76, 93, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(385, 385, 385)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(jLabel9)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 319, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addGap(39, 39, 39))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(txt_User, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21))))
+        bt_Lista.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        bt_Lista.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Lista.setText("Lista Empleados");
+        bt_Lista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Lista.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_ListaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bt_ListaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bt_ListaMouseExited(evt);
+            }
+        });
+        Barra.add(bt_Lista, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, -1, -1));
+
+        bt_Reportes.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        bt_Reportes.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Reportes.setText("Reportes");
+        bt_Reportes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Reportes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_ReportesMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bt_ReportesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bt_ReportesMouseExited(evt);
+            }
+        });
+        Barra.add(bt_Reportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, -1, -1));
+
+        jPanel1.add(Barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 130));
+
+        puerta.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout puertaLayout = new javax.swing.GroupLayout(puerta);
+        puerta.setLayout(puertaLayout);
+        puertaLayout.setHorizontalGroup(
+            puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1000, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(17, 17, 17))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel11)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_User)
-                .addContainerGap(54, Short.MAX_VALUE))
+        puertaLayout.setVerticalGroup(
+            puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 470, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 130));
-
-        jLabel2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 85, 30));
-        jLabel2.setText("Rol");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 85, 30));
-        jLabel3.setText("DPI");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 85, 30));
-        jLabel4.setText("Nombre");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
-
-        jLabel5.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 85, 30));
-        jLabel5.setText("Apellido");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
-
-        jLabel6.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 85, 30));
-        jLabel6.setText("Telefono");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, -1, -1));
-
-        jLabel7.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 85, 30));
-        jLabel7.setText("Atras");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 550, -1, -1));
-
-        jLabel8.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 85, 30));
-        jLabel8.setText("Sucursal");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, -1, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 420, 220, -1));
-        jPanel1.add(txt_DPI, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 220, -1));
-        jPanel1.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 220, -1));
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, 220, -1));
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, 220, -1));
-
-        com_Rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        com_Rol.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                com_RolActionPerformed(evt);
-            }
-        });
-        jPanel1.add(com_Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 340, 180, -1));
-
-        com_Sucursal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        com_Sucursal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                com_SucursalActionPerformed(evt);
-            }
-        });
-        jPanel1.add(com_Sucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, 180, -1));
-
-        jScrollPane1.setBackground(new java.awt.Color(255, 85, 30));
-        jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
-
-        jTextArea1.setBackground(new java.awt.Color(255, 85, 30));
-        jTextArea1.setColumns(20);
-        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 470, -1, -1));
-
-        jLabel10.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 85, 30));
-        jLabel10.setText("Direccion");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, -1, -1));
-
-        bt_Crear.setText("Crear");
-        bt_Crear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_CrearActionPerformed(evt);
-            }
-        });
-        jPanel1.add(bt_Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 500, -1, -1));
+        jPanel1.add(puerta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1000, 470));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -202,43 +157,87 @@ public class Admin extends javax.swing.JPanel {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void bt_CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_CrearActionPerformed
+    
+    private void mostrarPanel(JPanel p) {
+        p.setSize(puerta.getSize());
+        p.setSize(1000, 470);
+        p.setLocation(0, 0);
+        puerta.removeAll();
+        puerta.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0,0,-1,-1));
+        puerta.revalidate();
+        puerta.repaint();
+    }
+    
+    private void bt_CrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_CrearMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_bt_CrearActionPerformed
+        mostrarPanel(new crearEmpleado());
+    }//GEN-LAST:event_bt_CrearMouseClicked
 
-    private void com_SucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_com_SucursalActionPerformed
+    private void bt_CrearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_CrearMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_com_SucursalActionPerformed
+        bt_Crear.setForeground(new Color(242, 140, 40));
+    }//GEN-LAST:event_bt_CrearMouseEntered
 
-    private void com_RolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_com_RolActionPerformed
+    private void bt_CrearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_CrearMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_com_RolActionPerformed
+        bt_Crear.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_bt_CrearMouseExited
+
+    private void bt_ListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ListaMouseClicked
+        // TODO add your handling code here:
+        mostrarPanel(new listaEmpleado());
+    }//GEN-LAST:event_bt_ListaMouseClicked
+
+    private void bt_ListaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ListaMouseEntered
+        // TODO add your handling code here:
+        bt_Lista.setForeground(new Color(242, 140, 40));
+    }//GEN-LAST:event_bt_ListaMouseEntered
+
+    private void bt_ListaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ListaMouseExited
+        // TODO add your handling code here:
+        bt_Lista.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_bt_ListaMouseExited
+
+    private void bt_ReportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ReportesMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_ReportesMouseClicked
+
+    private void bt_ReportesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ReportesMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_ReportesMouseEntered
+
+    private void bt_ReportesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ReportesMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_ReportesMouseExited
+
+    private void BarraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BarraMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BarraMouseClicked
+
+    private void txt_UserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_UserMouseClicked
+        // TODO add your handling code here:
+        mostrarPanel(new Perfil());
+    }//GEN-LAST:event_txt_UserMouseClicked
+
+    private void txt_UserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_UserMouseEntered
+        // TODO add your handling code here:
+        txt_User.setForeground(new Color(242, 140, 40));
+    }//GEN-LAST:event_txt_UserMouseEntered
+
+    private void txt_UserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_UserMouseExited
+        // TODO add your handling code here:
+        txt_User.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_txt_UserMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bt_Crear;
-    private javax.swing.JComboBox<String> com_Rol;
-    private javax.swing.JComboBox<String> com_Sucursal;
+    private javax.swing.JPanel Barra;
+    private javax.swing.JLabel bt_Crear;
+    private javax.swing.JLabel bt_Lista;
+    private javax.swing.JLabel bt_Reportes;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField txt_DPI;
+    private javax.swing.JPanel puerta;
     private javax.swing.JLabel txt_User;
-    private javax.swing.JTextField txt_nombre;
     // End of variables declaration//GEN-END:variables
 }
