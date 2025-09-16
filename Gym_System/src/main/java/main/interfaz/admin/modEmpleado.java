@@ -111,6 +111,7 @@ public class modEmpleado extends javax.swing.JPanel {
         txt_Nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
 
         com_Sucursal.setBackground(new java.awt.Color(255, 85, 30));
+        com_Sucursal.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
         com_Sucursal.setForeground(new java.awt.Color(255, 255, 255));
         com_Sucursal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Central", "Norte", "Sur" }));
 
@@ -123,6 +124,7 @@ public class modEmpleado extends javax.swing.JPanel {
         jLabel7.setText("DPI");
 
         com_Rol.setBackground(new java.awt.Color(255, 85, 30));
+        com_Rol.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
         com_Rol.setForeground(new java.awt.Color(255, 255, 255));
         com_Rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Recepcionista", "Entrenador", "Inventario" }));
         com_Rol.addActionListener(new java.awt.event.ActionListener() {

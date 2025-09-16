@@ -51,8 +51,20 @@ public class crearEmpleado extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txt_Telefono.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Telefono.setForeground(new java.awt.Color(0, 0, 0));
+        txt_Telefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
         jPanel1.add(txt_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 70, 230, 30));
+
+        txt_Direccion.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Direccion.setForeground(new java.awt.Color(0, 0, 0));
+        txt_Direccion.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 85, 30), 1, true));
         jPanel1.add(txt_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 140, 230, 30));
+
+        txt_Nombre.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Nombre.setForeground(new java.awt.Color(0, 0, 0));
+        txt_Nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
         jPanel1.add(txt_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 230, 30));
 
         jLabel1.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
@@ -74,12 +86,20 @@ public class crearEmpleado extends javax.swing.JPanel {
         jLabel4.setForeground(new java.awt.Color(255, 85, 30));
         jLabel4.setText("Password");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+
+        txt_Apellido.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Apellido.setForeground(new java.awt.Color(0, 0, 0));
+        txt_Apellido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
         jPanel1.add(txt_Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 230, 30));
 
         jLabel5.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 85, 30));
         jLabel5.setText("DPI");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
+
+        txt_DPI.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_DPI.setForeground(new java.awt.Color(0, 0, 0));
+        txt_DPI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
         jPanel1.add(txt_DPI, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 230, 30));
 
         jLabel6.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
@@ -92,9 +112,15 @@ public class crearEmpleado extends javax.swing.JPanel {
         jLabel7.setText("Sucursal");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, -1, -1));
 
+        com_Sucursal.setBackground(new java.awt.Color(255, 85, 30));
+        com_Sucursal.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        com_Sucursal.setForeground(new java.awt.Color(255, 255, 255));
         com_Sucursal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Central", "Norte", "Sur" }));
         jPanel1.add(com_Sucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 200, -1, -1));
 
+        com_Rol.setBackground(new java.awt.Color(255, 85, 30));
+        com_Rol.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        com_Rol.setForeground(new java.awt.Color(255, 255, 255));
         com_Rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Recepcionista", "Entrenador", "Inventario" }));
         jPanel1.add(com_Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 270, -1, -1));
 
@@ -145,17 +171,21 @@ public class crearEmpleado extends javax.swing.JPanel {
         jLabel8.setForeground(new java.awt.Color(255, 85, 30));
         jLabel8.setText("Apellido");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+
+        txt_password.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_password.setForeground(new java.awt.Color(0, 0, 0));
+        txt_password.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
         jPanel1.add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 230, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -178,6 +208,12 @@ public class crearEmpleado extends javax.swing.JPanel {
             EmpleadoDao dao = new EmpleadoDao();
             dao.crear(emp);
             estado.setText("Empleado creado");
+            txt_DPI.setText("");
+            txt_Nombre.setText("");
+            txt_Apellido.setText("");
+            txt_Telefono.setText("");
+            txt_Direccion.setText("");
+            txt_password.setText("");
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "El DPI debe ser un numero valido");
             estado.setText("El DPI debe ser un numero valido");

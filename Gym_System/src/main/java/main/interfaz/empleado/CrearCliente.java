@@ -230,6 +230,7 @@ public class CrearCliente extends javax.swing.JPanel {
             ClienteDao dao = new ClienteDao();
             dao.crear(cliente);
             estado.setText("Cliente creado");
+            txt_DPI.setText("");
             txt_Nombre.setText("");
             txt_Apellido.setText("");
             txt_Telefono.setText("");

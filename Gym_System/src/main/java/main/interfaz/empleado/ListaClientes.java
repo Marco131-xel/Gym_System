@@ -82,9 +82,11 @@ public class ListaClientes extends javax.swing.JPanel {
         jLabel3.setText("Eliminar");
 
         txt_Eli.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Eli.setForeground(new java.awt.Color(0, 0, 0));
         txt_Eli.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
 
         txt_Mod.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Mod.setForeground(new java.awt.Color(0, 0, 0));
         txt_Mod.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
 
         bt_Mod.setBackground(new java.awt.Color(255, 85, 30));

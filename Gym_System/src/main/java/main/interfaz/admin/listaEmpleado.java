@@ -90,10 +90,17 @@ public class listaEmpleado extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 85, 30));
         jLabel2.setText("Modificar");
 
+        txt_DPI_Eli.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_DPI_Eli.setForeground(new java.awt.Color(0, 0, 0));
+        txt_DPI_Eli.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
+
         jLabel3.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 85, 30));
         jLabel3.setText("Eliminar");
 
+        txt_DPI_Mod.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_DPI_Mod.setForeground(new java.awt.Color(0, 0, 0));
+        txt_DPI_Mod.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
         txt_DPI_Mod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_DPI_ModActionPerformed(evt);
@@ -176,7 +183,7 @@ public class listaEmpleado extends javax.swing.JPanel {
                         .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(bt_Eliminar)
                             .addComponent(bt_modificar))
-                        .addContainerGap(42, Short.MAX_VALUE))))
+                        .addContainerGap(53, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
