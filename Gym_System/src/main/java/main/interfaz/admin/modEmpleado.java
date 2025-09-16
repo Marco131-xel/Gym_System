@@ -84,18 +84,34 @@ public class modEmpleado extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(255, 85, 30));
         jLabel5.setText("Nombre");
 
+        txt_Direccion.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Direccion.setForeground(new java.awt.Color(0, 0, 0));
+        txt_Direccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
         txt_Direccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_DireccionActionPerformed(evt);
             }
         });
 
+        txt_Apellido.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Apellido.setForeground(new java.awt.Color(0, 0, 0));
+        txt_Apellido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
+
+        txt_Telefono.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Telefono.setForeground(new java.awt.Color(0, 0, 0));
+        txt_Telefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
         txt_Telefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_TelefonoActionPerformed(evt);
             }
         });
 
+        txt_Nombre.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Nombre.setForeground(new java.awt.Color(0, 0, 0));
+        txt_Nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
+
+        com_Sucursal.setBackground(new java.awt.Color(255, 85, 30));
+        com_Sucursal.setForeground(new java.awt.Color(255, 255, 255));
         com_Sucursal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Central", "Norte", "Sur" }));
 
         jLabel6.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
@@ -106,6 +122,8 @@ public class modEmpleado extends javax.swing.JPanel {
         jLabel7.setForeground(new java.awt.Color(255, 85, 30));
         jLabel7.setText("DPI");
 
+        com_Rol.setBackground(new java.awt.Color(255, 85, 30));
+        com_Rol.setForeground(new java.awt.Color(255, 255, 255));
         com_Rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Recepcionista", "Entrenador", "Inventario" }));
         com_Rol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,6 +159,7 @@ public class modEmpleado extends javax.swing.JPanel {
 
         txt_DPI.setEditable(false);
         txt_DPI.setBackground(new java.awt.Color(255, 255, 255));
+        txt_DPI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
         txt_DPI.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         txt_DPI.setForeground(new java.awt.Color(255, 85, 30));
         txt_DPI.setFocusable(false);
@@ -150,6 +169,9 @@ public class modEmpleado extends javax.swing.JPanel {
         jLabel9.setForeground(new java.awt.Color(255, 85, 30));
         jLabel9.setText("Telefono");
 
+        txt_Password.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Password.setForeground(new java.awt.Color(0, 0, 0));
+        txt_Password.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
         txt_Password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_PasswordActionPerformed(evt);
@@ -262,7 +284,7 @@ public class modEmpleado extends javax.swing.JPanel {
                                     .addComponent(txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(38, 38, 38)
                                 .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE))
                             .addGroup(puertaLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txt_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

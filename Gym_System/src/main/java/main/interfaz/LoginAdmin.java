@@ -1,6 +1,7 @@
 package main.interfaz;
 
 import java.awt.Color;
+import main.utils.Utils;
 
 /**
  *
@@ -272,18 +273,7 @@ public class LoginAdmin extends javax.swing.JPanel {
 
         if (usuario.equals("Marco") && password.equals("123456")) {
             error.setText("");
-            Admin admin = new Admin(usuario);
-            admin.setSize(1000, 600);
-            admin.setLocation(0, 0);
-
-            java.awt.Window parentWindow = javax.swing.SwingUtilities.getWindowAncestor(this);
-            if (parentWindow instanceof javax.swing.JFrame) {
-                javax.swing.JFrame frame = (javax.swing.JFrame) parentWindow;
-                frame.getContentPane().removeAll();
-                frame.getContentPane().add(admin);
-                frame.getContentPane().revalidate();
-                frame.getContentPane().repaint();
-            }
+            Utils.cambiarPanel(this, new Admin(usuario));
         } else {
             error.setText("Usuario y Contraseña Incorrectas");
             error.setForeground(Color.red);
@@ -301,18 +291,7 @@ public class LoginAdmin extends javax.swing.JPanel {
 
     private void bt_AtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AtrasMouseClicked
         // TODO add your handling code here:
-        Roles rol = new Roles();
-        rol.setSize(1000, 600);
-        rol.setLocation(0, 0);
-
-        java.awt.Window parentWindow = javax.swing.SwingUtilities.getWindowAncestor(this);
-        if (parentWindow instanceof javax.swing.JFrame) {
-            javax.swing.JFrame frame = (javax.swing.JFrame) parentWindow;
-            frame.getContentPane().removeAll();
-            frame.getContentPane().add(rol);
-            frame.getContentPane().revalidate();
-            frame.getContentPane().repaint();
-        }
+        Utils.cambiarPanel(this, new Roles());
     }//GEN-LAST:event_bt_AtrasMouseClicked
 
     private void bt_AtrasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AtrasMouseEntered

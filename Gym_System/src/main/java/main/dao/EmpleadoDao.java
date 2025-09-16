@@ -33,7 +33,7 @@ public class EmpleadoDao {
             stmt.setInt(8, emp.getIdRol());
 
             stmt.executeUpdate();
-            System.out.println("Empleado insertado correctamente");
+            System.out.println("Empleado creado");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -113,7 +113,7 @@ public class EmpleadoDao {
             stmt.setLong(8, emp.getDpi());
 
             stmt.executeUpdate();
-            System.out.println("Empleado actualizado correctamente.");
+            System.out.println("Empleado actualizado");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -126,7 +126,7 @@ public class EmpleadoDao {
         try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
             stmt.setInt(1, idEmpleado);
             stmt.executeUpdate();
-            System.out.println("Empleado eliminado correctamente");
+            System.out.println("Empleado eliminado");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -137,12 +137,43 @@ public class EmpleadoDao {
         String sql = "DELETE FROM empleado WHERE dpi=?";
         try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
             stmt.setLong(1, dpi);
-            System.out.println("Empleado eliminado correctamente");
+            System.out.println("Empleado eliminado");
             return stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
             return 0;
         }
+    }
+
+    // funcion para login de empleados
+    public Empleado loginEmpleado(String nombre, String password) {
+        String sql = "SELECT * FROM empleado WHERE nombre = ? AND password = ?";
+        Empleado emp = null;
+
+        try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setString(1, nombre);
+            stmt.setString(2, password);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    emp = new Empleado();
+                    emp.setId(rs.getInt("id_empleado"));
+                    emp.setDpi(rs.getLong("dpi"));
+                    emp.setNombre(rs.getString("nombre"));
+                    emp.setApellido(rs.getString("apellido"));
+                    emp.setPassword(rs.getString("password"));
+                    emp.setTelefono(rs.getString("telefono"));
+                    emp.setDireccion(rs.getString("direccion"));
+                    emp.setIdSucursal(rs.getInt("id_sucursal"));
+                    emp.setIdRol(rs.getInt("id_rol"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return emp;
     }
 
 }

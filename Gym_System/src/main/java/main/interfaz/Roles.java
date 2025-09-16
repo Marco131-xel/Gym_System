@@ -1,6 +1,7 @@
- package main.interfaz;
+package main.interfaz;
 
 import java.awt.Color;
+import main.utils.Utils;
 /**
  *
  * @author marco
@@ -13,7 +14,7 @@ public class Roles extends javax.swing.JPanel {
     public Roles() {
         initComponents();
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -312,18 +313,7 @@ public class Roles extends javax.swing.JPanel {
 
     private void bt_AdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AdminMouseClicked
         // TODO add your handling code here:
-        LoginAdmin login = new LoginAdmin();
-        login.setSize(1000, 600);
-        login.setLocation(0, 0);
-
-        java.awt.Window parentWindow = javax.swing.SwingUtilities.getWindowAncestor(this);
-        if (parentWindow instanceof javax.swing.JFrame) {
-            javax.swing.JFrame frame = (javax.swing.JFrame) parentWindow;
-            frame.getContentPane().removeAll();
-            frame.getContentPane().add(login);
-            frame.getContentPane().revalidate();
-            frame.getContentPane().repaint();
-        }
+        Utils.cambiarPanel(this, new LoginAdmin());
     }//GEN-LAST:event_bt_AdminMouseClicked
 
     private void bt_AdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AdminMouseEntered
@@ -340,7 +330,7 @@ public class Roles extends javax.swing.JPanel {
 
     private void bt_CoachMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_CoachMouseClicked
         // TODO add your handling code here:
-
+        Utils.cambiarPanel(this, new LoginEmpleado("Login Entrenador",2));
     }//GEN-LAST:event_bt_CoachMouseClicked
 
     private void bt_CoachMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_CoachMouseEntered
@@ -357,6 +347,7 @@ public class Roles extends javax.swing.JPanel {
 
     private void bt_InveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_InveMouseClicked
         // TODO add your handling code here:
+        Utils.cambiarPanel(this, new LoginEmpleado("Login Inventario",3));
     }//GEN-LAST:event_bt_InveMouseClicked
 
     private void bt_InveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_InveMouseEntered
@@ -373,6 +364,7 @@ public class Roles extends javax.swing.JPanel {
 
     private void bt_RececpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_RececpMouseClicked
         // TODO add your handling code here:
+        Utils.cambiarPanel(this, new LoginEmpleado("Login Recepcionista",1));
     }//GEN-LAST:event_bt_RececpMouseClicked
 
     private void bt_RececpMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_RececpMouseEntered
