@@ -33,17 +33,6 @@ CREATE TABLE empleado (
 );
 
 
-INSERT INTO sucursal (nombre, region, cantidad_maquinas) VALUES
-('Central', 'Central', 50),
-('Norte', 'Norte',30),
-('Sur', 'Sur', 20);
-
-INSERT INTO rol (nombre) VALUES ('Recepcionista'), ('Entrenador'), ('Inventario');
-
-INSERT INTO empleado (dpi, nombre, apellido, password, telefono, direccion, id_sucursal, id_rol)
-VALUES 
-(1234567890101, 'Juan', 'Pérez', '123456','55551234', 'Zona 1, Ciudad', 1, 1);
-
 -- cliente
 CREATE TABLE cliente (
     id_cliente SERIAL PRIMARY KEY,
@@ -66,11 +55,11 @@ CREATE TABLE membresia_tipo (
 -- historial de membresias
 CREATE TABLE membresia (
   id_membresia SERIAL PRIMARY KEY,
-  id_cliente INT NOT NULL REFERENCES cliente(id_cliente) ON DELETE CASCADE,
+  dpi_cliente BIGINT NOT NULL REFERENCES cliente(dpi) ON DELETE CASCADE,
   id_tipo INT NOT NULL REFERENCES membresia_tipo(id_tipo) ON DELETE RESTRICT,
   fecha_inicio DATE NOT NULL,
   fecha_fin DATE,
-  UNIQUE (id_cliente, fecha_inicio)
+  UNIQUE (dpi_cliente, fecha_inicio)
 );
 
 -- pagos
@@ -93,3 +82,30 @@ CREATE TABLE adicional (
   id_entrenador INT REFERENCES empleado(id_empleado)
 );
 
+-- INSERTS VALUES
+
+INSERT INTO sucursal (nombre, region, cantidad_maquinas) VALUES
+('Central', 'Central', 50),
+('Norte', 'Norte',30),
+('Sur', 'Sur', 20);
+
+INSERT INTO rol (nombre) VALUES ('Recepcionista'), ('Entrenador'), ('Inventario');
+
+INSERT INTO empleado (dpi, nombre, apellido, password, telefono, direccion, id_sucursal, id_rol)
+VALUES 
+(1234567890101, 'Juan', 'Pérez', '123456','55551234', 'Zona 1, Ciudad', 1, 1);
+
+INSERT INTO cliente (dpi, nombre, apellido, password, telefono, direccion) VALUES
+(3214567890101, 'Pedro', 'Hernández', 'cli123', '44441234', 'Zona 2, Ciudad'),
+(3214567890102, 'Lucía', 'Mendoza', 'cli456', '44442345', 'Zona 12, Ciudad'),
+(3214567890103, 'José', 'Cruz', 'cli789', '44443456', 'Zona 8, Ciudad'),
+(3214567890104, 'Elena', 'Torres', 'cli101', '44444567', 'Zona 4, Ciudad');
+
+
+INSERT INTO membresia_tipo (nombre, descuento) VALUES
+('Basica', 0),
+('Premiun', 10.00),
+('VIP', 20.00);
+
+INSERT INTO membresia (dpi_cliente, id_tipo, fecha_inicio, fecha_fin) VALUES
+(3214567890101, 1, '2025-03-01', '2025-03-31'); -- victor basica

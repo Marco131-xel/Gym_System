@@ -86,4 +86,17 @@ public class Utils {
                 "Desconocido";
         };
     }
+    
+    public static int obtenerIdTipo(String idTipo) {
+        return switch (idTipo) {
+            case "Basica" ->
+                1;
+            case "Premiun" ->
+                2;
+            case "VIP" ->
+                3;
+            default ->
+                0;
+        };
+    }
 }

@@ -16,7 +16,6 @@ public class ListaClientes extends javax.swing.JPanel {
     /**
      * Creates new form ListaClientes
      */
-    
     ClienteDao dao = new ClienteDao();
     public ListaClientes() {
         initComponents();
@@ -42,6 +41,9 @@ public class ListaClientes extends javax.swing.JPanel {
         txt_Mod = new javax.swing.JTextField();
         bt_Mod = new javax.swing.JButton();
         bt_Eli = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        txt_Mem = new javax.swing.JTextField();
+        bt_Mem = new javax.swing.JButton();
 
         puerta.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -71,7 +73,16 @@ public class ListaClientes extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tab_Cliente.setFocusable(false);
         jScrollPane1.setViewportView(tab_Cliente);
+        if (tab_Cliente.getColumnModel().getColumnCount() > 0) {
+            tab_Cliente.getColumnModel().getColumn(0).setResizable(false);
+            tab_Cliente.getColumnModel().getColumn(1).setResizable(false);
+            tab_Cliente.getColumnModel().getColumn(2).setResizable(false);
+            tab_Cliente.getColumnModel().getColumn(3).setResizable(false);
+            tab_Cliente.getColumnModel().getColumn(4).setResizable(false);
+            tab_Cliente.getColumnModel().getColumn(5).setResizable(false);
+        }
 
         jLabel2.setFont(new java.awt.Font("FreeMono", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 85, 30));
@@ -111,6 +122,25 @@ public class ListaClientes extends javax.swing.JPanel {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel4.setText("Membresia");
+
+        txt_Mem.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Mem.setForeground(new java.awt.Color(0, 0, 0));
+        txt_Mem.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
+
+        bt_Mem.setBackground(new java.awt.Color(255, 85, 30));
+        bt_Mem.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
+        bt_Mem.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Mem.setText("Membresia");
+        bt_Mem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Mem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_MemActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout puertaLayout = new javax.swing.GroupLayout(puerta);
         puerta.setLayout(puertaLayout);
         puertaLayout.setHorizontalGroup(
@@ -123,16 +153,25 @@ public class ListaClientes extends javax.swing.JPanel {
                     .addGroup(puertaLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
+                            .addGroup(puertaLayout.createSequentialGroup()
+                                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addGroup(puertaLayout.createSequentialGroup()
+                                        .addComponent(txt_Eli, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(bt_Eli)))
+                                .addGap(219, 219, 219)
+                                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(puertaLayout.createSequentialGroup()
+                                        .addComponent(txt_Mem, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(bt_Mem))
+                                    .addComponent(jLabel4)))
                             .addComponent(jLabel1)
                             .addGroup(puertaLayout.createSequentialGroup()
                                 .addComponent(txt_Mod, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(bt_Mod))
-                            .addGroup(puertaLayout.createSequentialGroup()
-                                .addComponent(txt_Eli, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(bt_Eli)))))
+                                .addComponent(bt_Mod)))))
                 .addContainerGap(14, Short.MAX_VALUE))
             .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(puertaLayout.createSequentialGroup()
@@ -146,18 +185,22 @@ public class ListaClientes extends javax.swing.JPanel {
                 .addGap(76, 76, 76)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
+                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_Eli, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt_Eli))
+                    .addComponent(bt_Eli)
+                    .addComponent(txt_Mem, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bt_Mem))
                 .addGap(31, 31, 31)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_Mod, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bt_Mod))
-                .addGap(32, 32, 32))
+                .addGap(44, 44, 44))
             .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(puertaLayout.createSequentialGroup()
                     .addGap(16, 16, 16)
@@ -210,7 +253,7 @@ public class ListaClientes extends javax.swing.JPanel {
                 String telefono = cliente.getTelefono();
                 String direccion = cliente.getDireccion();
                 Utils.mostrarPanel(puerta, new modCliente(dpi, nombre, apellido, password, telefono, direccion));
-                
+
             } else {
                 JOptionPane.showMessageDialog(this, "No se encontro empleado con ese DPI");
             }
@@ -219,6 +262,16 @@ public class ListaClientes extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "El DPI debe ser un numero valido");
         }
     }//GEN-LAST:event_bt_ModActionPerformed
+
+    private void bt_MemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_MemActionPerformed
+        // TODO add your handling code here:
+        try {
+            long dpi = Long.parseLong(txt_Mem.getText());
+            Utils.mostrarPanel(puerta, new Membresias(dpi));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "El DPI debe ser un numero valido");
+        }
+    }//GEN-LAST:event_bt_MemActionPerformed
     public void cargarLista() {
         DefaultTableModel modelo = (DefaultTableModel) tab_Cliente.getModel();
         modelo.setRowCount(0);
@@ -238,14 +291,17 @@ public class ListaClientes extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_Eli;
+    private javax.swing.JButton bt_Mem;
     private javax.swing.JButton bt_Mod;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel puerta;
     private javax.swing.JTable tab_Cliente;
     private javax.swing.JTextField txt_Eli;
+    private javax.swing.JTextField txt_Mem;
     private javax.swing.JTextField txt_Mod;
     // End of variables declaration//GEN-END:variables
 }

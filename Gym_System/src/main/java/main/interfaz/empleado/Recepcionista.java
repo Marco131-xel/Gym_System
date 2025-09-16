@@ -36,6 +36,7 @@ public class Recepcionista extends javax.swing.JPanel {
         bt_ListaClientes = new javax.swing.JLabel();
         bt_CrearCliente = new javax.swing.JLabel();
         bt_Pagos = new javax.swing.JLabel();
+        bt_membresias = new javax.swing.JLabel();
         puerta = new javax.swing.JPanel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -86,7 +87,7 @@ public class Recepcionista extends javax.swing.JPanel {
                 bt_ListaClientesMouseExited(evt);
             }
         });
-        barra.add(bt_ListaClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 93, -1, -1));
+        barra.add(bt_ListaClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, -1, -1));
 
         bt_CrearCliente.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         bt_CrearCliente.setForeground(new java.awt.Color(255, 255, 255));
@@ -103,7 +104,7 @@ public class Recepcionista extends javax.swing.JPanel {
                 bt_CrearClienteMouseExited(evt);
             }
         });
-        barra.add(bt_CrearCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 93, -1, -1));
+        barra.add(bt_CrearCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
         bt_Pagos.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         bt_Pagos.setForeground(new java.awt.Color(255, 255, 255));
@@ -120,7 +121,24 @@ public class Recepcionista extends javax.swing.JPanel {
                 bt_PagosMouseExited(evt);
             }
         });
-        barra.add(bt_Pagos, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 93, -1, -1));
+        barra.add(bt_Pagos, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, -1, 20));
+
+        bt_membresias.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
+        bt_membresias.setForeground(new java.awt.Color(255, 255, 255));
+        bt_membresias.setText("Membresias");
+        bt_membresias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_membresias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_membresiasMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bt_membresiasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bt_membresiasMouseExited(evt);
+            }
+        });
+        barra.add(bt_membresias, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, -1));
 
         jPanel1.add(barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 130));
 
@@ -209,12 +227,28 @@ public class Recepcionista extends javax.swing.JPanel {
         txtUser.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_txtUserMouseExited
 
+    private void bt_membresiasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_membresiasMouseClicked
+        // TODO add your handling code here:
+       Utils.mostrarPanel(puerta, new Lista_Membresias());
+    }//GEN-LAST:event_bt_membresiasMouseClicked
+
+    private void bt_membresiasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_membresiasMouseEntered
+        // TODO add your handling code here:
+        bt_membresias.setForeground(new Color(242, 140, 40));
+    }//GEN-LAST:event_bt_membresiasMouseEntered
+
+    private void bt_membresiasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_membresiasMouseExited
+        // TODO add your handling code here:
+        bt_membresias.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_bt_membresiasMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel barra;
     private javax.swing.JLabel bt_CrearCliente;
     private javax.swing.JLabel bt_ListaClientes;
     private javax.swing.JLabel bt_Pagos;
+    private javax.swing.JLabel bt_membresias;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
