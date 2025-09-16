@@ -99,4 +99,17 @@ public class Utils {
                 0;
         };
     }
+    
+    public static String getIdTipo(int id) {
+        return switch (id) {
+            case 1 ->
+                "Basica";
+            case 2 ->
+                "Premiun";
+            case 3 ->
+                "VIP";
+            default ->
+                "Desconocido";
+        };
+    }
 }

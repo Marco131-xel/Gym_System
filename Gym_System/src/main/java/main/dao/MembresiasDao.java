@@ -108,10 +108,10 @@ public class MembresiasDao {
     }
 
     public int eliminar(int id) {
-        String sql = "DELETE FROM membresia WHERE id=?";
+        String sql = "DELETE FROM membresia WHERE id_membresia=?";
         try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
             stmt.setInt(1, id);
-            System.out.println("membresia eliminado");
+            System.out.println("membresia eliminada");
             return stmt.executeUpdate();
             
         } catch (SQLException e) {

@@ -193,10 +193,10 @@
                   </Border>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="FreeMono" size="18" style="1"/>
+                  <Font name="FreeMono" size="20" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="1e" green="55" red="ff" type="rgb"/>
+                  <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="focusable" type="boolean" value="false"/>
               </Properties>
@@ -221,10 +221,10 @@
                   </Border>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="FreeMono" size="18" style="1"/>
+                  <Font name="FreeMono" size="20" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="1e" green="55" red="ff" type="rgb"/>
+                  <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="focusable" type="boolean" value="false"/>
               </Properties>

@@ -188,7 +188,7 @@ public class Lista_Membresias extends javax.swing.JPanel {
                 txt_Eli.setText("");
                 cargarLista();
             } else {
-                JOptionPane.showMessageDialog(this, "No se encontro un empleado con ese DPI");
+                JOptionPane.showMessageDialog(this, "No se encontro el ID de membresia");
             }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "ID debe ser numero");
@@ -207,14 +207,14 @@ public class Lista_Membresias extends javax.swing.JPanel {
                 int tipo = mem.getTipo();
                 Date fechaInicio = mem.getFechaInicio();
                 Date fechaFin = mem.getFechaFin();
-                Utils.mostrarPanel(puerta, new ModMembresia(id, dpi));
+                Utils.mostrarPanel(puerta, new ModMembresia(id, dpi, tipo, fechaInicio, fechaFin));
 
             } else {
-                JOptionPane.showMessageDialog(this, "No se encontro id de membresia");
+                JOptionPane.showMessageDialog(this, "No se encontro ID de membresia");
             }
 
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "El DPI debe ser un numero valido");
+            JOptionPane.showMessageDialog(this, "El ID debe ser un numero");
         }
     }//GEN-LAST:event_bt_ModActionPerformed
     public void cargarLista() {

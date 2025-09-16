@@ -1,5 +1,9 @@
 package main.interfaz.empleado;
 
+import java.sql.Date;
+import javax.swing.JOptionPane;
+import main.dao.MembresiasDao;
+import main.models.Membresia;
 import main.utils.Utils;
 
 /**
@@ -11,12 +15,18 @@ public class ModMembresia extends javax.swing.JPanel {
     /**
      * Creates new form ModMembresia
      */
-    public ModMembresia(int id, long dpi) {
+    public ModMembresia(int id, long dpi, int tipo, Date fechaInicio, Date fechaFin) {
         initComponents();
         String sid = Integer.toString(id);
         String sdpi = String.valueOf(dpi);
+        String stipo = Utils.getIdTipo(tipo);
+        String sfechaInicio = fechaInicio.toString();
+        String sfechaFin = fechaFin.toString();
         txt_ID.setText(sid);
         txt_DPI.setText(sdpi);
+        com_Tipo.setSelectedItem(stipo);
+        txt_FechaInicio.setText(sfechaInicio);
+        txt_FechaFin.setText(sfechaFin);
     }
 
     /**
@@ -62,15 +72,15 @@ public class ModMembresia extends javax.swing.JPanel {
 
         txt_ID.setEditable(false);
         txt_ID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
-        txt_ID.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
-        txt_ID.setForeground(new java.awt.Color(255, 85, 30));
+        txt_ID.setFont(new java.awt.Font("FreeMono", 1, 20)); // NOI18N
+        txt_ID.setForeground(new java.awt.Color(0, 0, 0));
         txt_ID.setFocusable(false);
         jScrollPane1.setViewportView(txt_ID);
 
         txt_DPI.setEditable(false);
         txt_DPI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
-        txt_DPI.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
-        txt_DPI.setForeground(new java.awt.Color(255, 85, 30));
+        txt_DPI.setFont(new java.awt.Font("FreeMono", 1, 20)); // NOI18N
+        txt_DPI.setForeground(new java.awt.Color(0, 0, 0));
         txt_DPI.setFocusable(false);
         jScrollPane2.setViewportView(txt_DPI);
 
@@ -220,6 +230,26 @@ public class ModMembresia extends javax.swing.JPanel {
 
     private void bt_ModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ModActionPerformed
         // TODO add your handling code here:
+        try {
+            long dpi = Long.parseLong(txt_DPI.getText());
+            String tipo = (String) com_Tipo.getSelectedItem();
+            String fecha_Inicio = txt_FechaInicio.getText();
+            String fecha_Fin = txt_FechaFin.getText();
+
+            int idTipo = Utils.obtenerIdTipo(tipo);
+
+            java.sql.Date fechaInicioSQL = java.sql.Date.valueOf(fecha_Inicio);
+            java.sql.Date fechaFinSQL = java.sql.Date.valueOf(fecha_Fin);
+
+            System.out.println(dpi + " " + idTipo + " " + fechaInicioSQL + " " + fechaFinSQL);
+            Membresia mem = new Membresia(dpi, idTipo, fechaInicioSQL, fechaFinSQL);
+            MembresiasDao dao = new MembresiasDao();
+            dao.actualizar(mem);
+            JOptionPane.showMessageDialog(this, "Membresia Modificada");
+            Utils.mostrarPanel(puerta, new Lista_Membresias());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "El DPI debe ser un numero valido");
+        }
     }//GEN-LAST:event_bt_ModActionPerformed
 
     private void bt_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_CancelarActionPerformed
