@@ -28,7 +28,7 @@ public class Utils {
         p.setSize(puerta.getSize());
         p.setSize(1000, 470);
         p.setLocation(0, 0);
-        
+
         puerta.removeAll();
         puerta.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
         puerta.revalidate();
@@ -86,7 +86,7 @@ public class Utils {
                 "Desconocido";
         };
     }
-    
+
     public static int obtenerIdTipo(String idTipo) {
         return switch (idTipo) {
             case "Basica" ->
@@ -99,7 +99,7 @@ public class Utils {
                 0;
         };
     }
-    
+
     public static String getIdTipo(int id) {
         return switch (id) {
             case 1 ->
@@ -110,6 +110,32 @@ public class Utils {
                 "VIP";
             default ->
                 "Desconocido";
+        };
+    }
+
+    public static String imagenRol(String rol) {
+        return switch (rol) {
+            case "Recepcionista" ->
+                "service.png";
+            case "Entrenador" ->
+                "coach.png";
+            case "Inventario" ->
+                "chain.png";
+            default ->
+                "";
+        };
+    }
+    
+    public static String loginRol(String rol) {
+        return switch (rol) {
+            case "Recepcionista" ->
+                "Login Recepcionista";
+            case "Entrenador" ->
+                "Login Entrenador";
+            case "Inventario" ->
+                "Login Inventario";
+            default ->
+                "";
         };
     }
 }

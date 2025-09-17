@@ -229,6 +229,7 @@ public class Membresias extends javax.swing.JPanel {
             MembresiasDao dao = new MembresiasDao();
             dao.crear(mem);
             JOptionPane.showMessageDialog(this, "Membresia Creada");
+            Utils.mostrarPanel(puerta, new ListaClientes());
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "El DPI debe ser un numero valido");
         }

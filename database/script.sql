@@ -82,6 +82,22 @@ CREATE TABLE adicional (
   id_entrenador INT REFERENCES empleado(id_empleado)
 );
 
+-- Equipos (maquinas y repuestos)
+CREATE TABLE equipo (
+  id_equipo SERIAL PRIMARY KEY,
+  nombre TEXT NOT NULL,
+  descripcion TEXT,
+  tipo TEXT NOT NULL CHECK (tipo IN ('maquina','repuesto','otro'))
+);
+
+-- Inventario
+CREATE TABLE inventario (
+  id_inventario SERIAL PRIMARY KEY,
+  id_sucursal INT REFERENCES sucursal(id_sucursal),
+  id_equipo INT NOT NULL REFERENCES equipo(id_equipo),
+  cantidad INT NOT NULL CHECK (cantidad >= 0)
+);
+
 -- INSERTS VALUES
 
 INSERT INTO sucursal (nombre, region, cantidad_maquinas) VALUES

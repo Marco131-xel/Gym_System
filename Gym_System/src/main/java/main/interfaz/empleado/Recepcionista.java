@@ -1,6 +1,10 @@
 package main.interfaz.empleado;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
+import main.dao.EmpleadoDao;
+import main.interfaz.Roles;
+import main.models.Empleado;
 import main.utils.Utils;
 
 /**
@@ -12,6 +16,8 @@ public class Recepcionista extends javax.swing.JPanel {
     /**
      * Creates new form Recepcionista
      */
+    EmpleadoDao dao = new EmpleadoDao();
+
     public Recepcionista(String user) {
         initComponents();
         txtUser.setText("");
@@ -215,6 +221,28 @@ public class Recepcionista extends javax.swing.JPanel {
 
     private void txtUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUserMouseClicked
         // TODO add your handling code here:
+        String usuario = txtUser.getText();
+        Empleado emp = dao.perfil(usuario);
+
+        if (emp != null) {
+            long dpi = emp.getDpi();
+            String nombre = emp.getNombre();
+            String apellido = emp.getApellido();
+            String telefono = emp.getTelefono();
+            String direccion = emp.getDireccion();
+            int sucursal = emp.getIdSucursal();
+            int rol = emp.getIdRol();
+            
+            String sdpi = String.valueOf(dpi);
+            String sSucursal = Utils.getSucursalNombre(sucursal);
+            String sRol = Utils.getRolNombre(rol);
+            
+            Utils.mostrarPanel(puerta, new Perfil(sdpi, nombre, apellido, telefono, direccion, sSucursal, sRol));
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Error de Usuario");
+            Utils.cambiarPanel(puerta, new Roles());
+        }
     }//GEN-LAST:event_txtUserMouseClicked
 
     private void txtUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUserMouseEntered
@@ -229,7 +257,7 @@ public class Recepcionista extends javax.swing.JPanel {
 
     private void bt_membresiasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_membresiasMouseClicked
         // TODO add your handling code here:
-       Utils.mostrarPanel(puerta, new Lista_Membresias());
+        Utils.mostrarPanel(puerta, new Lista_Membresias());
     }//GEN-LAST:event_bt_membresiasMouseClicked
 
     private void bt_membresiasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_membresiasMouseEntered

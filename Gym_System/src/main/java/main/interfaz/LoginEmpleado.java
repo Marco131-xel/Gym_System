@@ -2,6 +2,7 @@ package main.interfaz;
 
 import java.awt.Color;
 import main.dao.EmpleadoDao;
+import main.interfaz.empleado.Entrenador;
 import main.interfaz.empleado.Recepcionista;
 import main.models.Empleado;
 import main.utils.Utils;
@@ -239,7 +240,7 @@ public class LoginEmpleado extends javax.swing.JPanel {
                         Utils.cambiarPanel(this, new Recepcionista(usuario));
                         break;
                     case 2:
-                        txtError.setText("Entrenador");
+                        Utils.cambiarPanel(this, new Entrenador(usuario));
                         break;
                     case 3:
                         txtError.setText("Inventario");
@@ -263,7 +264,7 @@ public class LoginEmpleado extends javax.swing.JPanel {
 
     private void bt_loginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_loginMouseExited
         // TODO add your handling code here:
-        bg_login.setBackground(new Color(204,85,51));
+        bg_login.setBackground(new Color(255,85, 30));
         bt_login.setForeground(Color.white);
     }//GEN-LAST:event_bt_loginMouseExited
 

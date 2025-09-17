@@ -176,4 +176,34 @@ public class EmpleadoDao {
         return emp;
     }
 
+    // funcion para ver perfil
+    public Empleado perfil(String nombre) {
+        String sql = "SELECT * FROM empleado WHERE nombre = ?";
+        Empleado emp = null;
+
+        try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setString(1, nombre);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    emp = new Empleado();
+                    emp.setId(rs.getInt("id_empleado"));
+                    emp.setDpi(rs.getLong("dpi"));
+                    emp.setNombre(rs.getString("nombre"));
+                    emp.setApellido(rs.getString("apellido"));
+                    emp.setPassword(rs.getString("password"));
+                    emp.setTelefono(rs.getString("telefono"));
+                    emp.setDireccion(rs.getString("direccion"));
+                    emp.setIdSucursal(rs.getInt("id_sucursal"));
+                    emp.setIdRol(rs.getInt("id_rol"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return emp;
+    }
+
 }
