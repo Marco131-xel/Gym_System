@@ -57,7 +57,7 @@ public class Entrenador extends javax.swing.JPanel {
         jLabel1.setText("Entrenador");
         barra.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 35, -1, -1));
 
-        txtUser.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
+        txtUser.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         txtUser.setForeground(new java.awt.Color(255, 255, 255));
         txtUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtUser.setText("usuario");
@@ -73,10 +73,10 @@ public class Entrenador extends javax.swing.JPanel {
                 txtUserMouseExited(evt);
             }
         });
-        barra.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(906, 76, -1, -1));
+        barra.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 90, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gym1.png"))); // NOI18N
-        barra.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(919, 6, -1, -1));
+        barra.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, -1, -1));
 
         bt_Clientes.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         bt_Clientes.setForeground(new java.awt.Color(255, 255, 255));

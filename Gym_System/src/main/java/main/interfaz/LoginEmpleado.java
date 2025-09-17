@@ -3,6 +3,7 @@ package main.interfaz;
 import java.awt.Color;
 import main.dao.EmpleadoDao;
 import main.interfaz.empleado.Entrenador;
+import main.interfaz.empleado.Inventario;
 import main.interfaz.empleado.Recepcionista;
 import main.models.Empleado;
 import main.utils.Utils;
@@ -243,7 +244,7 @@ public class LoginEmpleado extends javax.swing.JPanel {
                         Utils.cambiarPanel(this, new Entrenador(usuario));
                         break;
                     case 3:
-                        txtError.setText("Inventario");
+                        Utils.cambiarPanel(this, new Inventario(usuario));
                         break;
                     default:
                         throw new AssertionError();

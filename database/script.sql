@@ -62,17 +62,6 @@ CREATE TABLE membresia (
   UNIQUE (dpi_cliente, fecha_inicio)
 );
 
--- pagos
-CREATE TABLE pago (
-  id_pago SERIAL PRIMARY KEY,
-  id_cliente INT NOT NULL REFERENCES cliente(id_cliente) ON DELETE CASCADE,
-  tipo TEXT NOT NULL CHECK (tipo IN ('servicio','adicional')),
-  descripcion TEXT,
-  monto NUMERIC(12,2) NOT NULL CHECK (monto >= 0),
-  fecha_inicio DATE NOT NULL,
-  fecha_fin DATE
-);
-
 -- Adicionales
 CREATE TABLE adicional (
   id_adicional SERIAL PRIMARY KEY,
@@ -80,6 +69,18 @@ CREATE TABLE adicional (
   detalles TEXT,
   precio NUMERIC(12,2) NOT NULL,
   id_entrenador INT REFERENCES empleado(id_empleado)
+);
+
+-- pagos
+CREATE TABLE pago (
+  id_pago SERIAL PRIMARY KEY,
+  dpi_cliente BIGINT NOT NULL REFERENCES cliente(dpi) ON DELETE CASCADE,
+  tipo TEXT NOT NULL CHECK (tipo IN ('servicio','adicional')),
+  descripcion TEXT,
+  monto NUMERIC(12,2) NOT NULL CHECK (monto >= 0),
+  fecha_inicio DATE NOT NULL,
+  fecha_fin DATE,
+  id_adicional INT REFERENCES adicional(id_adicional)
 );
 
 -- Equipos (maquinas y repuestos)
@@ -125,3 +126,39 @@ INSERT INTO membresia_tipo (nombre, descuento) VALUES
 
 INSERT INTO membresia (dpi_cliente, id_tipo, fecha_inicio, fecha_fin) VALUES
 (3214567890101, 1, '2025-03-01', '2025-03-31'); -- victor basica
+
+INSERT INTO adicional (nombre, detalles, precio, id_entrenador)
+VALUES
+('Clase de Spinning', 'Sesión grupal de 1 hora', 50.00, 1),
+('Clase de Yoga', 'Sesión de yoga relajante', 60.00, 2),
+('Entrenamiento Personal', '1 hora con entrenador', 120.00, 1),
+('Suplemento Proteína', 'Proteína whey sabor vainilla (1kg)', 180.00, NULL);
+
+
+-- Pagos de membresía (tipo servicio)
+INSERT INTO pago (dpi_cliente, tipo, descripcion, monto, fecha_inicio, fecha_fin, id_adicional)
+VALUES
+(3214567890101, 'servicio', 'Membresía mensual básica', 250.00, '2025-09-01', '2025-09-30', NULL);
+
+-- Pagos de adicionales (tipo adicional)
+INSERT INTO pago (dpi_cliente, tipo, descripcion, monto, fecha_inicio, fecha_fin, id_adicional)
+VALUES
+(3214567890101, 'adicional', 'Clase de Spinning', 50.00, '2025-09-05', NULL, 1),
+(3214567890101, 'adicional', 'Entrenamiento Personal', 120.00, '2025-09-10', NULL, 3);
+
+INSERT INTO equipo (nombre, descripcion, tipo) VALUES
+-- Máquinas
+('Caminadora ProFit 3000', 'Máquina de correr eléctrica con pantalla LCD', 'maquina'),
+('Bicicleta Spinning X200', 'Bicicleta fija profesional para spinning', 'maquina'),
+('Máquina de Pecho', 'Máquina de fuerza para press de pecho', 'maquina'),
+('Elíptica CardioMax', 'Máquina elíptica con control de resistencia', 'maquina'),
+
+-- Repuestos
+('Disco Olímpico 20kg', 'Disco de acero recubierto de goma', 'repuesto'),
+('Mancuerna 10kg', 'Par de mancuernas cromadas', 'repuesto'),
+('Cuerda de Salto', 'Cuerda ajustable para entrenamiento funcional', 'repuesto'),
+
+-- Otros
+('Lubricante máquinas', 'Aceite especial para mantenimiento', 'otro'),
+('Toallas Deportivas', 'Toallas de microfibra para clientes', 'otro');
+

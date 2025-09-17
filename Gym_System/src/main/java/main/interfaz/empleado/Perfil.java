@@ -69,35 +69,35 @@ public class Perfil extends javax.swing.JPanel {
         puerta.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("FreeMono", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Perfil");
 
         jLabel2.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("DPI");
 
         jLabel3.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nombre");
 
         jLabel4.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Apellido");
 
         jLabel5.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Telefono");
 
         jLabel6.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Rol");
 
         jLabel7.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Direccion");
 
         jLabel8.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Sucursal");
 
         IMG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/service.png"))); // NOI18N
