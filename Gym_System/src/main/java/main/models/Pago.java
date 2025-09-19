@@ -15,7 +15,7 @@ public class Pago {
     private double monto;
     private Date fechaInicio;
     private Date fechaFin;
-    private int id_adicional;
+    private Integer id_adicional;
 
     public Pago() {
     }
@@ -31,13 +31,12 @@ public class Pago {
     }
     
     // constructor de pago adicional
-    public Pago(long dpi, String tipo, String descripcion, double monto, Date fechaInicio, Date fechaFin, int id_adicional) {
+    public Pago(long dpi, String tipo, String descripcion, double monto, Date fechaInicio, Integer id_adicional) {
         this.dpi = dpi;
         this.tipo = tipo;
         this.descripcion = descripcion;
         this.monto = monto;
         this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
         this.id_adicional = id_adicional;
     }
     
@@ -97,11 +96,11 @@ public class Pago {
         this.fechaFin = fechaFin;
     }
 
-    public int getId_adicional() {
+    public Integer getId_adicional() {
         return id_adicional;
     }
 
-    public void setId_adicional(int id_adicional) {
+    public void setId_adicional(Integer id_adicional) {
         this.id_adicional = id_adicional;
     }
 }
