@@ -102,4 +102,8 @@ public class Empleado {
         this.idRol = idRol;
     }
 
+    @Override
+    public String toString() {
+        return nombre + " " + apellido;
+    }
 }

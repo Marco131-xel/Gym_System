@@ -18,6 +18,7 @@ public class modCliente extends javax.swing.JPanel {
     public modCliente(long dpi, String nombre, String apellido, String password,
             String telefono, String direccion) {
         initComponents();
+        Utils.txtNumber(txt_Telefono);
         String strDPI = Long.toString(dpi);
         txt_DPI.setText(strDPI);
         txt_Nombre.setText(nombre);
@@ -67,7 +68,7 @@ public class modCliente extends javax.swing.JPanel {
         txt_DPI.setEditable(false);
         txt_DPI.setBackground(new java.awt.Color(255, 255, 255));
         txt_DPI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
-        txt_DPI.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_DPI.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         txt_DPI.setForeground(new java.awt.Color(0, 0, 0));
         txt_DPI.setFocusable(false);
         jScrollPane1.setViewportView(txt_DPI);
@@ -92,19 +93,19 @@ public class modCliente extends javax.swing.JPanel {
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Telefono");
 
-        txt_Nombre.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Nombre.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         txt_Nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
 
-        txt_Apellido.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Apellido.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         txt_Apellido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
 
-        txt_Password.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Password.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         txt_Password.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
 
-        txt_Telefono.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Telefono.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         txt_Telefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
 
-        txt_Direccion.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Direccion.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         txt_Direccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
 
         bt_Cancelar.setBackground(new java.awt.Color(204, 0, 0));
@@ -188,7 +189,7 @@ public class modCliente extends javax.swing.JPanel {
                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel7)

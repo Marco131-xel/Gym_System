@@ -44,7 +44,7 @@ public class EjercicioDao {
 
         try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
 
-            stmt.setLong(1, id);
+            stmt.setInt(1, id);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     eje.setId_ejercicio(rs.getInt("id_ejercicio"));

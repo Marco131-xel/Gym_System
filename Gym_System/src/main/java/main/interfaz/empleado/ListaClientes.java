@@ -249,6 +249,11 @@ public class ListaClientes extends javax.swing.JPanel {
 
     private void bt_AsigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AsigActionPerformed
         // TODO add your handling code here:
+        String dpiStr = Utils.selecDatTable(tab_Cliente, 0, "Seleccione un cliente en la tabla");
+        if (dpiStr != null) {
+            long dpi = Long.parseLong(dpiStr);
+            Utils.mostrarPanel(puerta, new Asignar(dpi));
+        }
     }//GEN-LAST:event_bt_AsigActionPerformed
     public void cargarLista() {
         DefaultTableModel modelo = (DefaultTableModel) tab_Cliente.getModel();

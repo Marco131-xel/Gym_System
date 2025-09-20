@@ -48,9 +48,10 @@ public class AdicionalDao {
         Adicional adi = null;
         try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
 
-            stmt.setLong(1, id);
+            stmt.setInt(1, id);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
+                    adi = new Adicional();
                     adi.setId(rs.getInt("id_adicional"));
                     adi.setNombre(rs.getString("nombre"));
                     adi.setDetalles(rs.getString("detalles"));
@@ -116,7 +117,7 @@ public class AdicionalDao {
     public int eliminar(int id) {
         String sql = "DELETE FROM adicional WHERE id_adicional=?";
         try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
-            stmt.setLong(1, id);
+            stmt.setInt(1, id);
             System.out.println("adicional eliminado");
             return stmt.executeUpdate();
         } catch (SQLException e) {

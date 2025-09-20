@@ -1,5 +1,6 @@
 package main.interfaz.empleado;
 
+import com.sun.source.tree.BreakTree;
 import javax.swing.JOptionPane;
 import main.dao.ClienteDao;
 import main.models.Cliente;
@@ -14,8 +15,13 @@ public class CrearCliente extends javax.swing.JPanel {
     /**
      * Creates new form CrearCliente
      */
+    
+    ClienteDao dao = new ClienteDao();
+    
     public CrearCliente() {
         initComponents();
+        Utils.txtNumber(txt_DPI);
+        Utils.txtNumber(txt_Telefono);
     }
 
     /**
@@ -42,8 +48,6 @@ public class CrearCliente extends javax.swing.JPanel {
         txt_Telefono = new javax.swing.JTextField();
         txt_Direccion = new javax.swing.JTextField();
         bt_Crear = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        estado = new javax.swing.JTextPane();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -75,27 +79,32 @@ public class CrearCliente extends javax.swing.JPanel {
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Direccion");
 
-        txt_DPI.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_DPI.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         txt_DPI.setForeground(new java.awt.Color(0, 0, 0));
         txt_DPI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
+        txt_DPI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_DPIActionPerformed(evt);
+            }
+        });
 
-        txt_Nombre.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Nombre.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         txt_Nombre.setForeground(new java.awt.Color(0, 0, 0));
         txt_Nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
 
-        txt_Apellido.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Apellido.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         txt_Apellido.setForeground(new java.awt.Color(0, 0, 0));
         txt_Apellido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
 
-        txt_Password.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Password.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         txt_Password.setForeground(new java.awt.Color(0, 0, 0));
         txt_Password.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
 
-        txt_Telefono.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Telefono.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         txt_Telefono.setForeground(new java.awt.Color(0, 0, 0));
         txt_Telefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
 
-        txt_Direccion.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Direccion.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         txt_Direccion.setForeground(new java.awt.Color(0, 0, 0));
         txt_Direccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
 
@@ -109,13 +118,6 @@ public class CrearCliente extends javax.swing.JPanel {
                 bt_CrearActionPerformed(evt);
             }
         });
-
-        estado.setEditable(false);
-        estado.setBackground(new java.awt.Color(204, 0, 204));
-        estado.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
-        estado.setForeground(new java.awt.Color(255, 255, 255));
-        estado.setFocusable(false);
-        jScrollPane1.setViewportView(estado);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -155,8 +157,6 @@ public class CrearCliente extends javax.swing.JPanel {
                 .addContainerGap(186, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(88, 88, 88)
                 .addComponent(bt_Crear)
                 .addGap(67, 67, 67))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,23 +180,17 @@ public class CrearCliente extends javax.swing.JPanel {
                     .addComponent(jLabel7)
                     .addComponent(txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_Direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(txt_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(52, 52, 52)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(txt_Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addComponent(bt_Crear)
-                        .addContainerGap(55, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46))))
+                .addGap(50, 50, 50)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txt_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txt_Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addComponent(bt_Crear)
+                .addContainerGap(47, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(16, 16, 16)
@@ -219,17 +213,33 @@ public class CrearCliente extends javax.swing.JPanel {
     private void bt_CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_CrearActionPerformed
         // TODO add your handling code here:
         try {
+            if (!Utils.validarNumero(txt_DPI, "DPI")) return;
+            if (!Utils.validarCampoVacio(txt_Nombre, "Nombre")) return;
+            if (!Utils.validarCampoVacio(txt_Apellido, "Apellido")) return;
+            if (!Utils.validarNumero(txt_Telefono, "Telefono")) return;
+            if (!Utils.validarCampoVacio(txt_Direccion, "Direccion")) return;
+            if (!Utils.validarCampoVacio(txt_Password, "Contraseña")) return;
+            
             long dpi = Long.parseLong(txt_DPI.getText());
             String nombre = txt_Nombre.getText();
             String apellido = txt_Apellido.getText();
             String telefono = txt_Telefono.getText();
             String direccion = txt_Direccion.getText();
             String password = txt_Password.getText();
+            
+            Cliente mismo = dao.buscar(dpi);
+            
+            if (mismo != null) {
+                long mdpi = mismo.getDpi();
+                if (mdpi == dpi) {
+                    JOptionPane.showMessageDialog(null, "Error este DPI ya esta registrado");
+                    return;
+                }
+            }
            
             Cliente cliente = new Cliente(dpi, nombre, apellido, password, telefono, direccion);
-            ClienteDao dao = new ClienteDao();
             dao.crear(cliente);
-            estado.setText("Cliente creado");
+            JOptionPane.showMessageDialog(this, "Cliente Creado");
             txt_DPI.setText("");
             txt_Nombre.setText("");
             txt_Apellido.setText("");
@@ -238,14 +248,16 @@ public class CrearCliente extends javax.swing.JPanel {
             txt_Password.setText("");
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "El DPI debe ser un numero valido");
-            estado.setText("El DPI debe ser un numero valido");
         }
     }//GEN-LAST:event_bt_CrearActionPerformed
+
+    private void txt_DPIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_DPIActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_DPIActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_Crear;
-    private javax.swing.JTextPane estado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -254,7 +266,6 @@ public class CrearCliente extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txt_Apellido;
     private javax.swing.JTextField txt_DPI;
     private javax.swing.JTextField txt_Direccion;

@@ -43,6 +43,7 @@ public class Recepcionista extends javax.swing.JPanel {
         bt_CrearCliente = new javax.swing.JLabel();
         bt_Pagos = new javax.swing.JLabel();
         bt_membresias = new javax.swing.JLabel();
+        bt_Asistencias = new javax.swing.JLabel();
         puerta = new javax.swing.JPanel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -127,7 +128,7 @@ public class Recepcionista extends javax.swing.JPanel {
                 bt_PagosMouseExited(evt);
             }
         });
-        barra.add(bt_Pagos, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, -1, 20));
+        barra.add(bt_Pagos, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 90, -1, 20));
 
         bt_membresias.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         bt_membresias.setForeground(new java.awt.Color(255, 255, 255));
@@ -145,6 +146,23 @@ public class Recepcionista extends javax.swing.JPanel {
             }
         });
         barra.add(bt_membresias, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, -1));
+
+        bt_Asistencias.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
+        bt_Asistencias.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Asistencias.setText("Asistencias");
+        bt_Asistencias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Asistencias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_AsistenciasMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bt_AsistenciasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bt_AsistenciasMouseExited(evt);
+            }
+        });
+        barra.add(bt_Asistencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, -1));
 
         jPanel1.add(barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 130));
 
@@ -207,7 +225,7 @@ public class Recepcionista extends javax.swing.JPanel {
 
     private void bt_PagosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_PagosMouseClicked
         // TODO add your handling code here:
-        //Utils.mostrarPanel(puerta, new Pagos());
+        Utils.mostrarPanel(puerta, new Lista_Pagos());
     }//GEN-LAST:event_bt_PagosMouseClicked
 
     private void bt_PagosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_PagosMouseEntered
@@ -271,9 +289,23 @@ public class Recepcionista extends javax.swing.JPanel {
         bt_membresias.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_bt_membresiasMouseExited
 
+    private void bt_AsistenciasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AsistenciasMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_AsistenciasMouseClicked
+
+    private void bt_AsistenciasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AsistenciasMouseEntered
+        // TODO add your handling code here:
+        bt_Asistencias.setForeground(new Color(242, 140, 40));
+    }//GEN-LAST:event_bt_AsistenciasMouseEntered
+
+    private void bt_AsistenciasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AsistenciasMouseExited
+        // TODO add your handling code here:
+        bt_Asistencias.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_bt_AsistenciasMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel barra;
+    private javax.swing.JLabel bt_Asistencias;
     private javax.swing.JLabel bt_CrearCliente;
     private javax.swing.JLabel bt_ListaClientes;
     private javax.swing.JLabel bt_Pagos;

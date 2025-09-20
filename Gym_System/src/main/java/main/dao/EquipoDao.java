@@ -42,7 +42,7 @@ public class EquipoDao {
 
         try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
 
-            stmt.setLong(1, id);
+            stmt.setInt(1, id);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     equi = new Equipo();
@@ -105,7 +105,7 @@ public class EquipoDao {
     public int eliminar(int id) {
         String sql = "DELETE FROM equipo WHERE id_equipo=?";
         try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
-            stmt.setLong(1, id);
+            stmt.setInt(1, id);
             System.out.println("Equipo eliminado");
             return stmt.executeUpdate();
         } catch (SQLException e) {

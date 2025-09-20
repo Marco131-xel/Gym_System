@@ -4,14 +4,19 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
+import javax.swing.text.AbstractDocument;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DocumentFilter;
 
 /**
  *
  * @author marco
  */
 public class Utils {
-    
+
     // funcion para cambiar jpaneles
     public static void cambiarPanel(JPanel actual, JPanel nuevoPanel) {
         nuevoPanel.setSize(1000, 600);
@@ -26,7 +31,7 @@ public class Utils {
             frame.getContentPane().repaint();
         }
     }
-    
+
     // funcion para mostrar jpaneles en un jpanel
     public static void mostrarPanel(JPanel puerta, JPanel p) {
         p.setSize(puerta.getSize());
@@ -38,7 +43,7 @@ public class Utils {
         puerta.revalidate();
         puerta.repaint();
     }
-    
+
     // funcion para ver cuadros
     public static void mostrarCuadro(JPanel puerta, JPanel p) {
         p.setSize(puerta.getSize());
@@ -49,6 +54,32 @@ public class Utils {
         puerta.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
         puerta.revalidate();
         puerta.repaint();
+    }
+
+    public static boolean validarCampoVacio(JTextField campo, String nombreCampo) {
+        if (campo.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, nombreCampo + " no puede quedar vacio");
+            campo.requestFocus();
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean validarNumero(JTextField campo, String nombreCampo) {
+        String texto = campo.getText().trim();
+        if (texto.isEmpty()) {
+            JOptionPane.showMessageDialog(null, nombreCampo + " no puede quedar vacio");
+            campo.requestFocus();
+            return false;
+        }
+        try {
+            Long.parseLong(texto);
+            return true;
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, nombreCampo + " debe contener solo numeros");
+            campo.requestFocus();
+            return false;
+        }
     }
 
     public static int obtenerIdRol(String rol) {
@@ -141,7 +172,7 @@ public class Utils {
                 "";
         };
     }
-    
+
     public static String loginRol(String rol) {
         return switch (rol) {
             case "Recepcionista" ->
@@ -154,7 +185,7 @@ public class Utils {
                 "";
         };
     }
-    
+
     // funcion para seleccionar un item en una tabla
     public static String selecDatTable(JTable tabla, int columna, String mensaje) {
         int fila = tabla.getSelectedRow();
@@ -165,5 +196,26 @@ public class Utils {
             JOptionPane.showMessageDialog(null, mensaje);
             return null;
         }
+    }
+    
+    // jtextfield que sea solo numeros
+    public static void txtNumber(JTextField campo) {
+        ((AbstractDocument) campo.getDocument()).setDocumentFilter(new DocumentFilter() {
+            @Override
+            public void insertString(FilterBypass fb, int offset, String string, AttributeSet attr)
+                    throws BadLocationException {
+                if (string.matches("\\d+")) {
+                    super.insertString(fb, offset, string, attr);
+                }
+            }
+
+            @Override
+            public void replace(FilterBypass fb, int offset, int length, String text, AttributeSet attrs)
+                    throws BadLocationException {
+                if (text.matches("\\d+")) {
+                    super.replace(fb, offset, length, text, attrs);
+                }
+            }
+        });
     }
 }

@@ -43,7 +43,7 @@ public class Entrenador_ClienteDao {
 
         try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
 
-            stmt.setLong(1, asignacion);
+            stmt.setInt(1, asignacion);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     ec.setAsignacion(rs.getInt("id_asignacino"));

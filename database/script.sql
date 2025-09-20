@@ -102,8 +102,8 @@ CREATE TABLE inventario (
 -- Asignacion entrenador-cliente (historial)
 CREATE TABLE entrenador_cliente (
   id_asignacion SERIAL PRIMARY KEY,
-  dpi_entrenador INT NOT NULL REFERENCES empleado(dpi) ON DELETE RESTRICT,
-  dpi_cliente INT NOT NULL REFERENCES cliente(dpi) ON DELETE CASCADE,
+  dpi_entrenador BIGINT NOT NULL REFERENCES empleado(dpi) ON DELETE RESTRICT,
+  dpi_cliente BIGINT NOT NULL REFERENCES cliente(dpi) ON DELETE CASCADE,
   fecha_asignacion DATE NOT NULL,
   fecha_fin DATE
 );
@@ -114,8 +114,8 @@ CREATE TABLE rutina (
   nombre TEXT NOT NULL,
   tipo TEXT, -- fuerza, cardio, mixto, etc.
   fecha_inicio DATE NOT NULL,
-  dpi_entrenador INT NOT NULL REFERENCES empleado(dpi) ON DELETE RESTRICT,
-  dpi_cliente INT NOT NULL REFERENCES cliente(dpi) ON DELETE CASCADE
+  dpi_entrenador BIGINT NOT NULL REFERENCES empleado(dpi) ON DELETE RESTRICT,
+  dpi_cliente BIGINT NOT NULL REFERENCES cliente(dpi) ON DELETE CASCADE
 );
 
 -- Ejercicios (plantilla)
@@ -140,7 +140,7 @@ CREATE TABLE rutina_ejercicio (
 -- Asistencias
 CREATE TABLE asistencia (
   id_asistencia SERIAL PRIMARY KEY,
-  dpi_cliente INT NOT NULL REFERENCES cliente(dpi) ON DELETE CASCADE,
+  dpi_cliente BIGINT NOT NULL REFERENCES cliente(dpi) ON DELETE CASCADE,
   id_sucursal INT NOT NULL REFERENCES sucursal(id_sucursal) ON DELETE RESTRICT,
   fecha_hora TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT now()
 );

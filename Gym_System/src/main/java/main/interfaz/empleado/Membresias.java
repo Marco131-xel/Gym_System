@@ -79,11 +79,11 @@ public class Membresias extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Fecha Inicio");
 
-        txt_Finicio.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Finicio.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         txt_Finicio.setForeground(new java.awt.Color(0, 0, 0));
         txt_Finicio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
 
-        txt_Ffin.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Ffin.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         txt_Ffin.setForeground(new java.awt.Color(0, 0, 0));
         txt_Ffin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
 
@@ -101,7 +101,7 @@ public class Membresias extends javax.swing.JPanel {
 
         txt_DPI.setEditable(false);
         txt_DPI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
-        txt_DPI.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
+        txt_DPI.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         txt_DPI.setForeground(new java.awt.Color(0, 0, 0));
         txt_DPI.setFocusable(false);
         jScrollPane2.setViewportView(txt_DPI);
@@ -183,7 +183,7 @@ public class Membresias extends javax.swing.JPanel {
                     .addGroup(puertaLayout.createSequentialGroup()
                         .addGap(54, 54, 54)
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)))
                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txt_Finicio, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
