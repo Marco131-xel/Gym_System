@@ -212,9 +212,6 @@ public class ListaClientes extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "No se encontro un empleado con ese DPI");
             }
 
-        } else {
-            JOptionPane.showMessageDialog(this, "El DPI debe ser un numero valido");
-            return;
         }
     }//GEN-LAST:event_bt_EliActionPerformed
 
@@ -238,9 +235,6 @@ public class ListaClientes extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "No se encontro empleado con ese DPI");
             }
 
-        } else {
-            JOptionPane.showMessageDialog(this, "Error de Accion");
-            return;
         }
     }//GEN-LAST:event_bt_ModActionPerformed
 
@@ -250,9 +244,6 @@ public class ListaClientes extends javax.swing.JPanel {
         if (dpiStr != null) {
             long dpi = Long.parseLong(dpiStr);
             Utils.mostrarPanel(puerta, new Membresias(dpi));
-        } else {
-            JOptionPane.showMessageDialog(this, "El DPI debe ser un numero valido");
-            return;
         }
     }//GEN-LAST:event_bt_MemActionPerformed
 

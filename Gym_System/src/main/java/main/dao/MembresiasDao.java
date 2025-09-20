@@ -58,6 +58,30 @@ public class MembresiasDao {
         return mem;
     }
 
+    public Membresia buscarPorDpi(long dpi) {
+        String sql = "SELECT * FROM membresia WHERE dpi_cliente=?";
+        Membresia mem = null;
+
+        try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setLong(1, dpi);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    mem = new Membresia();
+                    mem.setId(rs.getInt("id_membresia"));
+                    mem.setDpi(rs.getLong("dpi_cliente"));
+                    mem.setTipo(rs.getInt("id_tipo"));
+                    mem.setFechaInicio(rs.getDate("fecha_inicio"));
+                    mem.setFechaFin(rs.getDate("fecha_fin"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return mem;
+    }
+
     public List<MembresiaDetalle> listarMembresias() {
         List<MembresiaDetalle> lista = new ArrayList<>();
         String sql = "SELECT m.id_membresia, c.dpi, "
@@ -113,7 +137,7 @@ public class MembresiasDao {
             stmt.setInt(1, id);
             System.out.println("membresia eliminada");
             return stmt.executeUpdate();
-            
+
         } catch (SQLException e) {
             e.printStackTrace();
             return 0;

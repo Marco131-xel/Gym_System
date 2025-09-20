@@ -81,6 +81,6 @@ public class Adicional {
     
     @Override
     public String toString() {
-        return nombre + " Q" + precio;
+        return nombre;
     }
 }

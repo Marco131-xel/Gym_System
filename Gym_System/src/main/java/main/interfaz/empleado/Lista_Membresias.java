@@ -41,6 +41,9 @@ public class Lista_Membresias extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         bt_Mod = new javax.swing.JButton();
         bt_Eli = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        bt_Asi = new javax.swing.JButton();
+        bt_Pagos = new javax.swing.JButton();
 
         puerta.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -98,6 +101,32 @@ public class Lista_Membresias extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 0, 204));
+        jLabel2.setText("Servicios");
+
+        bt_Asi.setBackground(new java.awt.Color(0, 255, 0));
+        bt_Asi.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
+        bt_Asi.setForeground(new java.awt.Color(0, 0, 0));
+        bt_Asi.setText("Asistencias");
+        bt_Asi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Asi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_AsiActionPerformed(evt);
+            }
+        });
+
+        bt_Pagos.setBackground(new java.awt.Color(0, 0, 204));
+        bt_Pagos.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
+        bt_Pagos.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Pagos.setText("Pagos");
+        bt_Pagos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Pagos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_PagosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout puertaLayout = new javax.swing.GroupLayout(puerta);
         puerta.setLayout(puertaLayout);
         puertaLayout.setHorizontalGroup(
@@ -114,12 +143,19 @@ public class Lista_Membresias extends javax.swing.JPanel {
                     .addGroup(puertaLayout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
                             .addGroup(puertaLayout.createSequentialGroup()
                                 .addComponent(bt_Mod)
                                 .addGap(18, 18, 18)
-                                .addComponent(bt_Eli)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(bt_Eli))
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(puertaLayout.createSequentialGroup()
+                                .addComponent(bt_Asi)
+                                .addGap(26, 26, 26)
+                                .addComponent(bt_Pagos))
+                            .addComponent(jLabel2))
+                        .addGap(189, 189, 189)))
                 .addContainerGap())
         );
         puertaLayout.setVerticalGroup(
@@ -130,11 +166,15 @@ public class Lista_Membresias extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
-                .addComponent(jLabel3)
+                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2))
                 .addGap(31, 31, 31)
                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bt_Mod)
-                    .addComponent(bt_Eli))
+                    .addComponent(bt_Eli)
+                    .addComponent(bt_Asi)
+                    .addComponent(bt_Pagos))
                 .addContainerGap(101, Short.MAX_VALUE))
         );
 
@@ -163,9 +203,6 @@ public class Lista_Membresias extends javax.swing.JPanel {
             } else {
                 JOptionPane.showMessageDialog(this, "No se encontro el ID de membresia");
             }
-        } else {
-            JOptionPane.showMessageDialog(this, "ID debe ser numero");
-            return;
         }
     }//GEN-LAST:event_bt_EliActionPerformed
 
@@ -186,12 +223,21 @@ public class Lista_Membresias extends javax.swing.JPanel {
             } else {
                 JOptionPane.showMessageDialog(this, "No se encontro ID de membresia");
             }
-
-        } else {
-            JOptionPane.showMessageDialog(this, "El ID debe ser un numero");
-            return;
         }
     }//GEN-LAST:event_bt_ModActionPerformed
+
+    private void bt_AsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AsiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_AsiActionPerformed
+
+    private void bt_PagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_PagosActionPerformed
+        // TODO add your handling code here:
+        String dpiStr = Utils.selecDatTable(tab_Mem, 1, "Seleccione el DPI en la tabla");
+        if (dpiStr != null) {
+            long dpi = Long.parseLong(dpiStr);
+            Utils.mostrarPanel(puerta, new Pagos(dpi));
+        } 
+    }//GEN-LAST:event_bt_PagosActionPerformed
     public void cargarLista() {
         DefaultTableModel modelo = (DefaultTableModel) tab_Mem.getModel();
         modelo.setRowCount(0);
@@ -210,9 +256,12 @@ public class Lista_Membresias extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bt_Asi;
     private javax.swing.JButton bt_Eli;
     private javax.swing.JButton bt_Mod;
+    private javax.swing.JButton bt_Pagos;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel puerta;

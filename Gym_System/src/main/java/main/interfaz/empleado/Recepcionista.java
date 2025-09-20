@@ -207,7 +207,7 @@ public class Recepcionista extends javax.swing.JPanel {
 
     private void bt_PagosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_PagosMouseClicked
         // TODO add your handling code here:
-        Utils.mostrarPanel(puerta, new Pagos());
+        //Utils.mostrarPanel(puerta, new Pagos());
     }//GEN-LAST:event_bt_PagosMouseClicked
 
     private void bt_PagosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_PagosMouseEntered

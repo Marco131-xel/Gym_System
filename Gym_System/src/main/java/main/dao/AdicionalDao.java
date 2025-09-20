@@ -18,7 +18,7 @@ public class AdicionalDao {
 
     // crear pagos adicionales
     public void crear(Adicional adi) {
-        String sql = "INSERT INTO adicional (nombre, detalles, precio, id_entrenador) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO adicional (nombre, detalles, precio, dpi_entrenador) VALUES (?, ?, ?, ?)";
 
         try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
 
@@ -31,7 +31,7 @@ public class AdicionalDao {
             if (dpi != null) {
                 stmt.setLong(4, adi.getDpi());
             } else {
-                stmt.setNull(4, java.sql.Types.LONGVARCHAR);
+                stmt.setNull(4, java.sql.Types.BIGINT);
             }
 
             stmt.executeUpdate();
@@ -55,7 +55,7 @@ public class AdicionalDao {
                     adi.setNombre(rs.getString("nombre"));
                     adi.setDetalles(rs.getString("detalles"));
                     adi.setPrecio(rs.getDouble("precio"));
-                    adi.setDpi(rs.getLong("id_entrenador"));
+                    adi.setDpi(rs.getLong("dpi_entrenador"));
                 }
             }
         } catch (SQLException e) {
@@ -76,7 +76,7 @@ public class AdicionalDao {
                 adi.setNombre(rs.getString("nombre"));
                 adi.setDetalles(rs.getString("detalles"));
                 adi.setPrecio(rs.getDouble("precio"));
-                adi.setDpi(rs.getLong("id_entrenador"));
+                adi.setDpi(rs.getLong("dpi_entrenador"));
                 lista.add(adi);
             }
 
@@ -88,7 +88,7 @@ public class AdicionalDao {
 
     // actualizar adicional
     public void actualizar(Adicional adi) {
-        String sql = "UPDATE adicional SET nombre=?, detalles=?, precio=?, id_entrenador=? WHERE id_adicional=?";
+        String sql = "UPDATE adicional SET nombre=?, detalles=?, precio=?, dpi_entrenador=? WHERE id_adicional=?";
         try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
 
             stmt.setString(1, adi.getNombre());
@@ -100,7 +100,7 @@ public class AdicionalDao {
             if (dpi != null) {
                 stmt.setLong(4, adi.getDpi());
             } else {
-                stmt.setNull(4, java.sql.Types.LONGVARCHAR);
+                stmt.setNull(4, java.sql.Types.BIGINT);
             }
             
             stmt.setInt(5, adi.getId());

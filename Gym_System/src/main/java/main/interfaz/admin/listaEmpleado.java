@@ -182,9 +182,6 @@ public class listaEmpleado extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "No se encontro un empleado con ese DPI");
             }
 
-        } else {
-            JOptionPane.showMessageDialog(this, "Error de Accion");
-            return;
         }
     }//GEN-LAST:event_bt_EliminarActionPerformed
 
@@ -210,9 +207,6 @@ public class listaEmpleado extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "No se encontro empleado con ese DPI");
             }
 
-        } else {
-            JOptionPane.showMessageDialog(this, "Error de Accion");
-            return;
         }
     }//GEN-LAST:event_bt_modificarActionPerformed
 

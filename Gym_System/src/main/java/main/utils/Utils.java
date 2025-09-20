@@ -38,6 +38,18 @@ public class Utils {
         puerta.revalidate();
         puerta.repaint();
     }
+    
+    // funcion para ver cuadros
+    public static void mostrarCuadro(JPanel puerta, JPanel p) {
+        p.setSize(puerta.getSize());
+        p.setSize(800, 300);
+        p.setLocation(0, 0);
+
+        puerta.removeAll();
+        puerta.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        puerta.revalidate();
+        puerta.repaint();
+    }
 
     public static int obtenerIdRol(String rol) {
         return switch (rol) {

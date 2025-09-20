@@ -88,7 +88,7 @@ public class Membresias extends javax.swing.JPanel {
         txt_Ffin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
 
         com_Tipo.setBackground(new java.awt.Color(204, 0, 204));
-        com_Tipo.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        com_Tipo.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         com_Tipo.setForeground(new java.awt.Color(255, 255, 255));
         com_Tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Basica", "Premiun", "VIP" }));
         com_Tipo.addActionListener(new java.awt.event.ActionListener() {

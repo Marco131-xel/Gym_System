@@ -68,7 +68,7 @@ CREATE TABLE adicional (
   nombre TEXT NOT NULL,
   detalles TEXT,
   precio NUMERIC(12,2) NOT NULL,
-  id_entrenador INT REFERENCES empleado(id_empleado)
+  dpi_entrenador BIGINT REFERENCES empleado(dpi)
 );
 
 -- pagos
@@ -173,12 +173,12 @@ INSERT INTO membresia_tipo (nombre, descuento) VALUES
 INSERT INTO membresia (dpi_cliente, id_tipo, fecha_inicio, fecha_fin) VALUES
 (3214567890101, 1, '2025-03-01', '2025-03-31'); -- victor basica
 
-INSERT INTO adicional (nombre, detalles, precio, id_entrenador)
-VALUES
-('Clase de Spinning', 'Sesión grupal de 1 hora', 50.00, 1),
-('Clase de Yoga', 'Sesión de yoga relajante', 60.00, 2),
-('Entrenamiento Personal', '1 hora con entrenador', 120.00, 1),
-('Suplemento Proteína', 'Proteína whey sabor vainilla (1kg)', 180.00, NULL);
+INSERT INTO adicional (nombre, detalles, precio, dpi_entrenador) VALUES
+('Entrenamiento Personalizado', 'Sesión individual con entrenador certificado', 150.00, 3357975630901),
+('Suplementos Proteicos', 'Paquete mensual de proteínas y vitaminas', 250.00, NULL),
+('Clase de Yoga', 'Clase grupal de yoga todos los sábados', 75.00, 3357975630901),
+('Masaje Relajante', 'Sesión de 60 minutos de masaje terapéutico', 200.00, NULL),
+('Plan Nutricional', 'Asesoría nutricional personalizada', 120.00, NULL);
 
 
 -- Pagos de membresía (tipo servicio)
