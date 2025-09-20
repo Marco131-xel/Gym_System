@@ -49,10 +49,10 @@ public class Membresias extends javax.swing.JPanel {
         puerta.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("FreeMono", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel1.setForeground(new java.awt.Color(204, 0, 204));
         jLabel1.setText("Crear Membresia");
 
-        bt_Crear.setBackground(new java.awt.Color(255, 85, 30));
+        bt_Crear.setBackground(new java.awt.Color(0, 0, 153));
         bt_Crear.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         bt_Crear.setForeground(new java.awt.Color(255, 255, 255));
         bt_Crear.setText("crear");
@@ -64,19 +64,19 @@ public class Membresias extends javax.swing.JPanel {
         });
 
         jLabel2.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("DPI");
 
         jLabel3.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Tipo");
 
         jLabel4.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Fecha Fin");
 
         jLabel5.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Fecha Inicio");
 
         txt_Finicio.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
@@ -87,7 +87,7 @@ public class Membresias extends javax.swing.JPanel {
         txt_Ffin.setForeground(new java.awt.Color(0, 0, 0));
         txt_Ffin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
 
-        com_Tipo.setBackground(new java.awt.Color(255, 85, 30));
+        com_Tipo.setBackground(new java.awt.Color(204, 0, 204));
         com_Tipo.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
         com_Tipo.setForeground(new java.awt.Color(255, 255, 255));
         com_Tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Basica", "Premiun", "VIP" }));
@@ -102,7 +102,7 @@ public class Membresias extends javax.swing.JPanel {
         txt_DPI.setEditable(false);
         txt_DPI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
         txt_DPI.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
-        txt_DPI.setForeground(new java.awt.Color(255, 85, 30));
+        txt_DPI.setForeground(new java.awt.Color(0, 0, 0));
         txt_DPI.setFocusable(false);
         jScrollPane2.setViewportView(txt_DPI);
 
@@ -148,9 +148,8 @@ public class Membresias extends javax.swing.JPanel {
                                     .addComponent(jLabel3)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(com_Tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel5)))
-                        .addGap(22, 22, 22)))
-                .addGap(28, 28, Short.MAX_VALUE)
+                                .addComponent(jLabel5)))))
+                .addGap(50, 50, Short.MAX_VALUE)
                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, puertaLayout.createSequentialGroup()
                         .addComponent(jLabel6)

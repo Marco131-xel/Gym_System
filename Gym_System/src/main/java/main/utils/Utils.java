@@ -1,7 +1,9 @@
 package main.utils;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.SwingUtilities;
 
 /**
@@ -9,7 +11,8 @@ import javax.swing.SwingUtilities;
  * @author marco
  */
 public class Utils {
-
+    
+    // funcion para cambiar jpaneles
     public static void cambiarPanel(JPanel actual, JPanel nuevoPanel) {
         nuevoPanel.setSize(1000, 600);
         nuevoPanel.setLocation(0, 0);
@@ -23,7 +26,8 @@ public class Utils {
             frame.getContentPane().repaint();
         }
     }
-
+    
+    // funcion para mostrar jpaneles en un jpanel
     public static void mostrarPanel(JPanel puerta, JPanel p) {
         p.setSize(puerta.getSize());
         p.setSize(1000, 470);
@@ -137,5 +141,17 @@ public class Utils {
             default ->
                 "";
         };
+    }
+    
+    // funcion para seleccionar un item en una tabla
+    public static String selecDatTable(JTable tabla, int columna, String mensaje) {
+        int fila = tabla.getSelectedRow();
+        if (fila >= 0) {
+            Object valor = tabla.getValueAt(fila, columna);
+            return (valor != null) ? valor.toString() : null;
+        } else {
+            JOptionPane.showMessageDialog(null, mensaje);
+            return null;
+        }
     }
 }

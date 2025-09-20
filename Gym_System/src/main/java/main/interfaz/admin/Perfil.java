@@ -30,13 +30,13 @@ public class Perfil extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        logOut = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        bt_xd = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("FreeMono", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Gym_System 2025");
 
         jLabel2.setFont(new java.awt.Font("FreeMono", 1, 36)); // NOI18N
@@ -44,30 +44,25 @@ public class Perfil extends javax.swing.JPanel {
         jLabel2.setText("Marco Chiché");
 
         jLabel3.setFont(new java.awt.Font("FreeMono", 1, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("CUNOC-USAC");
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin.png"))); // NOI18N
 
-        logOut.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        logOut.setForeground(new java.awt.Color(255, 85, 30));
-        logOut.setText("cerrar sesion");
-        logOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        logOut.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logOutMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                logOutMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                logOutMouseExited(evt);
-            }
-        });
-
         jLabel6.setFont(new java.awt.Font("FreeMono", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 85, 30));
         jLabel6.setText("201832053");
+
+        bt_xd.setBackground(new java.awt.Color(204, 0, 0));
+        bt_xd.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
+        bt_xd.setForeground(new java.awt.Color(255, 255, 255));
+        bt_xd.setText("cerrar sesion");
+        bt_xd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_xd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_xdActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -80,17 +75,17 @@ public class Perfil extends javax.swing.JPanel {
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(363, Short.MAX_VALUE)
+                .addContainerGap(272, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(307, 307, 307))
+                        .addGap(398, 398, 398))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(363, 363, 363))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(logOut)
-                        .addContainerGap())))
+                        .addComponent(bt_xd)
+                        .addGap(16, 16, 16))))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(671, Short.MAX_VALUE)
@@ -102,9 +97,9 @@ public class Perfil extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(logOut)
-                        .addGap(78, 78, 78)
+                        .addGap(14, 14, 14)
+                        .addComponent(bt_xd)
+                        .addGap(66, 66, 66)
                         .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(89, 89, 89)
@@ -133,7 +128,7 @@ public class Perfil extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void logOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutMouseClicked
+    private void bt_xdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_xdActionPerformed
         // TODO add your handling code here:
         LoginAdmin login = new LoginAdmin();
         login.setSize(1000, 600);
@@ -147,26 +142,16 @@ public class Perfil extends javax.swing.JPanel {
             frame.getContentPane().revalidate();
             frame.getContentPane().repaint();
         }
-    }//GEN-LAST:event_logOutMouseClicked
-
-    private void logOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutMouseEntered
-        // TODO add your handling code here:
-        logOut.setForeground(new Color(242, 140, 40));
-    }//GEN-LAST:event_logOutMouseEntered
-
-    private void logOutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutMouseExited
-        // TODO add your handling code here:
-        logOut.setForeground(new Color(255, 85, 30));
-    }//GEN-LAST:event_logOutMouseExited
+    }//GEN-LAST:event_bt_xdActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bt_xd;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel logOut;
     // End of variables declaration//GEN-END:variables
 }

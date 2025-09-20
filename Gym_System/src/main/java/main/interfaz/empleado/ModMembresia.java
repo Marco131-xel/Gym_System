@@ -59,15 +59,15 @@ public class ModMembresia extends javax.swing.JPanel {
         puerta.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("FreeMono", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel1.setForeground(new java.awt.Color(204, 0, 204));
         jLabel1.setText("Modificar Membresia");
 
         jLabel2.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("ID");
 
         jLabel3.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Tipo");
 
         txt_ID.setEditable(false);
@@ -85,19 +85,19 @@ public class ModMembresia extends javax.swing.JPanel {
         jScrollPane2.setViewportView(txt_DPI);
 
         jLabel4.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("DPI");
 
-        com_Tipo.setBackground(new java.awt.Color(255, 85, 30));
+        com_Tipo.setBackground(new java.awt.Color(204, 0, 204));
         com_Tipo.setForeground(new java.awt.Color(255, 255, 255));
         com_Tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Basica", "Premiun", "VIP" }));
 
         jLabel5.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Fecha Fin");
 
         jLabel6.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Fecha Inicio");
 
         txt_FechaInicio.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
@@ -110,9 +110,9 @@ public class ModMembresia extends javax.swing.JPanel {
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/membresia.png"))); // NOI18N
 
-        bt_Mod.setBackground(new java.awt.Color(255, 85, 30));
+        bt_Mod.setBackground(new java.awt.Color(255, 255, 0));
         bt_Mod.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
-        bt_Mod.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Mod.setForeground(new java.awt.Color(0, 0, 0));
         bt_Mod.setText("modificar");
         bt_Mod.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bt_Mod.addActionListener(new java.awt.event.ActionListener() {

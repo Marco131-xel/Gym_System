@@ -37,10 +37,7 @@ public class listaEmpleado extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tab_Emp = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txt_DPI_Eli = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txt_DPI_Mod = new javax.swing.JTextField();
         bt_Eliminar = new javax.swing.JButton();
         bt_modificar = new javax.swing.JButton();
 
@@ -86,28 +83,11 @@ public class listaEmpleado extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 85, 30));
         jLabel1.setText("Lista Empleados");
 
-        jLabel2.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 85, 30));
-        jLabel2.setText("Modificar");
-
-        txt_DPI_Eli.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
-        txt_DPI_Eli.setForeground(new java.awt.Color(0, 0, 0));
-        txt_DPI_Eli.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
-
         jLabel3.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 85, 30));
-        jLabel3.setText("Eliminar");
+        jLabel3.setText("Acciones");
 
-        txt_DPI_Mod.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
-        txt_DPI_Mod.setForeground(new java.awt.Color(0, 0, 0));
-        txt_DPI_Mod.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
-        txt_DPI_Mod.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_DPI_ModActionPerformed(evt);
-            }
-        });
-
-        bt_Eliminar.setBackground(new java.awt.Color(255, 85, 30));
+        bt_Eliminar.setBackground(new java.awt.Color(204, 0, 0));
         bt_Eliminar.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         bt_Eliminar.setForeground(new java.awt.Color(255, 255, 255));
         bt_Eliminar.setText("Eliminar");
@@ -118,9 +98,9 @@ public class listaEmpleado extends javax.swing.JPanel {
             }
         });
 
-        bt_modificar.setBackground(new java.awt.Color(255, 85, 30));
+        bt_modificar.setBackground(new java.awt.Color(204, 204, 0));
         bt_modificar.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
-        bt_modificar.setForeground(new java.awt.Color(255, 255, 255));
+        bt_modificar.setForeground(new java.awt.Color(0, 0, 0));
         bt_modificar.setText("Modificar");
         bt_modificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bt_modificar.addActionListener(new java.awt.event.ActionListener() {
@@ -134,56 +114,38 @@ public class listaEmpleado extends javax.swing.JPanel {
         puertaLayout.setHorizontalGroup(
             puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(puertaLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(296, 296, 296))
-            .addGroup(puertaLayout.createSequentialGroup()
-                .addGap(141, 141, 141)
-                .addComponent(txt_DPI_Eli, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txt_DPI_Mod, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(139, 139, 139))
-            .addGroup(puertaLayout.createSequentialGroup()
-                .addGap(238, 238, 238)
-                .addComponent(bt_Eliminar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 388, Short.MAX_VALUE)
-                .addComponent(bt_modificar)
-                .addGap(119, 119, 119))
-            .addGroup(puertaLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(puertaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1)
                 .addContainerGap())
+            .addGroup(puertaLayout.createSequentialGroup()
+                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(puertaLayout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel1))
+                    .addGroup(puertaLayout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(puertaLayout.createSequentialGroup()
+                                .addComponent(bt_modificar)
+                                .addGap(18, 18, 18)
+                                .addComponent(bt_Eliminar))
+                            .addComponent(jLabel3))))
+                .addGap(296, 632, Short.MAX_VALUE))
         );
         puertaLayout.setVerticalGroup(
             puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(puertaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, puertaLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txt_DPI_Mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(100, 100, 100))
-                    .addGroup(puertaLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
-                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_DPI_Eli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bt_Eliminar)
-                            .addComponent(bt_modificar))
-                        .addContainerGap(53, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jLabel3)
+                .addGap(32, 32, 32)
+                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bt_modificar)
+                    .addComponent(bt_Eliminar))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -208,27 +170,29 @@ public class listaEmpleado extends javax.swing.JPanel {
     }
     private void bt_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_EliminarActionPerformed
         // TODO add your handling code here:
-        try {
-            long dpi = Long.parseLong(txt_DPI_Eli.getText());
+        String dpiStr = Utils.selecDatTable(tab_Emp, 0, "Seleccione un empleado en la tabla");
+        if (dpiStr != null) {
+            long dpi = Long.parseLong(dpiStr);
             int filas = dao.eliminarDPI(dpi);
 
             if (filas > 0) {
                 JOptionPane.showMessageDialog(this, "Empleado eliminado");
-                txt_DPI_Eli.setText("");
                 cargarLista();
             } else {
                 JOptionPane.showMessageDialog(this, "No se encontro un empleado con ese DPI");
             }
 
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "El DPI debe ser un numero valido");
+        } else {
+            JOptionPane.showMessageDialog(this, "Error de Accion");
+            return;
         }
     }//GEN-LAST:event_bt_EliminarActionPerformed
 
     private void bt_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_modificarActionPerformed
         // TODO add your handling code here:
-        try {
-            long mdpi = Long.parseLong(txt_DPI_Mod.getText());
+        String dpiStr = Utils.selecDatTable(tab_Emp, 0, "Seleccione un empleado en la tabla");
+        if (dpiStr != null) {
+            long mdpi = Long.parseLong(dpiStr);
             Empleado emp = dao.buscarPorDPI(mdpi);
 
             if (emp != null) {
@@ -246,14 +210,11 @@ public class listaEmpleado extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "No se encontro empleado con ese DPI");
             }
 
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "El DPI debe ser un numero valido");
+        } else {
+            JOptionPane.showMessageDialog(this, "Error de Accion");
+            return;
         }
     }//GEN-LAST:event_bt_modificarActionPerformed
-
-    private void txt_DPI_ModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_DPI_ModActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_DPI_ModActionPerformed
 
     public void cargarLista() {
         DefaultTableModel modelo = (DefaultTableModel) tab_Emp.getModel();
@@ -278,12 +239,9 @@ public class listaEmpleado extends javax.swing.JPanel {
     private javax.swing.JButton bt_Eliminar;
     private javax.swing.JButton bt_modificar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel puerta;
     private javax.swing.JTable tab_Emp;
-    private javax.swing.JTextField txt_DPI_Eli;
-    private javax.swing.JTextField txt_DPI_Mod;
     // End of variables declaration//GEN-END:variables
 }

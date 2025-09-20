@@ -32,26 +32,19 @@ public class ListaClientes extends javax.swing.JPanel {
     private void initComponents() {
 
         puerta = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tab_Cliente = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        txt_Eli = new javax.swing.JTextField();
-        txt_Mod = new javax.swing.JTextField();
         bt_Mod = new javax.swing.JButton();
         bt_Eli = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        txt_Mem = new javax.swing.JTextField();
         bt_Mem = new javax.swing.JButton();
+        bt_Asig = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         puerta.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 85, 30));
-        jLabel1.setText("Modificar");
-
-        tab_Cliente.setBackground(new java.awt.Color(255, 85, 30));
+        tab_Cliente.setBackground(new java.awt.Color(204, 0, 204));
         tab_Cliente.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
         tab_Cliente.setForeground(new java.awt.Color(255, 255, 255));
         tab_Cliente.setModel(new javax.swing.table.DefaultTableModel(
@@ -85,24 +78,12 @@ public class ListaClientes extends javax.swing.JPanel {
         }
 
         jLabel2.setFont(new java.awt.Font("FreeMono", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel2.setForeground(new java.awt.Color(204, 0, 204));
         jLabel2.setText("Lista Clientes");
 
-        jLabel3.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 85, 30));
-        jLabel3.setText("Eliminar");
-
-        txt_Eli.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
-        txt_Eli.setForeground(new java.awt.Color(0, 0, 0));
-        txt_Eli.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
-
-        txt_Mod.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
-        txt_Mod.setForeground(new java.awt.Color(0, 0, 0));
-        txt_Mod.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
-
-        bt_Mod.setBackground(new java.awt.Color(255, 85, 30));
+        bt_Mod.setBackground(new java.awt.Color(255, 255, 0));
         bt_Mod.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
-        bt_Mod.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Mod.setForeground(new java.awt.Color(0, 0, 0));
         bt_Mod.setText("Modificar");
         bt_Mod.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bt_Mod.addActionListener(new java.awt.event.ActionListener() {
@@ -111,7 +92,7 @@ public class ListaClientes extends javax.swing.JPanel {
             }
         });
 
-        bt_Eli.setBackground(new java.awt.Color(255, 85, 30));
+        bt_Eli.setBackground(new java.awt.Color(204, 0, 0));
         bt_Eli.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         bt_Eli.setForeground(new java.awt.Color(255, 255, 255));
         bt_Eli.setText("Eliminar");
@@ -123,14 +104,10 @@ public class ListaClientes extends javax.swing.JPanel {
         });
 
         jLabel4.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 85, 30));
-        jLabel4.setText("Membresia");
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Acciones");
 
-        txt_Mem.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
-        txt_Mem.setForeground(new java.awt.Color(0, 0, 0));
-        txt_Mem.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
-
-        bt_Mem.setBackground(new java.awt.Color(255, 85, 30));
+        bt_Mem.setBackground(new java.awt.Color(0, 0, 204));
         bt_Mem.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         bt_Mem.setForeground(new java.awt.Color(255, 255, 255));
         bt_Mem.setText("Membresia");
@@ -141,6 +118,21 @@ public class ListaClientes extends javax.swing.JPanel {
             }
         });
 
+        bt_Asig.setBackground(new java.awt.Color(255, 85, 30));
+        bt_Asig.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
+        bt_Asig.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Asig.setText("Asignar");
+        bt_Asig.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Asig.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_AsigActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Entrenador");
+
         javax.swing.GroupLayout puertaLayout = new javax.swing.GroupLayout(puerta);
         puerta.setLayout(puertaLayout);
         puertaLayout.setHorizontalGroup(
@@ -148,30 +140,22 @@ public class ListaClientes extends javax.swing.JPanel {
             .addGroup(puertaLayout.createSequentialGroup()
                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(puertaLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(puertaLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
                             .addGroup(puertaLayout.createSequentialGroup()
-                                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addGroup(puertaLayout.createSequentialGroup()
-                                        .addComponent(txt_Eli, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(bt_Eli)))
-                                .addGap(219, 219, 219)
-                                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(puertaLayout.createSequentialGroup()
-                                        .addComponent(txt_Mem, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(bt_Mem))
-                                    .addComponent(jLabel4)))
-                            .addComponent(jLabel1)
-                            .addGroup(puertaLayout.createSequentialGroup()
-                                .addComponent(txt_Mod, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(bt_Mod)
+                                .addGap(27, 27, 27)
+                                .addComponent(bt_Mem)
                                 .addGap(18, 18, 18)
-                                .addComponent(bt_Mod)))))
+                                .addComponent(bt_Eli)))
+                        .addGap(138, 138, 138)
+                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(bt_Asig)))
+                    .addGroup(puertaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(14, Short.MAX_VALUE))
             .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(puertaLayout.createSequentialGroup()
@@ -183,24 +167,18 @@ public class ListaClientes extends javax.swing.JPanel {
             puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(puertaLayout.createSequentialGroup()
                 .addGap(76, 76, 76)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                .addGap(53, 53, 53)
+                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_Eli, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt_Eli)
-                    .addComponent(txt_Mem, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt_Mem))
-                .addGap(31, 31, 31)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_Mod, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt_Mod))
-                .addGap(44, 44, 44))
+                    .addComponent(bt_Mod)
+                    .addComponent(bt_Mem)
+                    .addComponent(bt_Asig)
+                    .addComponent(bt_Eli))
+                .addGap(123, 123, 123))
             .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(puertaLayout.createSequentialGroup()
                     .addGap(16, 16, 16)
@@ -222,27 +200,29 @@ public class ListaClientes extends javax.swing.JPanel {
 
     private void bt_EliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_EliActionPerformed
         // TODO add your handling code here:
-        try {
-            long dpi = Long.parseLong(txt_Eli.getText());
+        String dpiStr = Utils.selecDatTable(tab_Cliente, 0, "Seleccione un cliente en la tabla");
+        if (dpiStr != null) {
+            long dpi = Long.parseLong(dpiStr);
             int filas = dao.eliminar(dpi);
 
             if (filas > 0) {
                 JOptionPane.showMessageDialog(this, "Cliente eliminado");
-                txt_Eli.setText("");
                 cargarLista();
             } else {
                 JOptionPane.showMessageDialog(this, "No se encontro un empleado con ese DPI");
             }
 
-        } catch (NumberFormatException e) {
+        } else {
             JOptionPane.showMessageDialog(this, "El DPI debe ser un numero valido");
+            return;
         }
     }//GEN-LAST:event_bt_EliActionPerformed
 
     private void bt_ModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ModActionPerformed
         // TODO add your handling code here:
-        try {
-            long mdpi = Long.parseLong(txt_Mod.getText());
+        String dpiStr = Utils.selecDatTable(tab_Cliente, 0, "Seleccione un cliente en la tabla");
+        if (dpiStr != null) {
+            long mdpi = Long.parseLong(dpiStr);
             Cliente cliente = dao.buscar(mdpi);
 
             if (cliente != null) {
@@ -258,20 +238,27 @@ public class ListaClientes extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "No se encontro empleado con ese DPI");
             }
 
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "El DPI debe ser un numero valido");
+        } else {
+            JOptionPane.showMessageDialog(this, "Error de Accion");
+            return;
         }
     }//GEN-LAST:event_bt_ModActionPerformed
 
     private void bt_MemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_MemActionPerformed
         // TODO add your handling code here:
-        try {
-            long dpi = Long.parseLong(txt_Mem.getText());
+        String dpiStr = Utils.selecDatTable(tab_Cliente, 0, "Seleccione un cliente en la tabla");
+        if (dpiStr != null) {
+            long dpi = Long.parseLong(dpiStr);
             Utils.mostrarPanel(puerta, new Membresias(dpi));
-        } catch (NumberFormatException e) {
+        } else {
             JOptionPane.showMessageDialog(this, "El DPI debe ser un numero valido");
+            return;
         }
     }//GEN-LAST:event_bt_MemActionPerformed
+
+    private void bt_AsigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AsigActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_AsigActionPerformed
     public void cargarLista() {
         DefaultTableModel modelo = (DefaultTableModel) tab_Cliente.getModel();
         modelo.setRowCount(0);
@@ -288,20 +275,17 @@ public class ListaClientes extends javax.swing.JPanel {
             });
         }
     }
-
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bt_Asig;
     private javax.swing.JButton bt_Eli;
     private javax.swing.JButton bt_Mem;
     private javax.swing.JButton bt_Mod;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel puerta;
     private javax.swing.JTable tab_Cliente;
-    private javax.swing.JTextField txt_Eli;
-    private javax.swing.JTextField txt_Mem;
-    private javax.swing.JTextField txt_Mod;
     // End of variables declaration//GEN-END:variables
 }

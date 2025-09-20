@@ -48,7 +48,7 @@ public class Recepcionista extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        barra.setBackground(new java.awt.Color(255, 85, 30));
+        barra.setBackground(new java.awt.Color(204, 0, 204));
         barra.setPreferredSize(new java.awt.Dimension(1000, 130));
         barra.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

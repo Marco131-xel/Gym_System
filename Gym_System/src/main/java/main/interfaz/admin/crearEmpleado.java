@@ -68,22 +68,22 @@ public class crearEmpleado extends javax.swing.JPanel {
         jPanel1.add(txt_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 230, 30));
 
         jLabel1.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Telefono");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Rol");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 260, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nombre");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Password");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
 
@@ -93,7 +93,7 @@ public class crearEmpleado extends javax.swing.JPanel {
         jPanel1.add(txt_Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 230, 30));
 
         jLabel5.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("DPI");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
 
@@ -103,12 +103,12 @@ public class crearEmpleado extends javax.swing.JPanel {
         jPanel1.add(txt_DPI, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 230, 30));
 
         jLabel6.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Direccion");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Sucursal");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, -1, -1));
 
@@ -168,7 +168,7 @@ public class crearEmpleado extends javax.swing.JPanel {
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 380, 190, 50));
 
         jLabel8.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Apellido");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 

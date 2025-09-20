@@ -57,39 +57,39 @@ public class modCliente extends javax.swing.JPanel {
         puerta.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("DPI");
 
         jLabel2.setFont(new java.awt.Font("FreeMono", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel2.setForeground(new java.awt.Color(204, 0, 204));
         jLabel2.setText("Modificar Cliente");
 
         txt_DPI.setEditable(false);
         txt_DPI.setBackground(new java.awt.Color(255, 255, 255));
         txt_DPI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
         txt_DPI.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
-        txt_DPI.setForeground(new java.awt.Color(255, 85, 30));
+        txt_DPI.setForeground(new java.awt.Color(0, 0, 0));
         txt_DPI.setFocusable(false);
         jScrollPane1.setViewportView(txt_DPI);
 
         jLabel3.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Direccion");
 
         jLabel4.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Nombre");
 
         jLabel5.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Apellido");
 
         jLabel6.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Password");
 
         jLabel7.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Telefono");
 
         txt_Nombre.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
@@ -118,9 +118,9 @@ public class modCliente extends javax.swing.JPanel {
             }
         });
 
-        bt_Modificar.setBackground(new java.awt.Color(255, 85, 30));
+        bt_Modificar.setBackground(new java.awt.Color(204, 204, 0));
         bt_Modificar.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
-        bt_Modificar.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Modificar.setForeground(new java.awt.Color(0, 0, 0));
         bt_Modificar.setText("modificar");
         bt_Modificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bt_Modificar.addActionListener(new java.awt.event.ActionListener() {

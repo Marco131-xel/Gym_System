@@ -48,31 +48,31 @@ public class CrearCliente extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Apellido");
 
         jLabel2.setFont(new java.awt.Font("FreeMono", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel2.setForeground(new java.awt.Color(204, 0, 204));
         jLabel2.setText("Crear Clientes");
 
         jLabel3.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("DPI");
 
         jLabel4.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Nombre");
 
         jLabel5.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Password");
 
         jLabel6.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Telefono");
 
         jLabel7.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Direccion");
 
         txt_DPI.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
@@ -99,9 +99,9 @@ public class CrearCliente extends javax.swing.JPanel {
         txt_Direccion.setForeground(new java.awt.Color(0, 0, 0));
         txt_Direccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
 
-        bt_Crear.setBackground(new java.awt.Color(255, 85, 30));
+        bt_Crear.setBackground(new java.awt.Color(0, 255, 0));
         bt_Crear.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
-        bt_Crear.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Crear.setForeground(new java.awt.Color(0, 0, 0));
         bt_Crear.setText("crear");
         bt_Crear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bt_Crear.addActionListener(new java.awt.event.ActionListener() {
@@ -111,7 +111,7 @@ public class CrearCliente extends javax.swing.JPanel {
         });
 
         estado.setEditable(false);
-        estado.setBackground(new java.awt.Color(255, 85, 30));
+        estado.setBackground(new java.awt.Color(204, 0, 204));
         estado.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         estado.setForeground(new java.awt.Color(255, 255, 255));
         estado.setFocusable(false);

@@ -38,10 +38,7 @@ public class Lista_Equipos extends javax.swing.JPanel {
         bt_Crear = new javax.swing.JButton();
         bt_Eli = new javax.swing.JButton();
         bt_Mod = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txt_Eli = new javax.swing.JTextField();
-        txt_Mod = new javax.swing.JTextField();
 
         puerta.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -81,60 +78,37 @@ public class Lista_Equipos extends javax.swing.JPanel {
             tab_Equipos.getColumnModel().getColumn(3).setMaxWidth(150);
         }
 
-        bt_Crear.setBackground(new java.awt.Color(20, 71, 230));
+        bt_Crear.setBackground(new java.awt.Color(51, 204, 0));
         bt_Crear.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
-        bt_Crear.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Crear.setForeground(new java.awt.Color(0, 0, 0));
         bt_Crear.setText("crear");
         bt_Crear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        bt_Eli.setBackground(new java.awt.Color(20, 71, 230));
+        bt_Eli.setBackground(new java.awt.Color(204, 0, 0));
         bt_Eli.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         bt_Eli.setForeground(new java.awt.Color(255, 255, 255));
         bt_Eli.setText("eliminar");
         bt_Eli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        bt_Mod.setBackground(new java.awt.Color(20, 71, 230));
+        bt_Mod.setBackground(new java.awt.Color(255, 255, 51));
         bt_Mod.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
-        bt_Mod.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Mod.setForeground(new java.awt.Color(0, 0, 0));
         bt_Mod.setText("modificar");
         bt_Mod.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jLabel2.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(20, 71, 230));
-        jLabel2.setText("Modificar");
+        bt_Mod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_ModActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(20, 71, 230));
-        jLabel3.setText("Eliminar");
-
-        txt_Eli.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        txt_Eli.setForeground(new java.awt.Color(0, 0, 0));
-        txt_Eli.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(20, 71, 230)));
-
-        txt_Mod.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        txt_Mod.setForeground(new java.awt.Color(0, 0, 0));
-        txt_Mod.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(20, 71, 230)));
+        jLabel3.setText("Acciones");
 
         javax.swing.GroupLayout puertaLayout = new javax.swing.GroupLayout(puerta);
         puerta.setLayout(puertaLayout);
         puertaLayout.setHorizontalGroup(
             puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(puertaLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(puertaLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_Eli, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
-                        .addComponent(bt_Eli))
-                    .addGroup(puertaLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_Mod, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(bt_Mod)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(puertaLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,6 +121,15 @@ public class Lista_Equipos extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bt_Crear)
                         .addGap(24, 24, 24))))
+            .addGroup(puertaLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(puertaLayout.createSequentialGroup()
+                        .addComponent(bt_Mod)
+                        .addGap(18, 18, 18)
+                        .addComponent(bt_Eli))
+                    .addComponent(jLabel3))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         puertaLayout.setVerticalGroup(
             puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,18 +140,13 @@ public class Lista_Equipos extends javax.swing.JPanel {
                     .addComponent(bt_Crear))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txt_Eli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(bt_Eli))
-                    .addComponent(jLabel3))
-                .addGap(63, 63, 63)
+                .addGap(31, 31, 31)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txt_Mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt_Mod))
-                .addContainerGap(67, Short.MAX_VALUE))
+                    .addComponent(bt_Mod)
+                    .addComponent(bt_Eli))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -182,6 +160,10 @@ public class Lista_Equipos extends javax.swing.JPanel {
             .addComponent(puerta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bt_ModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ModActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_ModActionPerformed
     
     public void cargarLista() {
         DefaultTableModel modelo = (DefaultTableModel) tab_Equipos.getModel();
@@ -203,12 +185,9 @@ public class Lista_Equipos extends javax.swing.JPanel {
     private javax.swing.JButton bt_Eli;
     private javax.swing.JButton bt_Mod;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel puerta;
     private javax.swing.JTable tab_Equipos;
-    private javax.swing.JTextField txt_Eli;
-    private javax.swing.JTextField txt_Mod;
     // End of variables declaration//GEN-END:variables
 }

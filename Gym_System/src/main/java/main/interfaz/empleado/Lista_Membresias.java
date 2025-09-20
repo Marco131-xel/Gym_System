@@ -38,16 +38,13 @@ public class Lista_Membresias extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tab_Mem = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txt_Eli = new javax.swing.JTextField();
-        txt_Mod = new javax.swing.JTextField();
         bt_Mod = new javax.swing.JButton();
         bt_Eli = new javax.swing.JButton();
 
         puerta.setBackground(new java.awt.Color(255, 255, 255));
 
-        tab_Mem.setBackground(new java.awt.Color(255, 85, 30));
+        tab_Mem.setBackground(new java.awt.Color(204, 0, 204));
         tab_Mem.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
         tab_Mem.setForeground(new java.awt.Color(255, 255, 255));
         tab_Mem.setModel(new javax.swing.table.DefaultTableModel(
@@ -72,28 +69,16 @@ public class Lista_Membresias extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tab_Mem);
 
         jLabel1.setFont(new java.awt.Font("FreeMono", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 85, 30));
+        jLabel1.setForeground(new java.awt.Color(204, 0, 204));
         jLabel1.setText("Lista de Membresias");
 
-        jLabel2.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 85, 30));
-        jLabel2.setText("Modificar");
-
         jLabel3.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 85, 30));
-        jLabel3.setText("Eliminar");
+        jLabel3.setForeground(new java.awt.Color(204, 0, 204));
+        jLabel3.setText("Acciones");
 
-        txt_Eli.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
-        txt_Eli.setForeground(new java.awt.Color(0, 0, 0));
-        txt_Eli.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
-
-        txt_Mod.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
-        txt_Mod.setForeground(new java.awt.Color(0, 0, 0));
-        txt_Mod.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
-
-        bt_Mod.setBackground(new java.awt.Color(255, 85, 30));
+        bt_Mod.setBackground(new java.awt.Color(255, 255, 0));
         bt_Mod.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
-        bt_Mod.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Mod.setForeground(new java.awt.Color(0, 0, 0));
         bt_Mod.setText("modificar");
         bt_Mod.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bt_Mod.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +87,7 @@ public class Lista_Membresias extends javax.swing.JPanel {
             }
         });
 
-        bt_Eli.setBackground(new java.awt.Color(255, 85, 30));
+        bt_Eli.setBackground(new java.awt.Color(204, 0, 0));
         bt_Eli.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         bt_Eli.setForeground(new java.awt.Color(255, 255, 255));
         bt_Eli.setText("eliminar");
@@ -129,18 +114,11 @@ public class Lista_Membresias extends javax.swing.JPanel {
                     .addGroup(puertaLayout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
                             .addGroup(puertaLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addComponent(bt_Mod)
                                 .addGap(18, 18, 18)
-                                .addComponent(txt_Eli, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(puertaLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(txt_Mod, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(44, 44, 44)
-                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bt_Mod)
-                            .addComponent(bt_Eli))
+                                .addComponent(bt_Eli)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -151,17 +129,13 @@ public class Lista_Membresias extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(32, 32, 32)
+                .addComponent(jLabel3)
+                .addGap(31, 31, 31)
                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txt_Eli, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bt_Mod)
                     .addComponent(bt_Eli))
-                .addGap(58, 58, 58)
-                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txt_Mod, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt_Mod))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -178,27 +152,27 @@ public class Lista_Membresias extends javax.swing.JPanel {
 
     private void bt_EliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_EliActionPerformed
         // TODO add your handling code here:
-        try {
-            String sId = txt_Eli.getText();
+        String sId = Utils.selecDatTable(tab_Mem, 0, "Seleccione un membresia en la tabla");
+        if (sId != null) {
             int id = Integer.parseInt(sId);
             int filas = dao.eliminar(id);
             
             if (filas > 0) {
                 JOptionPane.showMessageDialog(this, "Membresia eliminada");
-                txt_Eli.setText("");
                 cargarLista();
             } else {
                 JOptionPane.showMessageDialog(this, "No se encontro el ID de membresia");
             }
-        } catch (NumberFormatException e) {
+        } else {
             JOptionPane.showMessageDialog(this, "ID debe ser numero");
+            return;
         }
     }//GEN-LAST:event_bt_EliActionPerformed
 
     private void bt_ModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ModActionPerformed
         // TODO add your handling code here:
-        try {
-            String sId = txt_Mod.getText();
+        String sId = Utils.selecDatTable(tab_Mem, 0, "Seleccione un membresia en la tabla");
+        if (sId != null) {
             int id = Integer.parseInt(sId);
             Membresia mem = dao.buscar(id);
 
@@ -213,8 +187,9 @@ public class Lista_Membresias extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "No se encontro ID de membresia");
             }
 
-        } catch (NumberFormatException e) {
+        } else {
             JOptionPane.showMessageDialog(this, "El ID debe ser un numero");
+            return;
         }
     }//GEN-LAST:event_bt_ModActionPerformed
     public void cargarLista() {
@@ -238,12 +213,9 @@ public class Lista_Membresias extends javax.swing.JPanel {
     private javax.swing.JButton bt_Eli;
     private javax.swing.JButton bt_Mod;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel puerta;
     private javax.swing.JTable tab_Mem;
-    private javax.swing.JTextField txt_Eli;
-    private javax.swing.JTextField txt_Mod;
     // End of variables declaration//GEN-END:variables
 }

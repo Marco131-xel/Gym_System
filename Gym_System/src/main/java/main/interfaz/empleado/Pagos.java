@@ -1,7 +1,9 @@
 package main.interfaz.empleado;
 
 import javax.swing.JOptionPane;
+import main.dao.AdicionalDao;
 import main.dao.PagoDao;
+import main.models.Adicional;
 import main.models.Pago;
 
 /**
@@ -14,9 +16,11 @@ public class Pagos extends javax.swing.JPanel {
      * Creates new form Pagos
      */
     PagoDao dao = new PagoDao();
+    AdicionalDao adiDao = new AdicionalDao();
 
     public Pagos() {
         initComponents();
+        cargarAdicionales();
     }
 
     /**
@@ -45,7 +49,7 @@ public class Pagos extends javax.swing.JPanel {
         txt_FechaFin = new javax.swing.JTextField();
         bt_pagar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        txt_Adicional = new javax.swing.JTextField();
+        com_Adi = new javax.swing.JComboBox<>();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -97,6 +101,9 @@ public class Pagos extends javax.swing.JPanel {
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Adicional");
 
+        com_Adi.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
+        com_Adi.setForeground(new java.awt.Color(0, 0, 0));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -133,8 +140,8 @@ public class Pagos extends javax.swing.JPanel {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel8)
                                         .addGap(18, 18, 18)
-                                        .addComponent(txt_Adicional, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addContainerGap(235, Short.MAX_VALUE))
+                                        .addComponent(com_Adi, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addContainerGap(199, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
                         .addComponent(jLabel7)
@@ -192,20 +199,20 @@ public class Pagos extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel5)
                         .addGap(57, 57, 57)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel8)
-                            .addComponent(txt_Adicional, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(5, 5, 5)
+                            .addComponent(com_Adi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(13, 13, 13)
                         .addComponent(bt_pagar)
                         .addGap(25, 25, 25))))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(101, 101, 101)
                     .addComponent(jLabel6)
-                    .addContainerGap(344, Short.MAX_VALUE)))
+                    .addContainerGap(354, Short.MAX_VALUE)))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(301, Short.MAX_VALUE)
+                    .addContainerGap(311, Short.MAX_VALUE)
                     .addComponent(txt_FechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(133, 133, 133)))
         );
@@ -274,23 +281,15 @@ public class Pagos extends javax.swing.JPanel {
                 }
 
                 // --- Validar adicional ---
-                String adi = txt_Adicional.getText().trim();
-                if (adi.isEmpty()) {
-                    JOptionPane.showMessageDialog(this,
-                            "Debes ingresar el ID del adicional");
+                Adicional selec = (Adicional) com_Adi.getSelectedItem();
+                if (selec == null) {
+                    JOptionPane.showMessageDialog(this, "Debes seleccionar un adicional");
                     return;
                 }
 
-                Integer adicional;
-                try {
-                    adicional = Integer.parseInt(adi);
-                } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(this, "El ID del adicional debe ser un número válido");
-                    return;
-                }
-
+                int adicionalId = selec.getId();
                 // Crear pago adicional
-                Pago pago = new Pago(dpi, tipo, detalles, monton, fechaInicioSQL, adicional);
+                Pago pago = new Pago(dpi, tipo, detalles, monton, fechaInicioSQL, adicionalId);
                 dao.crear(pago);
 
             } else {
@@ -302,9 +301,16 @@ public class Pagos extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_bt_pagarActionPerformed
 
+    private void cargarAdicionales() {
+        com_Adi.removeAllItems();
+        for (Adicional adi : adiDao.listar()) {
+            com_Adi.addItem(adi);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_pagar;
+    private javax.swing.JComboBox<Adicional> com_Adi;
     private javax.swing.JComboBox<String> com_Tipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -316,7 +322,6 @@ public class Pagos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField txt_Adicional;
     private javax.swing.JTextField txt_DPI;
     private javax.swing.JTextArea txt_Detalles;
     private javax.swing.JTextField txt_FechaFin;

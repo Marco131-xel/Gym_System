@@ -99,6 +99,52 @@ CREATE TABLE inventario (
   cantidad INT NOT NULL CHECK (cantidad >= 0)
 );
 
+-- Asignacion entrenador-cliente (historial)
+CREATE TABLE entrenador_cliente (
+  id_asignacion SERIAL PRIMARY KEY,
+  dpi_entrenador INT NOT NULL REFERENCES empleado(dpi) ON DELETE RESTRICT,
+  dpi_cliente INT NOT NULL REFERENCES cliente(dpi) ON DELETE CASCADE,
+  fecha_asignacion DATE NOT NULL,
+  fecha_fin DATE
+);
+
+-- Rutinas
+CREATE TABLE rutina (
+  id_rutina SERIAL PRIMARY KEY,
+  nombre TEXT NOT NULL,
+  tipo TEXT, -- fuerza, cardio, mixto, etc.
+  fecha_inicio DATE NOT NULL,
+  dpi_entrenador INT NOT NULL REFERENCES empleado(dpi) ON DELETE RESTRICT,
+  dpi_cliente INT NOT NULL REFERENCES cliente(dpi) ON DELETE CASCADE
+);
+
+-- Ejercicios (plantilla)
+CREATE TABLE ejercicio (
+  id_ejercicio SERIAL PRIMARY KEY,
+  nombre TEXT NOT NULL,
+  series INT,
+  repeticiones INT,
+  duracion_min INT, -- minutos estimados (si aplica)
+  id_equipo INT REFERENCES equipo(id_equipo)
+);
+
+-- Relacion rutina - ejercicio (muchos a muchos)
+CREATE TABLE rutina_ejercicio (
+  id_rut_eje SERIAL PRIMARY KEY,
+  id_rutina INT NOT NULL REFERENCES rutina(id_rutina) ON DELETE CASCADE,
+  id_ejercicio INT NOT NULL REFERENCES ejercicio(id_ejercicio) ON DELETE RESTRICT,
+  orden INT NOT NULL DEFAULT 1,
+  CHECK (orden > 0)
+);
+
+-- Asistencias
+CREATE TABLE asistencia (
+  id_asistencia SERIAL PRIMARY KEY,
+  dpi_cliente INT NOT NULL REFERENCES cliente(dpi) ON DELETE CASCADE,
+  id_sucursal INT NOT NULL REFERENCES sucursal(id_sucursal) ON DELETE RESTRICT,
+  fecha_hora TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT now()
+);
+
 -- INSERTS VALUES
 
 INSERT INTO sucursal (nombre, region, cantidad_maquinas) VALUES

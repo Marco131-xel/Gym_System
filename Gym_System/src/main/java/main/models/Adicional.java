@@ -79,4 +79,8 @@ public class Adicional {
         this.dpi = dpi;
     }
     
+    @Override
+    public String toString() {
+        return nombre + " Q" + precio;
+    }
 }
