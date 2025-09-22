@@ -10,12 +10,16 @@ import javax.swing.text.AbstractDocument;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DocumentFilter;
+import main.dao.ClienteDao;
+import main.models.Cliente;
 
 /**
  *
  * @author marco
  */
 public class Utils {
+    
+    private static ClienteDao cliDao = new ClienteDao();
 
     // funcion para cambiar jpaneles
     public static void cambiarPanel(JPanel actual, JPanel nuevoPanel) {
@@ -79,6 +83,17 @@ public class Utils {
             JOptionPane.showMessageDialog(null, nombreCampo + " debe contener solo numeros");
             campo.requestFocus();
             return false;
+        }
+    }
+    
+    public static String nombreCliente(long dpi) {
+        Cliente cli = cliDao.buscar(dpi);
+        if (cli != null) {
+            String nombre = cli.getNombre();
+            String apellido = cli.getApellido();
+            return nombre + " " + apellido;
+        } else {
+            return "Desconocido";
         }
     }
 

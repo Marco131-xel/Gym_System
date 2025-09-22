@@ -44,9 +44,10 @@ public class RutinaDao {
 
         try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
 
-            stmt.setLong(1, id);
+            stmt.setInt(1, id);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
+                    rut = new Rutina();
                     rut.setId(rs.getInt("id_rutina"));
                     rut.setNombre(rs.getString("nombre"));
                     rut.setTipo(rs.getString("tipo"));
@@ -86,6 +87,33 @@ public class RutinaDao {
         return lista;
     }
 
+    // funcion para ver lista del entrenador
+    public List<Rutina> listarPorEntrenador(long dpi) {
+        List<Rutina> lista = new ArrayList<>();
+        String sql = "SELECT * FROM rutina WHERE dpi_entrenador = ?";
+
+        try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setLong(1, dpi);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    Rutina rut = new Rutina();
+                    rut.setId(rs.getInt("id_rutina"));
+                    rut.setNombre(rs.getString("nombre"));
+                    rut.setTipo(rs.getString("tipo"));
+                    rut.setFechaInicio(rs.getDate("fecha_inicio"));
+                    rut.setDpi_entrenador(rs.getLong("dpi_entrenador"));
+                    rut.setDpi_cliente(rs.getLong("dpi_cliente"));
+                    lista.add(rut);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lista;
+    }
+
     // funcion para editar
     public void actualizar(Rutina rut) {
         String sql = "UPDATE rutina SET nombre=?, tipo=?, fecha_inicio=?, "
@@ -99,7 +127,7 @@ public class RutinaDao {
             stmt.setLong(4, rut.getDpi_entrenador());
             stmt.setLong(5, rut.getDpi_cliente());
             stmt.setInt(6, rut.getId());
-            
+
             stmt.executeUpdate();
             System.out.println("actualizado");
 

@@ -4,7 +4,7 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 import main.dao.EmpleadoDao;
 import main.interfaz.Roles;
-import main.interfaz.empleado.entrenador.lista_Clientes;
+import main.interfaz.empleado.entrenador.*;
 import main.models.Empleado;
 import main.utils.Utils;
 
@@ -208,6 +208,7 @@ public class Entrenador extends javax.swing.JPanel {
 
     private void bt_RutinasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_RutinasMouseClicked
         // TODO add your handling code here:
+        Utils.mostrarPanel(puerta, new lista_Rutinas(edpi));
     }//GEN-LAST:event_bt_RutinasMouseClicked
 
     private void bt_RutinasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_RutinasMouseEntered

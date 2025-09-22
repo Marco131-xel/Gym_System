@@ -7,6 +7,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import main.dao.*;
 import main.models.*;
+import main.utils.Utils;
 
 /**
  *
@@ -20,15 +21,18 @@ public class lista_Clientes extends javax.swing.JPanel {
     
     Entrenador_ClienteDao enciDao = new Entrenador_ClienteDao();
     ClienteDao cliDao = new ClienteDao();
-      
+    
+    private long dpiE; 
     public lista_Clientes(long dpi) {
         initComponents();
         cargarLista(dpi);
-        
+        dpiE = dpi;
         JTableHeader header = tab_Clientes.getTableHeader();
         header.setBackground(Color.GREEN);
         header.setForeground(Color.black);
         header.setFont(new Font("Free Mono", Font.BOLD, 15));
+        tab_Clientes.setGridColor(Color.WHITE);
+        tab_Clientes.setShowVerticalLines(true);
     }
 
     /**
@@ -44,7 +48,7 @@ public class lista_Clientes extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tab_Clientes = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        bt_Rutina = new javax.swing.JButton();
 
         puerta.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -53,6 +57,7 @@ public class lista_Clientes extends javax.swing.JPanel {
         jLabel1.setText("Lista de Clientes");
 
         tab_Clientes.setBackground(new java.awt.Color(51, 153, 0));
+        tab_Clientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         tab_Clientes.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         tab_Clientes.setForeground(new java.awt.Color(0, 0, 0));
         tab_Clientes.setModel(new javax.swing.table.DefaultTableModel(
@@ -87,14 +92,14 @@ public class lista_Clientes extends javax.swing.JPanel {
             tab_Clientes.getColumnModel().getColumn(4).setMaxWidth(150);
         }
 
-        jButton1.setBackground(new java.awt.Color(0, 153, 0));
-        jButton1.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("rutina");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        bt_Rutina.setBackground(new java.awt.Color(0, 153, 0));
+        bt_Rutina.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
+        bt_Rutina.setForeground(new java.awt.Color(0, 0, 0));
+        bt_Rutina.setText("rutina");
+        bt_Rutina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Rutina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                bt_RutinaActionPerformed(evt);
             }
         });
 
@@ -112,7 +117,7 @@ public class lista_Clientes extends javax.swing.JPanel {
                 .addContainerGap())
             .addGroup(puertaLayout.createSequentialGroup()
                 .addGap(95, 95, 95)
-                .addComponent(jButton1)
+                .addComponent(bt_Rutina)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         puertaLayout.setVerticalGroup(
@@ -123,7 +128,7 @@ public class lista_Clientes extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(77, 77, 77)
-                .addComponent(jButton1)
+                .addComponent(bt_Rutina)
                 .addContainerGap(86, Short.MAX_VALUE))
         );
 
@@ -139,9 +144,14 @@ public class lista_Clientes extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void bt_RutinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_RutinaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        String dpiStr = Utils.selecDatTable(tab_Clientes, 1, "Seleccione un cliente en la tabla");
+        if (dpiStr != null) {
+            long dpiC = Long.parseLong(dpiStr);
+            Utils.mostrarPanel(puerta, new Rutinas(dpiE, dpiC));
+        }
+    }//GEN-LAST:event_bt_RutinaActionPerformed
     
     public void cargarLista(long dpi) {
         DefaultTableModel modelo = (DefaultTableModel) tab_Clientes.getModel();
@@ -152,26 +162,15 @@ public class lista_Clientes extends javax.swing.JPanel {
             modelo.addRow(new Object[] {
                 enCi.getAsignacion(),
                 enCi.getDpi_cliente(),
-                nombreCliente(enCi.getDpi_cliente()),
+                Utils.nombreCliente(enCi.getDpi_cliente()),
                 enCi.getFechaAsignacion(),
                 enCi.getFechaFin()
             });
         }
     }
-    
-    public String nombreCliente(long dpi) {
-        Cliente cli = cliDao.buscar(dpi);
-        if (cli != null) {
-            String nombre = cli.getNombre();
-            String apellido = cli.getApellido();
-            return nombre + " " + apellido;
-        } else {
-            return "Desconocido";
-        }
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton bt_Rutina;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel puerta;

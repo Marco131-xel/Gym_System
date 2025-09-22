@@ -1,8 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package main.interfaz.empleado.entrenador;
+
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
+import main.dao.RutinaDao;
+import main.models.Rutina;
+import main.utils.Utils;
 
 /**
  *
@@ -13,8 +16,22 @@ public class Rutinas extends javax.swing.JPanel {
     /**
      * Creates new form Rutinas
      */
-    public Rutinas() {
+    
+    RutinaDao rutDao = new RutinaDao();
+    
+    private long dpi_entrenador;
+    private long dpi_cliente;
+    private Map<String, String> rutinasMap;
+
+    public Rutinas(long dpiE, long dpiC) {
         initComponents();
+        dpi_entrenador = dpiE;
+        dpi_cliente = dpiC;
+        String strDPI = Long.toString(dpiC);
+        txt_DPIC.setText(strDPI);
+        crearRutinas();
+        llenarCombo();
+        verRutinas();
     }
 
     /**
@@ -26,19 +43,267 @@ public class Rutinas extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        puerta = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        com_Nombre = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txt_DPIC = new javax.swing.JTextPane();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txt_Tipo = new javax.swing.JTextPane();
+        jLabel5 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txt_FechaInicio = new javax.swing.JTextPane();
+        bt_Crear = new javax.swing.JButton();
+        bt_Cancelar = new javax.swing.JButton();
+
+        puerta.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("FreeMono", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 153, 0));
+        jLabel1.setText("Rutina");
+
+        jLabel2.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 153, 0));
+        jLabel2.setText("Fecha Inicio");
+
+        com_Nombre.setBackground(new java.awt.Color(51, 153, 0));
+        com_Nombre.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        com_Nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                com_NombreActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 153, 0));
+        jLabel3.setText("Nombre");
+
+        txt_DPIC.setEditable(false);
+        txt_DPIC.setBackground(new java.awt.Color(255, 255, 255));
+        txt_DPIC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 0)));
+        txt_DPIC.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        txt_DPIC.setForeground(new java.awt.Color(0, 0, 0));
+        txt_DPIC.setFocusable(false);
+        jScrollPane1.setViewportView(txt_DPIC);
+
+        jLabel4.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 153, 0));
+        jLabel4.setText("DPI Cliente");
+
+        txt_Tipo.setEditable(false);
+        txt_Tipo.setBackground(new java.awt.Color(255, 255, 255));
+        txt_Tipo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 0)));
+        txt_Tipo.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        txt_Tipo.setForeground(new java.awt.Color(0, 0, 0));
+        txt_Tipo.setFocusable(false);
+        jScrollPane2.setViewportView(txt_Tipo);
+
+        jLabel5.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 153, 0));
+        jLabel5.setText("Tipo");
+
+        txt_FechaInicio.setBackground(new java.awt.Color(255, 255, 255));
+        txt_FechaInicio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 0)));
+        txt_FechaInicio.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        txt_FechaInicio.setForeground(new java.awt.Color(0, 0, 0));
+        jScrollPane3.setViewportView(txt_FechaInicio);
+
+        bt_Crear.setBackground(new java.awt.Color(0, 204, 0));
+        bt_Crear.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
+        bt_Crear.setForeground(new java.awt.Color(0, 0, 0));
+        bt_Crear.setText("crear");
+        bt_Crear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Crear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_CrearActionPerformed(evt);
+            }
+        });
+
+        bt_Cancelar.setBackground(new java.awt.Color(204, 0, 0));
+        bt_Cancelar.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
+        bt_Cancelar.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Cancelar.setText("cancelar");
+        bt_Cancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_CancelarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout puertaLayout = new javax.swing.GroupLayout(puerta);
+        puerta.setLayout(puertaLayout);
+        puertaLayout.setHorizontalGroup(
+            puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(puertaLayout.createSequentialGroup()
+                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(puertaLayout.createSequentialGroup()
+                        .addGap(263, 263, 263)
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(puertaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addComponent(com_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(puertaLayout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(93, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, puertaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(bt_Cancelar)
+                .addGap(18, 18, 18)
+                .addComponent(bt_Crear)
+                .addGap(125, 125, 125))
+        );
+        puertaLayout.setVerticalGroup(
+            puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(puertaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(44, 44, 44)
+                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(76, 76, 76)
+                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(com_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(85, 85, 85)
+                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bt_Cancelar)
+                    .addComponent(bt_Crear))
+                .addGap(48, 48, 48))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(puerta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(puerta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void crearRutinas() {
+        rutinasMap = new HashMap<>();
+        rutinasMap.put("Rutina Fuerza Inicial", "fuerza");
+        rutinasMap.put("Cardio Básico", "cardio");
+        rutinasMap.put("Mixto Avanzado", "mixto");
+        rutinasMap.put("Full Body Express", "fuerza");
+        rutinasMap.put("HIIT Quemagrasa", "cardio");
+        rutinasMap.put("Power Building", "fuerza");
+        rutinasMap.put("Cardio Intervalos", "cardio");
+        rutinasMap.put("Fuerza Superior", "fuerza");
+        rutinasMap.put("Circuito Completo", "mixto");
+        rutinasMap.put("Running Progressivo", "cardio");
+        rutinasMap.put("Push-Pull-Legs", "fuerza");
+        rutinasMap.put("Cross Training", "mixto");
+        rutinasMap.put("Yoga Flow", "flexibilidad");
+        rutinasMap.put("Core Intenso", "fuerza");
+        rutinasMap.put("Spinning Interválico", "cardio");
+        rutinasMap.put("Full Body Toning", "mixto");
+        rutinasMap.put("Powerlifting Basics", "fuerza");
+        rutinasMap.put("Cardio Steady State", "cardio");
+        rutinasMap.put("Functional Training", "mixto");
+        rutinasMap.put("Flexibilidad Avanzada", "flexibilidad");
+    }
+    
+    private void llenarCombo() {
+        com_Nombre.removeAllItems();
+        
+        for (String nombre:rutinasMap.keySet()) {
+            com_Nombre.addItem(nombre);
+        }
+    }
+    
+    private void verRutinas() {
+        if (com_Nombre.getItemCount()>0) {
+            String rutina = (String) com_Nombre.getItemAt(0);
+            String tipo = rutinasMap.get(rutina);
+            txt_Tipo.setText(tipo);
+        }
+    }
+
+    private void bt_CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_CrearActionPerformed
+        // TODO add your handling code here:
+        String nombre = (String) com_Nombre.getSelectedItem();
+        String tipo = txt_Tipo.getText();
+        String fechaInicio = txt_FechaInicio.getText().trim();
+        
+        if (fechaInicio.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debes ingresar fecha");
+            return;
+        }
+
+        java.sql.Date fechaSQL;
+        try {
+            fechaSQL = java.sql.Date.valueOf(fechaInicio);
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(this,
+                    "Formato de fecha inválido. Usa yyyy-MM-dd");
+            return;
+        }
+        
+        Rutina rut = new Rutina(nombre, tipo, fechaSQL, dpi_entrenador, dpi_cliente);
+        rutDao.crear(rut);
+        JOptionPane.showMessageDialog(this, "Rutina Creada");
+        Utils.mostrarPanel(puerta, new lista_Clientes(dpi_entrenador));
+    }//GEN-LAST:event_bt_CrearActionPerformed
+
+    private void com_NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_com_NombreActionPerformed
+        // TODO add your handling code here:
+        if (com_Nombre.getSelectedItem() != null) {
+            String selectRutina = (String) com_Nombre.getSelectedItem();
+            String tipo = rutinasMap.get(selectRutina);
+            
+            txt_Tipo.setText(tipo);
+        }
+    }//GEN-LAST:event_com_NombreActionPerformed
+
+    private void bt_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_CancelarActionPerformed
+        // TODO add your handling code here:
+        Utils.mostrarPanel(puerta, new lista_Clientes(dpi_entrenador));
+    }//GEN-LAST:event_bt_CancelarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bt_Cancelar;
+    private javax.swing.JButton bt_Crear;
+    private javax.swing.JComboBox<String> com_Nombre;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JPanel puerta;
+    private javax.swing.JTextPane txt_DPIC;
+    private javax.swing.JTextPane txt_FechaInicio;
+    private javax.swing.JTextPane txt_Tipo;
     // End of variables declaration//GEN-END:variables
 }
