@@ -49,6 +49,8 @@ public class lista_Clientes extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tab_Clientes = new javax.swing.JTable();
         bt_Rutina = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        bt_Ver = new javax.swing.JButton();
 
         puerta.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -103,22 +105,44 @@ public class lista_Clientes extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Acciones");
+
+        bt_Ver.setBackground(new java.awt.Color(0, 204, 204));
+        bt_Ver.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
+        bt_Ver.setForeground(new java.awt.Color(0, 0, 0));
+        bt_Ver.setText("ver");
+        bt_Ver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Ver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_VerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout puertaLayout = new javax.swing.GroupLayout(puerta);
         puerta.setLayout(puertaLayout);
         puertaLayout.setHorizontalGroup(
             puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(puertaLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(puertaLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 988, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(puertaLayout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 988, Short.MAX_VALUE)))
+                    .addGroup(puertaLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(puertaLayout.createSequentialGroup()
+                                .addComponent(bt_Ver)
+                                .addGap(18, 18, 18)
+                                .addComponent(bt_Rutina)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(puertaLayout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addComponent(bt_Rutina)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         puertaLayout.setVerticalGroup(
             puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,9 +151,13 @@ public class lista_Clientes extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77)
-                .addComponent(bt_Rutina)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bt_Rutina)
+                    .addComponent(bt_Ver))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -152,6 +180,26 @@ public class lista_Clientes extends javax.swing.JPanel {
             Utils.mostrarPanel(puerta, new Rutinas(dpiE, dpiC));
         }
     }//GEN-LAST:event_bt_RutinaActionPerformed
+
+    private void bt_VerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_VerActionPerformed
+        // TODO add your handling code here:
+        String dpiStr = Utils.selecDatTable(tab_Clientes, 1, "Seleccione un cliente en la tabla");
+        if (dpiStr != null) {
+            long dpiC = Long.parseLong(dpiStr);
+            ClienteDao cliDao = new ClienteDao();
+            Cliente cli = cliDao.buscar(dpiC);
+            if (cli != null) {
+                long dpi = cli.getDpi();
+                String nombre = cli.getNombre();
+                String apellido = cli.getApellido();
+                String nombrec = nombre + " " + apellido;
+                String telefono = cli.getTelefono();
+                Utils.mostrarPanel(puerta, new VerCliente(dpiE, dpi, nombrec, telefono ));
+            } else {
+                
+            }  
+        }
+    }//GEN-LAST:event_bt_VerActionPerformed
     
     public void cargarLista(long dpi) {
         DefaultTableModel modelo = (DefaultTableModel) tab_Clientes.getModel();
@@ -171,7 +219,9 @@ public class lista_Clientes extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_Rutina;
+    private javax.swing.JButton bt_Ver;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel puerta;
     private javax.swing.JTable tab_Clientes;
