@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import main.database.DataBase;
-import main.models.Rutina_Ejercicio;
+import main.models.*;
 
 /**
  *
@@ -42,9 +42,10 @@ public class Rutina_EjercicioDao {
 
         try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
 
-            stmt.setLong(1, id);
+            stmt.setInt(1, id);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
+                    rje = new Rutina_Ejercicio();
                     rje.setId_rut_eje(rs.getInt("id_rut_eje"));
                     rje.setId_Rutina(rs.getInt("id_rutina"));
                     rje.setId_Ejercicio(rs.getInt("id_ejercicio"));
@@ -111,4 +112,70 @@ public class Rutina_EjercicioDao {
             return 0;
         }
     }
+
+    // funcion vista rutina y ejercicios
+    public List<VistaRutinaEjercicio> listarVista() {
+        List<VistaRutinaEjercicio> lista = new ArrayList<>();
+        String sql = "SELECT re.id_rut_eje, r.dpi_cliente, r.nombre AS nombre_rutina, "
+                + "r.tipo, e.nombre AS nombre_ejercicio, re.orden, r.fecha_inicio "
+                + "FROM rutina_ejercicio re "
+                + "JOIN rutina r ON re.id_rutina = r.id_rutina "
+                + "JOIN ejercicio e ON re.id_ejercicio = e.id_ejercicio "
+                + "ORDER BY r.id_rutina, re.orden";
+
+        try (Connection con = DataBase.getConnection(); Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                VistaRutinaEjercicio v = new VistaRutinaEjercicio();
+                v.setIdRutEje(rs.getInt("id_rut_eje"));
+                v.setDpiCliente(rs.getLong("dpi_cliente"));
+                v.setNombreRutina(rs.getString("nombre_rutina"));
+                v.setTipo(rs.getString("tipo"));
+                v.setNombreEjercicio(rs.getString("nombre_ejercicio"));
+                v.setOrden(rs.getInt("orden"));
+                v.setFechaInicio(rs.getDate("fecha_inicio"));
+                lista.add(v);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lista;
+    }
+
+    // funcion vista rutina y ejercicios por coach
+    public List<VistaRutinaEjercicio> listarVistaPorEntrenador(long dpi) {
+        List<VistaRutinaEjercicio> lista = new ArrayList<>();
+        String sql = "SELECT re.id_rut_eje, r.dpi_cliente, r.nombre AS nombre_rutina, "
+                + "r.tipo, e.nombre AS nombre_ejercicio, re.orden, r.fecha_inicio "
+                + "FROM rutina_ejercicio re "
+                + "JOIN rutina r ON re.id_rutina = r.id_rutina "
+                + "JOIN ejercicio e ON re.id_ejercicio = e.id_ejercicio "
+                + "WHERE r.dpi_entrenador = ? "
+                + "ORDER BY r.id_rutina, re.orden";
+
+        try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setLong(1, dpi);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    VistaRutinaEjercicio v = new VistaRutinaEjercicio();
+                    v.setIdRutEje(rs.getInt("id_rut_eje"));
+                    v.setDpiCliente(rs.getLong("dpi_cliente"));
+                    v.setNombreRutina(rs.getString("nombre_rutina"));
+                    v.setTipo(rs.getString("tipo"));
+                    v.setNombreEjercicio(rs.getString("nombre_ejercicio"));
+                    v.setOrden(rs.getInt("orden"));
+                    v.setFechaInicio(rs.getDate("fecha_inicio"));
+                    lista.add(v);
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lista;
+    }
+
 }

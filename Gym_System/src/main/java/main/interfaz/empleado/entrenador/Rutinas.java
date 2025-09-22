@@ -3,8 +3,8 @@ package main.interfaz.empleado.entrenador;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
-import main.dao.RutinaDao;
-import main.models.Rutina;
+import main.dao.*;
+import main.models.*;
 import main.utils.Utils;
 
 /**
@@ -180,10 +180,10 @@ public class Rutinas extends javax.swing.JPanel {
                 .addGap(76, 76, 76)
                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3)
-                        .addComponent(com_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(com_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(85, 85, 85)
                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
@@ -287,7 +287,7 @@ public class Rutinas extends javax.swing.JPanel {
         // TODO add your handling code here:
         Utils.mostrarPanel(puerta, new lista_Clientes(dpi_entrenador));
     }//GEN-LAST:event_bt_CancelarActionPerformed
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_Cancelar;

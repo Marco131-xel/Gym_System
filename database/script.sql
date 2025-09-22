@@ -192,19 +192,38 @@ VALUES
 (3214567890101, 'adicional', 'Clase de Spinning', 50.00, '2025-09-05', NULL, 1),
 (3214567890101, 'adicional', 'Entrenamiento Personal', 120.00, '2025-09-10', NULL, 3);
 
+
+
 INSERT INTO equipo (nombre, descripcion, tipo) VALUES
--- Máquinas
-('Caminadora ProFit 3000', 'Máquina de correr eléctrica con pantalla LCD', 'maquina'),
-('Bicicleta Spinning X200', 'Bicicleta fija profesional para spinning', 'maquina'),
-('Máquina de Pecho', 'Máquina de fuerza para press de pecho', 'maquina'),
-('Elíptica CardioMax', 'Máquina elíptica con control de resistencia', 'maquina'),
+('Banca Plana', 'Banco para press banca y ejercicios de pecho', 'maquina'),
+('Rack de Sentadillas', 'Estructura para sentadillas y peso muerto', 'maquina'),
+('Mancuernas', 'Juego de mancuernas de distintos pesos', 'otro'),
+('Cinta de Correr', 'Máquina para correr indoor', 'maquina'),
+('Bicicleta Estática', 'Cardio de bajo impacto', 'maquina'),
+('Cuerda para Saltar', 'Accesorio para cardio', 'otro'),
+('Máquina de Remo', 'Cardio y fuerza de espalda', 'maquina'),
+('Kettlebells', 'Pesas rusas de distintos tamaños', 'otro'),
+('Colchoneta Yoga', 'Accesorio para yoga y estiramientos', 'otro');
 
--- Repuestos
-('Disco Olímpico 20kg', 'Disco de acero recubierto de goma', 'repuesto'),
-('Mancuerna 10kg', 'Par de mancuernas cromadas', 'repuesto'),
-('Cuerda de Salto', 'Cuerda ajustable para entrenamiento funcional', 'repuesto'),
-
--- Otros
-('Lubricante máquinas', 'Aceite especial para mantenimiento', 'otro'),
-('Toallas Deportivas', 'Toallas de microfibra para clientes', 'otro');
+-- Fuerza (usa equipos de pesas)
+INSERT INTO ejercicio (nombre, series, repeticiones, duracion_min, id_equipo) VALUES
+('Press de Banca', 4, 10, 0, 1),
+('Sentadillas con Barra', 4, 12, 0, 2),
+('Peso Muerto', 3, 8, 0, 2),
+('Press Militar', 4, 10, 0, 1),
+('Curl de Bíceps', 3, 12, 0, 3),
+('Remo con Barra', 4, 10, 0, 2),
+('Kettlebell Swings', 4, 15, 0, 8),
+('Correr en Cinta', 0, 0, 30, 4),
+('Bicicleta Estática', 0, 0, 40, 5),
+('Saltar la Cuerda', 0, 0, 15, 6),
+('Máquina de Remo', 0, 0, 20, 7),
+('HIIT en Cinta', 0, 0, 20, 4),
+('Burpees', 5, 15, 0, NULL),
+('Plancha Abdominal', 3, 0, 2, NULL),
+('Russian Twists', 4, 20, 0, NULL),
+('Postura del Perro', 3, 0, 2, 9),
+('Postura del Guerrero', 3, 0, 2, 9),
+('Estiramiento de Cuádriceps', 3, 0, 1, 9),
+('Estiramiento de Isquiotibiales', 3, 0, 1, 9);
 

@@ -3,6 +3,7 @@ package main.interfaz.empleado.entrenador;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import main.dao.RutinaDao;
@@ -18,9 +19,10 @@ public class lista_Rutinas extends javax.swing.JPanel {
     /**
      * Creates new form lista_Rutinas
      */
-    
     RutinaDao rutDao = new RutinaDao();
     
+    private long dpi_entrenador;
+
     public lista_Rutinas(long dpi) {
         initComponents();
         JTableHeader header = tab_Rutinas.getTableHeader();
@@ -30,6 +32,7 @@ public class lista_Rutinas extends javax.swing.JPanel {
         tab_Rutinas.setShowVerticalLines(true);
         header.setFont(new Font("Free Mono", Font.BOLD, 15));
         cargarLista(dpi);
+        dpi_entrenador = dpi;
     }
 
     /**
@@ -41,12 +44,16 @@ public class lista_Rutinas extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        puerta = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tab_Rutinas = new javax.swing.JTable();
+        bt_Eliminar = new javax.swing.JButton();
+        bt_Ejercicio = new javax.swing.JButton();
+        bt_Modficiar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        puerta.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("FreeMono", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 153, 0));
@@ -88,46 +95,126 @@ public class lista_Rutinas extends javax.swing.JPanel {
             tab_Rutinas.getColumnModel().getColumn(5).setMaxWidth(150);
         }
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 967, javax.swing.GroupLayout.PREFERRED_SIZE))
+        bt_Eliminar.setBackground(new java.awt.Color(204, 0, 0));
+        bt_Eliminar.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
+        bt_Eliminar.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Eliminar.setText("eliminar");
+        bt_Eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_EliminarActionPerformed(evt);
+            }
+        });
+
+        bt_Ejercicio.setBackground(new java.awt.Color(0, 0, 204));
+        bt_Ejercicio.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
+        bt_Ejercicio.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Ejercicio.setText("ejercicio");
+        bt_Ejercicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Ejercicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_EjercicioActionPerformed(evt);
+            }
+        });
+
+        bt_Modficiar.setBackground(new java.awt.Color(255, 255, 0));
+        bt_Modficiar.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
+        bt_Modficiar.setForeground(new java.awt.Color(0, 0, 0));
+        bt_Modficiar.setText("modificar");
+        bt_Modficiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Modficiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_ModficiarActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Acciones");
+
+        javax.swing.GroupLayout puertaLayout = new javax.swing.GroupLayout(puerta);
+        puerta.setLayout(puertaLayout);
+        puertaLayout.setHorizontalGroup(
+            puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(puertaLayout.createSequentialGroup()
+                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(puertaLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 967, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(puertaLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(puertaLayout.createSequentialGroup()
+                                .addComponent(bt_Ejercicio)
+                                .addGap(18, 18, 18)
+                                .addComponent(bt_Modficiar)
+                                .addGap(18, 18, 18)
+                                .addComponent(bt_Eliminar)))))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        puertaLayout.setVerticalGroup(
+            puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(puertaLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(jLabel2)
+                .addGap(27, 27, 27)
+                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bt_Eliminar)
+                    .addComponent(bt_Ejercicio)
+                    .addComponent(bt_Modficiar))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(puerta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(puerta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bt_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_EliminarActionPerformed
+        // TODO add your handling code here:
+        String idStr = Utils.selecDatTable(tab_Rutinas, 0, "Seleccione una Rutina en la tabla");
+        if (idStr != null) {
+            int id = Integer.parseInt(idStr);
+            rutDao.eliminar(id);
+            JOptionPane.showMessageDialog(this, "Rutina eliminada");
+            cargarLista(dpi_entrenador);
+        }
+        
+    }//GEN-LAST:event_bt_EliminarActionPerformed
+
+    private void bt_EjercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_EjercicioActionPerformed
+        // TODO add your handling code here:
+        String idStr = Utils.selecDatTable(tab_Rutinas, 0, "Seleccione una Rutina en la tabla");
+        if (idStr != null) {
+            Utils.mostrarPanel(puerta, new Ejercicios(idStr, dpi_entrenador));
+        }
+    }//GEN-LAST:event_bt_EjercicioActionPerformed
+
+    private void bt_ModficiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ModficiarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_ModficiarActionPerformed
 
     public void cargarLista(long dpi) {
         DefaultTableModel modelo = (DefaultTableModel) tab_Rutinas.getModel();
         modelo.setRowCount(0);
         List<Rutina> lista = rutDao.listarPorEntrenador(dpi);
-        
+
         for (Rutina rut : lista) {
-            modelo.addRow(new Object[] {
+            modelo.addRow(new Object[]{
                 rut.getId(),
                 rut.getDpi_cliente(),
                 Utils.nombreCliente(rut.getDpi_cliente()),
@@ -137,11 +224,15 @@ public class lista_Rutinas extends javax.swing.JPanel {
             });
         }
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bt_Ejercicio;
+    private javax.swing.JButton bt_Eliminar;
+    private javax.swing.JButton bt_Modficiar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel puerta;
     private javax.swing.JTable tab_Rutinas;
     // End of variables declaration//GEN-END:variables
 }

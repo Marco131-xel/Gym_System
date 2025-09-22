@@ -46,7 +46,7 @@ public class Entrenador extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         bt_Clientes = new javax.swing.JLabel();
         bt_Rutinas = new javax.swing.JLabel();
-        bt_Asistencias = new javax.swing.JLabel();
+        bt_Ejercicios = new javax.swing.JLabel();
         puerta = new javax.swing.JPanel();
 
         setPreferredSize(new java.awt.Dimension(1000, 600));
@@ -118,22 +118,22 @@ public class Entrenador extends javax.swing.JPanel {
         });
         barra.add(bt_Rutinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 87, -1, -1));
 
-        bt_Asistencias.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        bt_Asistencias.setForeground(new java.awt.Color(255, 255, 255));
-        bt_Asistencias.setText("Asistencias");
-        bt_Asistencias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        bt_Asistencias.addMouseListener(new java.awt.event.MouseAdapter() {
+        bt_Ejercicios.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        bt_Ejercicios.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Ejercicios.setText("Ejercicios");
+        bt_Ejercicios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Ejercicios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bt_AsistenciasMouseClicked(evt);
+                bt_EjerciciosMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                bt_AsistenciasMouseEntered(evt);
+                bt_EjerciciosMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                bt_AsistenciasMouseExited(evt);
+                bt_EjerciciosMouseExited(evt);
             }
         });
-        barra.add(bt_Asistencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 87, -1, -1));
+        barra.add(bt_Ejercicios, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 87, -1, -1));
 
         jPanel1.add(barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 130));
 
@@ -221,25 +221,26 @@ public class Entrenador extends javax.swing.JPanel {
         bt_Rutinas.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_bt_RutinasMouseExited
 
-    private void bt_AsistenciasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AsistenciasMouseClicked
+    private void bt_EjerciciosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_EjerciciosMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_bt_AsistenciasMouseClicked
+        Utils.mostrarPanel(puerta, new lista_Ejercicios(edpi));
+    }//GEN-LAST:event_bt_EjerciciosMouseClicked
 
-    private void bt_AsistenciasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AsistenciasMouseEntered
+    private void bt_EjerciciosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_EjerciciosMouseEntered
         // TODO add your handling code here:
-        bt_Asistencias.setForeground(new Color(124, 207, 53));
-    }//GEN-LAST:event_bt_AsistenciasMouseEntered
+        bt_Ejercicios.setForeground(new Color(124, 207, 53));
+    }//GEN-LAST:event_bt_EjerciciosMouseEntered
 
-    private void bt_AsistenciasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AsistenciasMouseExited
+    private void bt_EjerciciosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_EjerciciosMouseExited
         // TODO add your handling code here:
-        bt_Asistencias.setForeground(new Color(255, 255, 255));
-    }//GEN-LAST:event_bt_AsistenciasMouseExited
+        bt_Ejercicios.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_bt_EjerciciosMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel barra;
-    private javax.swing.JLabel bt_Asistencias;
     private javax.swing.JLabel bt_Clientes;
+    private javax.swing.JLabel bt_Ejercicios;
     private javax.swing.JLabel bt_Rutinas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;

@@ -5,7 +5,7 @@ package main.models;
  * @author marco
  */
 public class Ejercicio {
-    
+
     private int id_ejercicio;
     private String nombre;
     private int series;
@@ -72,6 +72,20 @@ public class Ejercicio {
     public void setId_equipo(int id_equipo) {
         this.id_equipo = id_equipo;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder(nombre);
+
+        if (series > 0 && repeticiones > 0) {
+            sb.append(" - ")
+                    .append(series).append(" series de ")
+                    .append(repeticiones).append(" repeticiones");
+        } else if (duracionMin > 0) {
+            sb.append(" - ")
+                    .append(duracionMin).append(" minutos");
+        }
+
+        return sb.toString();
+    }
 }

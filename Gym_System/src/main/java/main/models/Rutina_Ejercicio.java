@@ -14,8 +14,7 @@ public class Rutina_Ejercicio {
     public Rutina_Ejercicio() {
     }
 
-    public Rutina_Ejercicio(int id_rut_eje, int id_Rutina, int id_Ejercicio, int orde) {
-        this.id_rut_eje = id_rut_eje;
+    public Rutina_Ejercicio(int id_Rutina, int id_Ejercicio, int orde) {
         this.id_Rutina = id_Rutina;
         this.id_Ejercicio = id_Ejercicio;
         this.orde = orde;
