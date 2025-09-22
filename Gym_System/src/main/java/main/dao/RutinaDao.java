@@ -116,17 +116,14 @@ public class RutinaDao {
 
     // funcion para editar
     public void actualizar(Rutina rut) {
-        String sql = "UPDATE rutina SET nombre=?, tipo=?, fecha_inicio=?, "
-                + "dpi_entrenador=?, dpi_cliente=? WHERE id_rutina=?";
+        String sql = "UPDATE rutina SET nombre=?, tipo=?, fecha_inicio=? WHERE id_rutina=?";
 
         try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
 
             stmt.setString(1, rut.getNombre());
             stmt.setString(2, rut.getTipo());
             stmt.setDate(3, rut.getFechaInicio());
-            stmt.setLong(4, rut.getDpi_entrenador());
-            stmt.setLong(5, rut.getDpi_cliente());
-            stmt.setInt(6, rut.getId());
+            stmt.setInt(4, rut.getId());
 
             stmt.executeUpdate();
             System.out.println("actualizado");

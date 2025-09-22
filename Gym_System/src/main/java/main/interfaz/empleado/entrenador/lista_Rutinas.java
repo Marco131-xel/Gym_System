@@ -2,6 +2,7 @@ package main.interfaz.empleado.entrenador;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.sql.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -206,6 +207,20 @@ public class lista_Rutinas extends javax.swing.JPanel {
 
     private void bt_ModficiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ModficiarActionPerformed
         // TODO add your handling code here:
+        String idStr = Utils.selecDatTable(tab_Rutinas, 0, "Seleccione una Rutina en la tabla");
+        if (idStr != null) {
+            int id = Integer.parseInt(idStr);
+            Rutina rut = rutDao.buscar(id);
+            if (rut != null) {
+                String nombre = rut.getNombre();
+                String tipo = rut.getTipo();
+                Date fechaInicio = rut.getFechaInicio();
+                long dpi_cliente = rut.getDpi_cliente();
+                Utils.mostrarPanel(puerta, new modRutina(id, nombre, tipo, fechaInicio, dpi_cliente, dpi_entrenador));
+            } else {
+                JOptionPane.showMessageDialog(this, "Error Rutina");
+            }
+        }
     }//GEN-LAST:event_bt_ModficiarActionPerformed
 
     public void cargarLista(long dpi) {

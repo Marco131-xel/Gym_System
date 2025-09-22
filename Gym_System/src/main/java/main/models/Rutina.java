@@ -26,6 +26,13 @@ public class Rutina {
         this.dpi_cliente = dpi_cliente;
     }
 
+    public Rutina(int id, String nombre, String tipo, Date fechaInicio) {
+        this.id = id;
+        this.nombre = nombre;
+        this.tipo = tipo;
+        this.fechaInicio = fechaInicio;
+    }
+    
     public int getId() {
         return id;
     }
