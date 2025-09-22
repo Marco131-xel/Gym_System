@@ -235,13 +235,14 @@ public class LoginEmpleado extends javax.swing.JPanel {
         
         if (emp != null) {
             int logRol = emp.getIdRol();
+            long dpi = emp.getDpi();
             if (logRol == rol) {
                 switch (logRol) {
                     case 1:
                         Utils.cambiarPanel(this, new Recepcionista(usuario));
                         break;
                     case 2:
-                        Utils.cambiarPanel(this, new Entrenador(usuario));
+                        Utils.cambiarPanel(this, new Entrenador(usuario, dpi));
                         break;
                     case 3:
                         Utils.cambiarPanel(this, new Inventario(usuario));

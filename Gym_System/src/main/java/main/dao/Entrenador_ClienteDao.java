@@ -46,6 +46,7 @@ public class Entrenador_ClienteDao {
             stmt.setInt(1, asignacion);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
+                    ec = new Entrenador_Cliente();
                     ec.setAsignacion(rs.getInt("id_asignacino"));
                     ec.setDpi_entrenador(rs.getLong("dpi_entrenador"));
                     ec.setDpi_cliente(rs.getLong("dpi_cliente"));
@@ -83,6 +84,31 @@ public class Entrenador_ClienteDao {
         return lista;
     }
 
+    // Listar clientes de un entrenador
+    public List<Entrenador_Cliente> listarPorEntrenador(long dpi) {
+        List<Entrenador_Cliente> lista = new ArrayList<>();
+        String sql = "SELECT * FROM entrenador_cliente WHERE dpi_entrenador = ?";
+
+        try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setLong(1, dpi);
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    Entrenador_Cliente ec = new Entrenador_Cliente();
+                    ec.setAsignacion(rs.getInt("id_asignacion"));
+                    ec.setDpi_entrenador(rs.getLong("dpi_entrenador"));
+                    ec.setDpi_cliente(rs.getLong("dpi_cliente"));
+                    ec.setFechaAsignacion(rs.getDate("fecha_asignacion"));
+                    ec.setFechaFin(rs.getDate("fecha_fin"));
+                    lista.add(ec);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lista;
+    }
+
     // funcion para editar
     public void actualizar(Entrenador_Cliente ec) {
         String sql = "UPDATE entrenador_cliente SET dpi_entrenador=?, dpi_cliente=?, "
@@ -95,7 +121,7 @@ public class Entrenador_ClienteDao {
             stmt.setDate(3, ec.getFechaAsignacion());
             stmt.setDate(4, ec.getFechaFin());
             stmt.setInt(5, ec.getAsignacion());
-            
+
             stmt.executeUpdate();
             System.out.println("actualizado");
 

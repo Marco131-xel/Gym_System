@@ -229,6 +229,8 @@ public class Asignar extends javax.swing.JPanel {
         
         Entrenador_Cliente enCi = new Entrenador_Cliente(dpi_entrenador, dpi_cliente, fechaInicioSQL, fechaFinSQL);
         enCiDao.crear(enCi);
+        JOptionPane.showMessageDialog(this, "Asignacion Creada");
+        Utils.mostrarPanel(puerta, new ListaClientes());
     }//GEN-LAST:event_bt_AsignarActionPerformed
 
     private void com_CoachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_com_CoachActionPerformed

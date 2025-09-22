@@ -1,8 +1,10 @@
 package main.interfaz.empleado;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import main.dao.EmpleadoDao;
 import main.interfaz.Roles;
+import main.interfaz.empleado.entrenador.lista_Clientes;
 import main.models.Empleado;
 import main.utils.Utils;
 
@@ -18,10 +20,14 @@ public class Entrenador extends javax.swing.JPanel {
     
     EmpleadoDao dao = new EmpleadoDao();
     
-    public Entrenador(String usuario) {
+    private long edpi;
+    
+    public Entrenador(String usuario, long dpi) {
         initComponents();
+        edpi = dpi;
         txtUser.setText("");
         txtUser.setText(usuario);
+        Utils.mostrarPanel(puerta, new lista_Clientes(edpi));
     }
 
     /**
@@ -49,7 +55,7 @@ public class Entrenador extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        barra.setBackground(new java.awt.Color(0, 204, 0));
+        barra.setBackground(new java.awt.Color(51, 153, 0));
         barra.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
@@ -177,22 +183,27 @@ public class Entrenador extends javax.swing.JPanel {
 
     private void txtUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUserMouseEntered
         // TODO add your handling code here:
+        txtUser.setForeground(new Color(124, 207, 53));
     }//GEN-LAST:event_txtUserMouseEntered
 
     private void txtUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUserMouseExited
         // TODO add your handling code here:
+        txtUser.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_txtUserMouseExited
 
     private void bt_ClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ClientesMouseClicked
         // TODO add your handling code here:
+        Utils.mostrarPanel(puerta, new lista_Clientes(edpi));
     }//GEN-LAST:event_bt_ClientesMouseClicked
 
     private void bt_ClientesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ClientesMouseExited
         // TODO add your handling code here:
+        bt_Clientes.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_bt_ClientesMouseExited
 
     private void bt_ClientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ClientesMouseEntered
         // TODO add your handling code here:
+        bt_Clientes.setForeground(new Color(124, 207, 53));
     }//GEN-LAST:event_bt_ClientesMouseEntered
 
     private void bt_RutinasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_RutinasMouseClicked
@@ -201,10 +212,12 @@ public class Entrenador extends javax.swing.JPanel {
 
     private void bt_RutinasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_RutinasMouseEntered
         // TODO add your handling code here:
+        bt_Rutinas.setForeground(new Color(124, 207, 53));
     }//GEN-LAST:event_bt_RutinasMouseEntered
 
     private void bt_RutinasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_RutinasMouseExited
         // TODO add your handling code here:
+        bt_Rutinas.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_bt_RutinasMouseExited
 
     private void bt_AsistenciasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AsistenciasMouseClicked
@@ -213,10 +226,12 @@ public class Entrenador extends javax.swing.JPanel {
 
     private void bt_AsistenciasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AsistenciasMouseEntered
         // TODO add your handling code here:
+        bt_Asistencias.setForeground(new Color(124, 207, 53));
     }//GEN-LAST:event_bt_AsistenciasMouseEntered
 
     private void bt_AsistenciasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AsistenciasMouseExited
         // TODO add your handling code here:
+        bt_Asistencias.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_bt_AsistenciasMouseExited
 
 
