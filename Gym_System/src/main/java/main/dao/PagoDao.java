@@ -54,9 +54,10 @@ public class PagoDao {
         Pago pago = null;
         try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
 
-            stmt.setLong(1, id);
+            stmt.setInt(1, id);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
+                    pago = new Pago();
                     pago.setId(rs.getInt("id_pago"));
                     pago.setDpi(rs.getLong("dpi_cliente"));
                     pago.setTipo(rs.getString("tipo"));
@@ -108,7 +109,7 @@ public class PagoDao {
     public int eliminar(int id) {
         String sql = "DELETE FROM pago WHERE id_pago=?";
         try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
-            stmt.setLong(1, id);
+            stmt.setInt(1, id);
             System.out.println("pago eliminado");
             return stmt.executeUpdate();
         } catch (SQLException e) {

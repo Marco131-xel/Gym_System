@@ -1,8 +1,11 @@
 package main.interfaz.empleado;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import main.dao.ClienteDao;
 import main.models.Cliente;
 import main.utils.Utils;
@@ -19,6 +22,12 @@ public class ListaClientes extends javax.swing.JPanel {
     ClienteDao dao = new ClienteDao();
     public ListaClientes() {
         initComponents();
+        JTableHeader header = tab_Cliente.getTableHeader();
+        header.setBackground(Color.MAGENTA);
+        header.setForeground(Color.black);
+        tab_Cliente.setGridColor(Color.WHITE);
+        tab_Cliente.setShowVerticalLines(true);
+        header.setFont(new Font("Free Mono", Font.BOLD, 15));
         cargarLista();
     }
 

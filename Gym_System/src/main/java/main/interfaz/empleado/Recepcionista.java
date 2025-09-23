@@ -97,7 +97,7 @@ public class Recepcionista extends javax.swing.JPanel {
                 bt_ListaClientesMouseExited(evt);
             }
         });
-        barra.add(bt_ListaClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, -1, -1));
+        barra.add(bt_ListaClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, -1, -1));
 
         bt_CrearCliente.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         bt_CrearCliente.setForeground(new java.awt.Color(255, 255, 255));
@@ -131,7 +131,7 @@ public class Recepcionista extends javax.swing.JPanel {
                 bt_PagosMouseExited(evt);
             }
         });
-        barra.add(bt_Pagos, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, -1, 20));
+        barra.add(bt_Pagos, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 90, -1, 20));
 
         bt_membresias.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         bt_membresias.setForeground(new java.awt.Color(255, 255, 255));
@@ -148,7 +148,7 @@ public class Recepcionista extends javax.swing.JPanel {
                 bt_membresiasMouseExited(evt);
             }
         });
-        barra.add(bt_membresias, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, -1, -1));
+        barra.add(bt_membresias, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, -1, -1));
 
         bt_Asistencias.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         bt_Asistencias.setForeground(new java.awt.Color(255, 255, 255));
@@ -165,7 +165,7 @@ public class Recepcionista extends javax.swing.JPanel {
                 bt_AsistenciasMouseExited(evt);
             }
         });
-        barra.add(bt_Asistencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, -1));
+        barra.add(bt_Asistencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, -1, -1));
 
         jPanel1.add(barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 130));
 
@@ -294,6 +294,7 @@ public class Recepcionista extends javax.swing.JPanel {
 
     private void bt_AsistenciasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AsistenciasMouseClicked
         // TODO add your handling code here:
+        Utils.mostrarPanel(puerta, new lista_Asistencias());
     }//GEN-LAST:event_bt_AsistenciasMouseClicked
 
     private void bt_AsistenciasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AsistenciasMouseEntered

@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import main.database.DataBase;
 import main.models.Asistencia;
@@ -25,7 +26,11 @@ public class AsistenciaDao {
 
             stmt.setLong(1, asi.getDpi_cliente());
             stmt.setInt(2, asi.getId_sucursal());
-            stmt.setDate(3, asi.getFecha_hora());
+            if (asi.getFecha_hora() != null) {
+                stmt.setTimestamp(3, asi.getFecha_hora());
+            } else {
+                stmt.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
+            }
 
             stmt.executeUpdate();
             System.out.println("creado");
@@ -45,10 +50,11 @@ public class AsistenciaDao {
             stmt.setLong(1, id);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
+                    asi = new Asistencia();
                     asi.setId(rs.getInt("id_asistencia"));
                     asi.setDpi_cliente(rs.getLong("dpi_cliente"));
                     asi.setId_sucursal(rs.getInt("id_sucursal"));
-                    asi.setFecha_hora(rs.getDate("fecha_hora"));
+                    asi.setFecha_hora(rs.getTimestamp("fecha_hora"));
                 }
             }
         } catch (SQLException e) {
@@ -70,7 +76,7 @@ public class AsistenciaDao {
                 asi.setId(rs.getInt("id_asistencia"));
                 asi.setDpi_cliente(rs.getLong("dpi_cliente"));
                 asi.setId_sucursal(rs.getInt("id_sucursal"));
-                asi.setFecha_hora(rs.getDate("fecha_hora"));
+                asi.setFecha_hora(rs.getTimestamp("fecha_hora"));
                 lista.add(asi);
             }
 
@@ -89,7 +95,7 @@ public class AsistenciaDao {
 
             stmt.setLong(1, asi.getDpi_cliente());
             stmt.setInt(2, asi.getId_sucursal());
-            stmt.setDate(3, asi.getFecha_hora());
+            stmt.setTimestamp(3, asi.getFecha_hora());
             stmt.setInt(4, asi.getId());
 
             stmt.executeUpdate();

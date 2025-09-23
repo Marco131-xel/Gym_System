@@ -1,9 +1,12 @@
 package main.interfaz.empleado;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.sql.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import main.dao.MembresiasDao;
 import main.models.Membresia;
 import main.models.MembresiaDetalle;
@@ -22,6 +25,12 @@ public class Lista_Membresias extends javax.swing.JPanel {
 
     public Lista_Membresias() {
         initComponents();
+        JTableHeader header = tab_Mem.getTableHeader();
+        header.setBackground(Color.MAGENTA);
+        header.setForeground(Color.black);
+        tab_Mem.setGridColor(Color.WHITE);
+        tab_Mem.setShowVerticalLines(true);
+        header.setFont(new Font("Free Mono", Font.BOLD, 15));
         cargarLista();
     }
 
@@ -76,7 +85,7 @@ public class Lista_Membresias extends javax.swing.JPanel {
         jLabel1.setText("Lista de Membresias");
 
         jLabel3.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 0, 204));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Acciones");
 
         bt_Mod.setBackground(new java.awt.Color(255, 255, 0));
@@ -102,7 +111,7 @@ public class Lista_Membresias extends javax.swing.JPanel {
         });
 
         jLabel2.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 0, 204));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Servicios");
 
         bt_Asi.setBackground(new java.awt.Color(0, 255, 0));
@@ -192,7 +201,7 @@ public class Lista_Membresias extends javax.swing.JPanel {
 
     private void bt_EliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_EliActionPerformed
         // TODO add your handling code here:
-        String sId = Utils.selecDatTable(tab_Mem, 0, "Seleccione un membresia en la tabla");
+        String sId = Utils.selecDatTable(tab_Mem, 0, "Seleccione la membresia en la tabla");
         if (sId != null) {
             int id = Integer.parseInt(sId);
             int filas = dao.eliminar(id);
@@ -208,7 +217,7 @@ public class Lista_Membresias extends javax.swing.JPanel {
 
     private void bt_ModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ModActionPerformed
         // TODO add your handling code here:
-        String sId = Utils.selecDatTable(tab_Mem, 0, "Seleccione un membresia en la tabla");
+        String sId = Utils.selecDatTable(tab_Mem, 0, "Seleccione la membresia en la tabla");
         if (sId != null) {
             int id = Integer.parseInt(sId);
             Membresia mem = dao.buscar(id);
@@ -228,6 +237,11 @@ public class Lista_Membresias extends javax.swing.JPanel {
 
     private void bt_AsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AsiActionPerformed
         // TODO add your handling code here:
+        String dpiStr = Utils.selecDatTable(tab_Mem, 1, "Seleccione el DPI en la tabla");
+        if (dpiStr != null) {
+            long dpi = Long.parseLong(dpiStr);
+            Utils.mostrarPanel(puerta, new Asistencias(dpi));
+        } 
     }//GEN-LAST:event_bt_AsiActionPerformed
 
     private void bt_PagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_PagosActionPerformed

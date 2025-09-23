@@ -1,6 +1,6 @@
 package main.models;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  *
@@ -11,13 +11,12 @@ public class Asistencia {
     private int id;
     private long dpi_cliente;
     private int id_sucursal;
-    private Date fecha_hora;
+    private Timestamp fecha_hora;
 
     public Asistencia() {
     }
 
-    public Asistencia(int id, long dpi_cliente, int id_sucursal, Date fecha_hora) {
-        this.id = id;
+    public Asistencia(long dpi_cliente, int id_sucursal, Timestamp fecha_hora) {
         this.dpi_cliente = dpi_cliente;
         this.id_sucursal = id_sucursal;
         this.fecha_hora = fecha_hora;
@@ -47,11 +46,11 @@ public class Asistencia {
         this.id_sucursal = id_sucursal;
     }
 
-    public Date getFecha_hora() {
+    public Timestamp getFecha_hora() {
         return fecha_hora;
     }
 
-    public void setFecha_hora(Date fecha_hora) {
+    public void setFecha_hora(Timestamp fecha_hora) {
         this.fecha_hora = fecha_hora;
     }
     

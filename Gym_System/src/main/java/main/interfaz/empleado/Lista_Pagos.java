@@ -1,7 +1,11 @@
 package main.interfaz.empleado;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import main.dao.*;
 import main.models.*;
 import main.utils.Utils;
@@ -21,6 +25,12 @@ public class Lista_Pagos extends javax.swing.JPanel {
 
     public Lista_Pagos() {
         initComponents();
+        JTableHeader header = tab_Pagos.getTableHeader();
+        header.setBackground(Color.MAGENTA);
+        header.setForeground(Color.black);
+        tab_Pagos.setGridColor(Color.WHITE);
+        tab_Pagos.setShowVerticalLines(true);
+        header.setFont(new Font("Free Mono", Font.BOLD, 15));
         cargarLista();
     }
 
@@ -39,6 +49,7 @@ public class Lista_Pagos extends javax.swing.JPanel {
         tab_Pagos = new javax.swing.JTable();
         bt_Eliminar = new javax.swing.JButton();
         bt_Detalles = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         puerta.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -89,12 +100,26 @@ public class Lista_Pagos extends javax.swing.JPanel {
         bt_Eliminar.setForeground(new java.awt.Color(255, 255, 255));
         bt_Eliminar.setText("eliminar");
         bt_Eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_EliminarActionPerformed(evt);
+            }
+        });
 
         bt_Detalles.setBackground(new java.awt.Color(0, 204, 204));
         bt_Detalles.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         bt_Detalles.setForeground(new java.awt.Color(0, 0, 0));
         bt_Detalles.setText("detalles");
         bt_Detalles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Detalles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_DetallesActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Acciones");
 
         javax.swing.GroupLayout puertaLayout = new javax.swing.GroupLayout(puerta);
         puerta.setLayout(puertaLayout);
@@ -109,9 +134,12 @@ public class Lista_Pagos extends javax.swing.JPanel {
                             .addComponent(jLabel1)))
                     .addGroup(puertaLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addComponent(bt_Detalles)
-                        .addGap(18, 18, 18)
-                        .addComponent(bt_Eliminar)))
+                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(puertaLayout.createSequentialGroup()
+                                .addComponent(bt_Detalles)
+                                .addGap(18, 18, 18)
+                                .addComponent(bt_Eliminar)))))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         puertaLayout.setVerticalGroup(
@@ -121,11 +149,13 @@ public class Lista_Pagos extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addGap(31, 31, 31)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bt_Detalles)
                     .addComponent(bt_Eliminar))
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -139,6 +169,21 @@ public class Lista_Pagos extends javax.swing.JPanel {
             .addComponent(puerta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bt_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_EliminarActionPerformed
+        // TODO add your handling code here:
+        String idStr = Utils.selecDatTable(tab_Pagos, 0, "Seleccione el ID en la tabla");
+        if (idStr != null) {
+            int id = Integer.parseInt(idStr);
+            dao.eliminar(id);
+            JOptionPane.showMessageDialog(this, "Pago eliminada");
+            cargarLista();
+        }
+    }//GEN-LAST:event_bt_EliminarActionPerformed
+
+    private void bt_DetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_DetallesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_DetallesActionPerformed
 
     public void cargarLista() {
         DefaultTableModel modelo = (DefaultTableModel) tab_Pagos.getModel();
@@ -182,6 +227,7 @@ public class Lista_Pagos extends javax.swing.JPanel {
     private javax.swing.JButton bt_Detalles;
     private javax.swing.JButton bt_Eliminar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel puerta;
     private javax.swing.JTable tab_Pagos;
