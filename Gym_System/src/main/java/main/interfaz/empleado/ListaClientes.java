@@ -55,7 +55,7 @@ public class ListaClientes extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "DPI", "Nombre", "Apellido", "Password", "Telefono", "Direccion"
+                "DPI", "Nombre", "Apellido", "Telefono", "Direccion", "Entrenador"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -265,9 +265,9 @@ public class ListaClientes extends javax.swing.JPanel {
                 cliente.getDpi(),
                 cliente.getNombre(),
                 cliente.getApellido(),
-                cliente.getPassword(),
                 cliente.getTelefono(),
                 cliente.getDireccion(),
+                Utils.clienteEntrenador(cliente.getDpi())
             });
         }
     }

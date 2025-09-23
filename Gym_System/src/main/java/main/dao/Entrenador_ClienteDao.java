@@ -47,7 +47,33 @@ public class Entrenador_ClienteDao {
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     ec = new Entrenador_Cliente();
-                    ec.setAsignacion(rs.getInt("id_asignacino"));
+                    ec.setAsignacion(rs.getInt("id_asignacion"));
+                    ec.setDpi_entrenador(rs.getLong("dpi_entrenador"));
+                    ec.setDpi_cliente(rs.getLong("dpi_cliente"));
+                    ec.setFechaAsignacion(rs.getDate("fecha_asignacion"));
+                    ec.setFechaFin(rs.getDate("fecha_fin"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return ec;
+    }
+
+    // funcion para buscar por DPI del cliente
+    public Entrenador_Cliente buscarPorCliente(long dpiCliente) {
+        String sql = "SELECT * FROM entrenador_cliente WHERE dpi_cliente=?";
+        Entrenador_Cliente ec = null;
+
+        try (Connection con = DataBase.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setLong(1, dpiCliente);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    ec = new Entrenador_Cliente();
+                    ec.setAsignacion(rs.getInt("id_asignacion"));
                     ec.setDpi_entrenador(rs.getLong("dpi_entrenador"));
                     ec.setDpi_cliente(rs.getLong("dpi_cliente"));
                     ec.setFechaAsignacion(rs.getDate("fecha_asignacion"));

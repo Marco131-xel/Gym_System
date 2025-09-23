@@ -71,14 +71,14 @@ public class ModMembresia extends javax.swing.JPanel {
         jLabel3.setText("Tipo");
 
         txt_ID.setEditable(false);
-        txt_ID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
+        txt_ID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 204)));
         txt_ID.setFont(new java.awt.Font("FreeMono", 1, 20)); // NOI18N
         txt_ID.setForeground(new java.awt.Color(0, 0, 0));
         txt_ID.setFocusable(false);
         jScrollPane1.setViewportView(txt_ID);
 
         txt_DPI.setEditable(false);
-        txt_DPI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
+        txt_DPI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 204)));
         txt_DPI.setFont(new java.awt.Font("FreeMono", 1, 20)); // NOI18N
         txt_DPI.setForeground(new java.awt.Color(0, 0, 0));
         txt_DPI.setFocusable(false);
@@ -103,11 +103,11 @@ public class ModMembresia extends javax.swing.JPanel {
 
         txt_FechaInicio.setFont(new java.awt.Font("FreeMono", 1, 20)); // NOI18N
         txt_FechaInicio.setForeground(new java.awt.Color(0, 0, 0));
-        txt_FechaInicio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
+        txt_FechaInicio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 204)));
 
         txt_FechaFin.setFont(new java.awt.Font("FreeMono", 1, 20)); // NOI18N
         txt_FechaFin.setForeground(new java.awt.Color(0, 0, 0));
-        txt_FechaFin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
+        txt_FechaFin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 204)));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/membresia.png"))); // NOI18N
 

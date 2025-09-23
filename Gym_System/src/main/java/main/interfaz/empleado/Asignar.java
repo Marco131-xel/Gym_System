@@ -245,9 +245,10 @@ public class Asignar extends javax.swing.JPanel {
     private void cargarCoach() {
         com_Coach.removeAllItems();
         List<Empleado> lista = dao.listar();
+        int sucursal = Utils.datosEmpleado(Recepcionista.usuario);
         
         for (Empleado emp : lista) {
-            if (emp.getIdRol() == 2) {
+            if (emp.getIdRol() == 2 && emp.getIdSucursal() == sucursal) {
                 com_Coach.addItem(emp);
             }
         }

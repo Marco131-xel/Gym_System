@@ -81,7 +81,7 @@ public class CrearCliente extends javax.swing.JPanel {
 
         txt_DPI.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         txt_DPI.setForeground(new java.awt.Color(0, 0, 0));
-        txt_DPI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
+        txt_DPI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 204)));
         txt_DPI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_DPIActionPerformed(evt);
@@ -90,23 +90,23 @@ public class CrearCliente extends javax.swing.JPanel {
 
         txt_Nombre.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         txt_Nombre.setForeground(new java.awt.Color(0, 0, 0));
-        txt_Nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
+        txt_Nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 204)));
 
         txt_Apellido.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         txt_Apellido.setForeground(new java.awt.Color(0, 0, 0));
-        txt_Apellido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
+        txt_Apellido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 204)));
 
         txt_Password.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         txt_Password.setForeground(new java.awt.Color(0, 0, 0));
-        txt_Password.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
+        txt_Password.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 204)));
 
         txt_Telefono.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         txt_Telefono.setForeground(new java.awt.Color(0, 0, 0));
-        txt_Telefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
+        txt_Telefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 204)));
 
         txt_Direccion.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         txt_Direccion.setForeground(new java.awt.Color(0, 0, 0));
-        txt_Direccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
+        txt_Direccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 204)));
 
         bt_Crear.setBackground(new java.awt.Color(0, 255, 0));
         bt_Crear.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N

@@ -15,7 +15,6 @@ public class Membresias extends javax.swing.JPanel {
     /**
      * Creates new form Membresia
      */
-
     public Membresias(long dpi) {
         initComponents();
         String strDPI = Long.toString(dpi);
@@ -81,11 +80,11 @@ public class Membresias extends javax.swing.JPanel {
 
         txt_Finicio.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         txt_Finicio.setForeground(new java.awt.Color(0, 0, 0));
-        txt_Finicio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
+        txt_Finicio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 204)));
 
         txt_Ffin.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         txt_Ffin.setForeground(new java.awt.Color(0, 0, 0));
-        txt_Ffin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
+        txt_Ffin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 204)));
 
         com_Tipo.setBackground(new java.awt.Color(204, 0, 204));
         com_Tipo.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
@@ -100,7 +99,7 @@ public class Membresias extends javax.swing.JPanel {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/membresia.png"))); // NOI18N
 
         txt_DPI.setEditable(false);
-        txt_DPI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
+        txt_DPI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 204)));
         txt_DPI.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         txt_DPI.setForeground(new java.awt.Color(0, 0, 0));
         txt_DPI.setFocusable(false);
@@ -217,13 +216,28 @@ public class Membresias extends javax.swing.JPanel {
             String tipo = (String) com_Tipo.getSelectedItem();
             String fecha_Inicio = txt_Finicio.getText();
             String fecha_Fin = txt_Ffin.getText();
-            
+
             int idTipo = Utils.obtenerIdTipo(tipo);
+
+            if (fecha_Inicio.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Debes ingresar fecha de inicio");
+                return;
+            }
+            if (fecha_Fin.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Debes ingresar fecha de fin");
+                return;
+            }
+            java.sql.Date fechaInicioSQL;
+            java.sql.Date fechaFinSQL;
+            try {
+                fechaInicioSQL = java.sql.Date.valueOf(fecha_Inicio);
+                fechaFinSQL = java.sql.Date.valueOf(fecha_Fin);
+            } catch (IllegalArgumentException e) {
+                JOptionPane.showMessageDialog(this,
+                        "Formato de fecha inválido. Usa yyyy-MM-dd");
+                return;
+            }
             
-            java.sql.Date fechaInicioSQL = java.sql.Date.valueOf(fecha_Inicio);
-            java.sql.Date fechaFinSQL = java.sql.Date.valueOf(fecha_Fin);
-           
-            System.out.println(dpi + " " + idTipo + " " + fechaInicioSQL + " " + fechaFinSQL);
             Membresia mem = new Membresia(dpi, idTipo, fechaInicioSQL, fechaFinSQL);
             MembresiasDao dao = new MembresiasDao();
             dao.crear(mem);

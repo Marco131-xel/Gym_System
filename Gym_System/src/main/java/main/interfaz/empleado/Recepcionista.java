@@ -17,11 +17,14 @@ public class Recepcionista extends javax.swing.JPanel {
      * Creates new form Recepcionista
      */
     EmpleadoDao dao = new EmpleadoDao();
+    
+    public static String usuario;
 
     public Recepcionista(String user) {
         initComponents();
         txtUser.setText("");
         txtUser.setText(user);
+        usuario = user;
         Utils.mostrarPanel(puerta, new CrearCliente());
     }
 
@@ -128,7 +131,7 @@ public class Recepcionista extends javax.swing.JPanel {
                 bt_PagosMouseExited(evt);
             }
         });
-        barra.add(bt_Pagos, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 90, -1, 20));
+        barra.add(bt_Pagos, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, -1, 20));
 
         bt_membresias.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         bt_membresias.setForeground(new java.awt.Color(255, 255, 255));
@@ -145,7 +148,7 @@ public class Recepcionista extends javax.swing.JPanel {
                 bt_membresiasMouseExited(evt);
             }
         });
-        barra.add(bt_membresias, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, -1));
+        barra.add(bt_membresias, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, -1, -1));
 
         bt_Asistencias.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         bt_Asistencias.setForeground(new java.awt.Color(255, 255, 255));
@@ -162,7 +165,7 @@ public class Recepcionista extends javax.swing.JPanel {
                 bt_AsistenciasMouseExited(evt);
             }
         });
-        barra.add(bt_Asistencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, -1));
+        barra.add(bt_Asistencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, -1));
 
         jPanel1.add(barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 130));
 

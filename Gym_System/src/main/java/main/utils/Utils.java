@@ -10,15 +10,15 @@ import javax.swing.text.AbstractDocument;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DocumentFilter;
-import main.dao.ClienteDao;
-import main.models.Cliente;
+import main.dao.*;
+import main.models.*;
 
 /**
  *
  * @author marco
  */
 public class Utils {
-    
+
     private static ClienteDao cliDao = new ClienteDao();
 
     // funcion para cambiar jpaneles
@@ -85,7 +85,7 @@ public class Utils {
             return false;
         }
     }
-    
+
     public static String nombreCliente(long dpi) {
         Cliente cli = cliDao.buscar(dpi);
         if (cli != null) {
@@ -94,6 +94,40 @@ public class Utils {
             return nombre + " " + apellido;
         } else {
             return "Desconocido";
+        }
+    }
+    
+    public static String nombreEntrenador(long dpi) {
+        EmpleadoDao dao = new EmpleadoDao();
+        Empleado emp = dao.buscarPorDPI(dpi);
+        if (emp != null) {
+            String nombre = emp.getNombre();
+            String apellido = emp.getApellido();
+            return nombre + " " + apellido;
+        } else {
+            return "Desconocido";
+        }
+    }
+
+    public static int datosEmpleado(String user) {
+        EmpleadoDao dao = new EmpleadoDao();
+        Empleado emp = dao.perfil(user);
+        if (emp != null) {
+            int sucursal = emp.getIdSucursal();
+            return sucursal;
+        } else {
+            return 0;
+        }
+    }
+    
+    public static String clienteEntrenador(long dpi) {
+        Entrenador_ClienteDao dao = new Entrenador_ClienteDao();
+        Entrenador_Cliente enCli = dao.buscarPorCliente(dpi);
+        if (enCli != null) {
+            String nombre = nombreEntrenador(enCli.getDpi_entrenador());
+            return nombre;
+        } else {
+            return " - Sin Asignar -";
         }
     }
 
@@ -212,7 +246,7 @@ public class Utils {
             return null;
         }
     }
-    
+
     // jtextfield que sea solo numeros
     public static void txtNumber(JTextField campo) {
         ((AbstractDocument) campo.getDocument()).setDocumentFilter(new DocumentFilter() {
