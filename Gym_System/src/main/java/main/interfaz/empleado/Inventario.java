@@ -4,6 +4,7 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 import main.dao.EmpleadoDao;
 import main.interfaz.Roles;
+import main.interfaz.empleado.inventario.*;
 import main.models.Empleado;
 import main.utils.Utils;
 
@@ -40,7 +41,7 @@ public class Inventario extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         bt_Inventario = new javax.swing.JLabel();
         bt_Equipos = new javax.swing.JLabel();
-        bt_Reportes = new javax.swing.JLabel();
+        bt_Repuestos = new javax.swing.JLabel();
         txtUser = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         puerta = new javax.swing.JPanel();
@@ -86,19 +87,19 @@ public class Inventario extends javax.swing.JPanel {
             }
         });
 
-        bt_Reportes.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        bt_Reportes.setForeground(new java.awt.Color(255, 255, 255));
-        bt_Reportes.setText("Reportes");
-        bt_Reportes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        bt_Reportes.addMouseListener(new java.awt.event.MouseAdapter() {
+        bt_Repuestos.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        bt_Repuestos.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Repuestos.setText("Repuestos");
+        bt_Repuestos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Repuestos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bt_ReportesMouseClicked(evt);
+                bt_RepuestosMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                bt_ReportesMouseEntered(evt);
+                bt_RepuestosMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                bt_ReportesMouseExited(evt);
+                bt_RepuestosMouseExited(evt);
             }
         });
 
@@ -137,7 +138,7 @@ public class Inventario extends javax.swing.JPanel {
                 .addGap(38, 38, 38)
                 .addComponent(bt_Inventario)
                 .addGap(27, 27, 27)
-                .addComponent(bt_Reportes)
+                .addComponent(bt_Repuestos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtUser)
                 .addGap(32, 32, 32))
@@ -159,7 +160,7 @@ public class Inventario extends javax.swing.JPanel {
                         .addGroup(barraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(bt_Equipos)
                             .addComponent(bt_Inventario)
-                            .addComponent(bt_Reportes))
+                            .addComponent(bt_Repuestos))
                         .addGap(14, 14, 14))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraLayout.createSequentialGroup()
                         .addComponent(txtUser)
@@ -214,6 +215,7 @@ public class Inventario extends javax.swing.JPanel {
 
     private void bt_InventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_InventarioMouseClicked
         // TODO add your handling code here:
+        Utils.mostrarPanel(puerta, new lista_Inventario());
     }//GEN-LAST:event_bt_InventarioMouseClicked
 
     private void bt_InventarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_InventarioMouseEntered
@@ -226,19 +228,20 @@ public class Inventario extends javax.swing.JPanel {
         bt_Inventario.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_bt_InventarioMouseExited
 
-    private void bt_ReportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ReportesMouseClicked
+    private void bt_RepuestosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_RepuestosMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_bt_ReportesMouseClicked
+        Utils.mostrarPanel(puerta, new Reportes());
+    }//GEN-LAST:event_bt_RepuestosMouseClicked
 
-    private void bt_ReportesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ReportesMouseEntered
+    private void bt_RepuestosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_RepuestosMouseEntered
         // TODO add your handling code here:
-        bt_Reportes.setForeground(new Color(147, 172, 246));
-    }//GEN-LAST:event_bt_ReportesMouseEntered
+        bt_Repuestos.setForeground(new Color(147, 172, 246));
+    }//GEN-LAST:event_bt_RepuestosMouseEntered
 
-    private void bt_ReportesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ReportesMouseExited
+    private void bt_RepuestosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_RepuestosMouseExited
         // TODO add your handling code here:
-        bt_Reportes.setForeground(new Color(255, 255, 255));
-    }//GEN-LAST:event_bt_ReportesMouseExited
+        bt_Repuestos.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_bt_RepuestosMouseExited
 
     private void txtUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUserMouseClicked
         // TODO add your handling code here:
@@ -281,7 +284,7 @@ public class Inventario extends javax.swing.JPanel {
     private javax.swing.JPanel barra;
     private javax.swing.JLabel bt_Equipos;
     private javax.swing.JLabel bt_Inventario;
-    private javax.swing.JLabel bt_Reportes;
+    private javax.swing.JLabel bt_Repuestos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;

@@ -68,7 +68,7 @@
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Component id="bt_Inventario" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="bt_Reportes" min="-2" max="-2" attributes="0"/>
+                      <Component id="bt_Repuestos" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="txtUser" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
@@ -95,7 +95,7 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="bt_Equipos" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="bt_Inventario" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="bt_Reportes" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="bt_Repuestos" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                           </Group>
@@ -158,7 +158,7 @@
                 <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bt_EquiposMouseExited"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="bt_Reportes">
+            <Component class="javax.swing.JLabel" name="bt_Repuestos">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="FreeMono" size="24" style="1"/>
@@ -166,15 +166,15 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Reportes"/>
+                <Property name="text" type="java.lang.String" value="Repuestos"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Cursor de Mano"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bt_ReportesMouseClicked"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bt_ReportesMouseEntered"/>
-                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bt_ReportesMouseExited"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bt_RepuestosMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bt_RepuestosMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bt_RepuestosMouseExited"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="txtUser">

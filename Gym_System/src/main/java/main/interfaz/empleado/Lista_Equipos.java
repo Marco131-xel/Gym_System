@@ -1,9 +1,16 @@
 package main.interfaz.empleado;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import main.dao.EquipoDao;
+import main.interfaz.empleado.inventario.crear_Equipo;
+import main.interfaz.empleado.inventario.mod_Equipo;
 import main.models.Equipo;
+import main.utils.Utils;
 
 /**
  *
@@ -14,12 +21,17 @@ public class Lista_Equipos extends javax.swing.JPanel {
     /**
      * Creates new form Lista_Equipos
      */
-    
     EquipoDao dao = new EquipoDao();
-    
+
     public Lista_Equipos() {
         initComponents();
         cargarLista();
+        JTableHeader header = tab_Equipos.getTableHeader();
+        header.setBackground(Color.BLUE);
+        header.setForeground(Color.black);
+        header.setFont(new Font("Free Mono", Font.BOLD, 15));
+        tab_Equipos.setGridColor(Color.WHITE);
+        tab_Equipos.setShowVerticalLines(true);
     }
 
     /**
@@ -83,12 +95,22 @@ public class Lista_Equipos extends javax.swing.JPanel {
         bt_Crear.setForeground(new java.awt.Color(0, 0, 0));
         bt_Crear.setText("crear");
         bt_Crear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Crear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_CrearActionPerformed(evt);
+            }
+        });
 
         bt_Eli.setBackground(new java.awt.Color(204, 0, 0));
         bt_Eli.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         bt_Eli.setForeground(new java.awt.Color(255, 255, 255));
         bt_Eli.setText("eliminar");
         bt_Eli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Eli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_EliActionPerformed(evt);
+            }
+        });
 
         bt_Mod.setBackground(new java.awt.Color(255, 255, 51));
         bt_Mod.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
@@ -102,7 +124,7 @@ public class Lista_Equipos extends javax.swing.JPanel {
         });
 
         jLabel3.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(20, 71, 230));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Acciones");
 
         javax.swing.GroupLayout puertaLayout = new javax.swing.GroupLayout(puerta);
@@ -163,8 +185,39 @@ public class Lista_Equipos extends javax.swing.JPanel {
 
     private void bt_ModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ModActionPerformed
         // TODO add your handling code here:
+        String idStr = Utils.selecDatTable(tab_Equipos, 0, "Seleccione un Equipo en la tabla");
+        if (idStr != null) {
+            int id = Integer.parseInt(idStr);
+
+            Equipo eq = dao.buscar(id);
+            if (eq != null) {
+                String nombre = eq.getNombre();
+                String descripcion = eq.getDescripcion();
+                String tipo = eq.getTipo();
+                
+                Utils.mostrarPanel(puerta, new mod_Equipo(nombre, descripcion, tipo));
+            } else {
+                JOptionPane.showMessageDialog(this, "Error");
+            }
+        }
     }//GEN-LAST:event_bt_ModActionPerformed
-    
+
+    private void bt_CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_CrearActionPerformed
+        // TODO add your handling code here:
+        Utils.mostrarPanel(puerta, new crear_Equipo());
+    }//GEN-LAST:event_bt_CrearActionPerformed
+
+    private void bt_EliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_EliActionPerformed
+        // TODO add your handling code here:
+        String idStr = Utils.selecDatTable(tab_Equipos, 0, "Seleccione un Equipo en la tabla");
+        if (idStr != null) {
+            int id = Integer.parseInt(idStr);
+            dao.eliminar(id);
+            JOptionPane.showMessageDialog(this, "Equipo Eliminado");
+            cargarLista();
+        }
+    }//GEN-LAST:event_bt_EliActionPerformed
+
     public void cargarLista() {
         DefaultTableModel modelo = (DefaultTableModel) tab_Equipos.getModel();
         modelo.setRowCount(0);

@@ -145,6 +145,16 @@ CREATE TABLE asistencia (
   fecha_hora TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT now()
 );
 
+CREATE TABLE movimiento_inventario (
+  id_movimiento SERIAL PRIMARY KEY,
+  id_equipo INT NOT NULL REFERENCES equipo(id_equipo), --combo box ver nombre selecciona da id
+  cantidad INT NOT NULL CHECK (cantidad > 0), -- txtfield
+  origen_sucursal INT REFERENCES sucursal(id_sucursal), -- combo box
+  destino_sucursal INT REFERENCES sucursal(id_sucursal), -- combo box
+  fecha TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT now(), -- txtpane 0editable
+  motivo TEXT -- txtpane
+);
+
 -- INSERTS VALUES
 
 INSERT INTO sucursal (nombre, region, cantidad_maquinas) VALUES
@@ -226,4 +236,27 @@ INSERT INTO ejercicio (nombre, series, repeticiones, duracion_min, id_equipo) VA
 ('Postura del Guerrero', 3, 0, 2, 9),
 ('Estiramiento de Cuádriceps', 3, 0, 1, 9),
 ('Estiramiento de Isquiotibiales', 3, 0, 1, 9);
+
+INSERT INTO inventario (id_sucursal, id_equipo, cantidad)
+VALUES
+  ((SELECT id_sucursal FROM sucursal WHERE nombre='Central'), (SELECT id_equipo FROM equipo WHERE nombre='Cinta de Correr'), 5),
+  ((SELECT id_sucursal FROM sucursal WHERE nombre='Central'), (SELECT id_equipo FROM equipo WHERE nombre='Máquina de Remo'), 5),
+  ((SELECT id_sucursal FROM sucursal WHERE nombre='Central'), (SELECT id_equipo FROM equipo WHERE nombre='Bicicleta Estática'), 10),
+  ((SELECT id_sucursal FROM sucursal WHERE nombre='Central'), (SELECT id_equipo FROM equipo WHERE nombre='Rack de Sentadillas'), 5),
+  ((SELECT id_sucursal FROM sucursal WHERE nombre='Central'), (SELECT id_equipo FROM equipo WHERE nombre='Banca Plana'), 10),
+  ((SELECT id_sucursal FROM sucursal WHERE nombre='Central'), (SELECT id_equipo FROM equipo WHERE nombre='Colchoneta Yoga'), 5),
+  ((SELECT id_sucursal FROM sucursal WHERE nombre='Central'), (SELECT id_equipo FROM equipo WHERE nombre='Mancuernas'), 10),
+
+  ((SELECT id_sucursal FROM sucursal WHERE nombre='Norte'), (SELECT id_equipo FROM equipo WHERE nombre='Cinta de Correr'), 6),
+  ((SELECT id_sucursal FROM sucursal WHERE nombre='Norte'), (SELECT id_equipo FROM equipo WHERE nombre='Bicicleta Estática'), 4),
+  ((SELECT id_sucursal FROM sucursal WHERE nombre='Norte'), (SELECT id_equipo FROM equipo WHERE nombre='Rack de Sentadillas'), 4),
+  ((SELECT id_sucursal FROM sucursal WHERE nombre='Norte'), (SELECT id_equipo FROM equipo WHERE nombre='Banca Plana'), 4),
+  ((SELECT id_sucursal FROM sucursal WHERE nombre='Norte'), (SELECT id_equipo FROM equipo WHERE nombre='Colchoneta Yoga'), 4),
+  ((SELECT id_sucursal FROM sucursal WHERE nombre='Norte'), (SELECT id_equipo FROM equipo WHERE nombre='Mancuernas'), 8),
+
+  ((SELECT id_sucursal FROM sucursal WHERE nombre='Sur'), (SELECT id_equipo FROM equipo WHERE nombre='Cinta de Correr'), 4),
+  ((SELECT id_sucursal FROM sucursal WHERE nombre='Sur'), (SELECT id_equipo FROM equipo WHERE nombre='Bicicleta Estática'), 5),
+  ((SELECT id_sucursal FROM sucursal WHERE nombre='Sur'), (SELECT id_equipo FROM equipo WHERE nombre='Rack de Sentadillas'), 2),
+  ((SELECT id_sucursal FROM sucursal WHERE nombre='Sur'), (SELECT id_equipo FROM equipo WHERE nombre='Banca Plana'), 4),
+  ((SELECT id_sucursal FROM sucursal WHERE nombre='Sur'), (SELECT id_equipo FROM equipo WHERE nombre='Mancuernas'), 5);
 
