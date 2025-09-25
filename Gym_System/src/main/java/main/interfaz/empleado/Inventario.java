@@ -230,7 +230,7 @@ public class Inventario extends javax.swing.JPanel {
 
     private void bt_RepuestosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_RepuestosMouseClicked
         // TODO add your handling code here:
-        Utils.mostrarPanel(puerta, new Reportes());
+        Utils.mostrarPanel(puerta, new lista_Reportes());
     }//GEN-LAST:event_bt_RepuestosMouseClicked
 
     private void bt_RepuestosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_RepuestosMouseEntered

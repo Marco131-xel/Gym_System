@@ -58,7 +58,7 @@ public class MovimientoDao {
                     mov.setCantidad(rs.getInt("cantidad"));
                     mov.setOrigenSuc(rs.getInt("origen_sucursal"));
                     mov.setDestinoSuc(rs.getInt("destino_sucursal"));
-                    mov.setFecha_hora(rs.getTimestamp("fecha_hora"));
+                    mov.setFecha_hora(rs.getTimestamp("fecha"));
                     mov.setMotivo(rs.getString("motivo"));
                 }
             }
@@ -83,7 +83,7 @@ public class MovimientoDao {
                 mov.setCantidad(rs.getInt("cantidad"));
                 mov.setOrigenSuc(rs.getInt("origen_sucursal"));
                 mov.setDestinoSuc(rs.getInt("destino_sucursal"));
-                mov.setFecha_hora(rs.getTimestamp("fecha_hora"));
+                mov.setFecha_hora(rs.getTimestamp("fecha"));
                 mov.setMotivo(rs.getString("motivo"));
                 lista.add(mov);
             }

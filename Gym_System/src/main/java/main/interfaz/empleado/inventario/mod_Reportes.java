@@ -12,10 +12,10 @@ import main.utils.Utils;
  *
  * @author marco
  */
-public class Reportes extends javax.swing.JPanel {
+public class mod_Reportes extends javax.swing.JPanel {
 
     /**
-     * Creates new form Reportes
+     * Creates new form mod_Reportes
      */
     MovimientoDao movDao = new MovimientoDao();
     EquipoDao eqDao = new EquipoDao();
@@ -24,10 +24,23 @@ public class Reportes extends javax.swing.JPanel {
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
     String fechaStr = sdf.format(fecha);
 
-    public Reportes() {
+    private int id_movimiento;
+
+    public mod_Reportes(int id, int id_equipo, int cantidad, int ori,
+            int des, Timestamp fechaA, String motivo) {
         initComponents();
-        txt_Fecha.setText(fechaStr);
         cargarEquipos();
+        id_movimiento = id;
+        seleccionarEquipo(id_equipo);
+        String cantidadStr = Integer.toString(cantidad);
+        txt_Cantidad.setText(cantidadStr);
+        String origen = Utils.getSucursalNombre(ori);
+        com_Origen.setSelectedItem(origen);
+        String destino = Utils.getSucursalNombre(des);
+        com_Destino.setSelectedItem(destino);
+        String fechaAStr = sdf.format(fechaA);
+        txt_Fecha.setText(fechaAStr);
+        txt_Motivo.setText(motivo);
     }
 
     /**
@@ -44,26 +57,26 @@ public class Reportes extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         com_Equipo = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
+        txt_Cantidad = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         com_Origen = new javax.swing.JComboBox<>();
         com_Destino = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
-        txt_Cantidad = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_Motivo = new javax.swing.JTextPane();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txt_Fecha = new javax.swing.JTextPane();
-        bt_Enviar = new javax.swing.JButton();
+        bt_Modificar = new javax.swing.JButton();
         bt_Cancelar = new javax.swing.JButton();
 
         puerta.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("FreeMono", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(20, 71, 230));
-        jLabel1.setText("Respuestos");
+        jLabel1.setText("Modificar un Cambio");
 
         jLabel2.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -71,42 +84,58 @@ public class Reportes extends javax.swing.JPanel {
 
         com_Equipo.setBackground(new java.awt.Color(20, 71, 230));
         com_Equipo.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        com_Equipo.setForeground(new java.awt.Color(255, 255, 255));
         com_Equipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 com_EquipoActionPerformed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("FreeMono", 1, 29)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(20, 71, 230));
-        jLabel3.setText("Sucursal");
-
-        jLabel4.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Origen");
-
-        jLabel5.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Destino");
-
-        com_Origen.setBackground(new java.awt.Color(20, 71, 230));
-        com_Origen.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        com_Origen.setForeground(new java.awt.Color(255, 255, 255));
-        com_Origen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Central", "Norte", "Sur" }));
-
-        com_Destino.setBackground(new java.awt.Color(20, 71, 230));
-        com_Destino.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        com_Destino.setForeground(new java.awt.Color(255, 255, 255));
-        com_Destino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Central", "Norte", "Sur" }));
-
-        jLabel6.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Cantidad");
+        jLabel3.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Cantidad");
 
         txt_Cantidad.setBackground(new java.awt.Color(255, 255, 255));
         txt_Cantidad.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         txt_Cantidad.setForeground(new java.awt.Color(0, 0, 0));
         txt_Cantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(20, 71, 230)));
+        txt_Cantidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_CantidadActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("FreeMono", 1, 29)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(20, 71, 230));
+        jLabel4.setText("Sucursal");
+
+        jLabel5.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Origen");
+
+        jLabel6.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Destino");
+
+        com_Origen.setBackground(new java.awt.Color(20, 71, 230));
+        com_Origen.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        com_Origen.setForeground(new java.awt.Color(255, 255, 255));
+        com_Origen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Central", "Norte", "Sur" }));
+        com_Origen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                com_OrigenActionPerformed(evt);
+            }
+        });
+
+        com_Destino.setBackground(new java.awt.Color(20, 71, 230));
+        com_Destino.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
+        com_Destino.setForeground(new java.awt.Color(255, 255, 255));
+        com_Destino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Central", "Norte", "Sur" }));
+        com_Destino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                com_DestinoActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("FreeMono", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
@@ -130,14 +159,14 @@ public class Reportes extends javax.swing.JPanel {
         txt_Fecha.setFocusable(false);
         jScrollPane2.setViewportView(txt_Fecha);
 
-        bt_Enviar.setBackground(new java.awt.Color(0, 204, 0));
-        bt_Enviar.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
-        bt_Enviar.setForeground(new java.awt.Color(0, 0, 0));
-        bt_Enviar.setText("enviar");
-        bt_Enviar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        bt_Enviar.addActionListener(new java.awt.event.ActionListener() {
+        bt_Modificar.setBackground(new java.awt.Color(255, 255, 0));
+        bt_Modificar.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
+        bt_Modificar.setForeground(new java.awt.Color(0, 0, 0));
+        bt_Modificar.setText("modificar");
+        bt_Modificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_Modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_EnviarActionPerformed(evt);
+                bt_ModificarActionPerformed(evt);
             }
         });
 
@@ -162,87 +191,80 @@ public class Reportes extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(jLabel1))
                     .addGroup(puertaLayout.createSequentialGroup()
-                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGap(77, 77, 77)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(com_Equipo, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(73, 73, 73)
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(puertaLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(puertaLayout.createSequentialGroup()
-                                .addGap(89, 89, 89)
-                                .addComponent(jLabel3)
-                                .addGap(156, 156, 156)
-                                .addComponent(jLabel7))
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(com_Origen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(puertaLayout.createSequentialGroup()
-                                .addGap(27, 27, 27)
                                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
                                     .addGroup(puertaLayout.createSequentialGroup()
-                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel6)
                                         .addGap(18, 18, 18)
-                                        .addComponent(com_Origen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(puertaLayout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(com_Destino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel8)))))
+                                        .addComponent(com_Destino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(128, 128, 128)
+                                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel7))))
                         .addGap(18, 18, 18)
                         .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(95, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(74, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, puertaLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(bt_Cancelar)
-                .addGap(36, 36, 36)
-                .addComponent(bt_Enviar)
-                .addGap(56, 56, 56))
-            .addGroup(puertaLayout.createSequentialGroup()
-                .addGap(112, 112, 112)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(com_Equipo, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6)
                 .addGap(18, 18, 18)
-                .addComponent(txt_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75))
+                .addComponent(bt_Modificar)
+                .addGap(41, 41, 41))
         );
         puertaLayout.setVerticalGroup(
             puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(puertaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(com_Equipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(txt_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60)
                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(puertaLayout.createSequentialGroup()
-                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(puertaLayout.createSequentialGroup()
-                                .addGap(109, 109, 109)
-                                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel3))
-                                .addGap(36, 36, 36)
-                                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel4)
-                                    .addComponent(com_Origen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(puertaLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel2)
-                                    .addComponent(com_Equipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6)
-                                    .addComponent(txt_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(60, 60, 60)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(23, 23, 23)
-                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(com_Destino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel8))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(47, 116, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, puertaLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bt_Cancelar)
-                            .addComponent(bt_Enviar))
-                        .addGap(36, 36, 36))))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel7))
+                        .addGap(53, 53, 53)
+                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(com_Origen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(puertaLayout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(3, 3, 3)
+                        .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(com_Destino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bt_Modificar)
+                    .addComponent(bt_Cancelar))
+                .addGap(32, 32, 32))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -257,16 +279,7 @@ public class Reportes extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void com_EquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_com_EquipoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_com_EquipoActionPerformed
-
-    private void bt_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_CancelarActionPerformed
-        // TODO add your handling code here:
-        Utils.mostrarPanel(puerta, new lista_Reportes());
-    }//GEN-LAST:event_bt_CancelarActionPerformed
-
-    private void bt_EnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_EnviarActionPerformed
+    private void bt_ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ModificarActionPerformed
         // TODO add your handling code here:
         try {
             String cantStr = txt_Cantidad.getText();
@@ -283,16 +296,41 @@ public class Reportes extends javax.swing.JPanel {
             int origenSuc = Utils.obtenerIdSucursal(origen);
             int destinoSuc = Utils.obtenerIdSucursal(destino);
 
-            Movimiento mov = new Movimiento(id_equipo, cantidad, origenSuc, destinoSuc, fecha, motivo);
-            movDao.crear(mov);
-            JOptionPane.showMessageDialog(this, "Enviado");
+            Movimiento mov = new Movimiento(id_movimiento, id_equipo, cantidad, origenSuc, destinoSuc, fecha, motivo);
+            movDao.actualizar(mov);
+            JOptionPane.showMessageDialog(this, "Modificado");
             Utils.mostrarPanel(puerta, new lista_Reportes());
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Ingrese Numeros en cantidad");
             System.out.println("Error: " + e);
         }
-    }//GEN-LAST:event_bt_EnviarActionPerformed
+    }//GEN-LAST:event_bt_ModificarActionPerformed
+
+    private void bt_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_CancelarActionPerformed
+        // TODO add your handling code here:
+        Utils.mostrarPanel(puerta, new lista_Reportes());
+    }//GEN-LAST:event_bt_CancelarActionPerformed
+
+    private void com_EquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_com_EquipoActionPerformed
+        // TODO add your handling code here:
+        txt_Fecha.setText(fechaStr);
+    }//GEN-LAST:event_com_EquipoActionPerformed
+
+    private void com_OrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_com_OrigenActionPerformed
+        // TODO add your handling code here:
+        txt_Fecha.setText(fechaStr);
+    }//GEN-LAST:event_com_OrigenActionPerformed
+
+    private void com_DestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_com_DestinoActionPerformed
+        // TODO add your handling code here:
+        txt_Fecha.setText(fechaStr);
+    }//GEN-LAST:event_com_DestinoActionPerformed
+
+    private void txt_CantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_CantidadActionPerformed
+        // TODO add your handling code here:
+        txt_Fecha.setText(fechaStr);
+    }//GEN-LAST:event_txt_CantidadActionPerformed
 
     private void cargarEquipos() {
         com_Equipo.removeAllItems();
@@ -303,9 +341,20 @@ public class Reportes extends javax.swing.JPanel {
         }
     }
 
+    private void seleccionarEquipo(int id_equipo) {
+        for (int i = 0; i < com_Equipo.getItemCount(); i++) {
+            Equipo eq = com_Equipo.getItemAt(i);
+            if (eq.getId() == id_equipo) {
+                com_Equipo.setSelectedIndex(i);
+                break;
+            }
+        }
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_Cancelar;
-    private javax.swing.JButton bt_Enviar;
+    private javax.swing.JButton bt_Modificar;
     private javax.swing.JComboBox<String> com_Destino;
     private javax.swing.JComboBox<Equipo> com_Equipo;
     private javax.swing.JComboBox<String> com_Origen;

@@ -147,12 +147,12 @@ CREATE TABLE asistencia (
 
 CREATE TABLE movimiento_inventario (
   id_movimiento SERIAL PRIMARY KEY,
-  id_equipo INT NOT NULL REFERENCES equipo(id_equipo), --combo box ver nombre selecciona da id
-  cantidad INT NOT NULL CHECK (cantidad > 0), -- txtfield
-  origen_sucursal INT REFERENCES sucursal(id_sucursal), -- combo box
-  destino_sucursal INT REFERENCES sucursal(id_sucursal), -- combo box
-  fecha TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT now(), -- txtpane 0editable
-  motivo TEXT -- txtpane
+  id_equipo INT NOT NULL REFERENCES equipo(id_equipo),
+  cantidad INT NOT NULL CHECK (cantidad > 0),
+  origen_sucursal INT REFERENCES sucursal(id_sucursal),
+  destino_sucursal INT REFERENCES sucursal(id_sucursal),
+  fecha TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT now(),
+  motivo TEXT
 );
 
 -- INSERTS VALUES
