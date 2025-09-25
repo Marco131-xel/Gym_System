@@ -2,12 +2,13 @@ package main.interfaz.empleado;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.sql.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-import main.dao.ClienteDao;
-import main.models.Cliente;
+import main.dao.*;
+import main.models.*;
 import main.utils.Utils;
 
 /**
@@ -20,6 +21,8 @@ public class ListaClientes extends javax.swing.JPanel {
      * Creates new form ListaClientes
      */
     ClienteDao dao = new ClienteDao();
+    Entrenador_ClienteDao enCliDao = new Entrenador_ClienteDao();
+    
     public ListaClientes() {
         initComponents();
         JTableHeader header = tab_Cliente.getTableHeader();
@@ -50,6 +53,7 @@ public class ListaClientes extends javax.swing.JPanel {
         bt_Mem = new javax.swing.JButton();
         bt_Asig = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        bt_ModCoach = new javax.swing.JButton();
 
         puerta.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -58,17 +62,17 @@ public class ListaClientes extends javax.swing.JPanel {
         tab_Cliente.setForeground(new java.awt.Color(255, 255, 255));
         tab_Cliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "DPI", "Nombre", "Apellido", "Telefono", "Direccion", "Entrenador"
+                "ID", "DPI", "Nombre", "Entrenador"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -78,12 +82,8 @@ public class ListaClientes extends javax.swing.JPanel {
         tab_Cliente.setFocusable(false);
         jScrollPane1.setViewportView(tab_Cliente);
         if (tab_Cliente.getColumnModel().getColumnCount() > 0) {
-            tab_Cliente.getColumnModel().getColumn(0).setResizable(false);
-            tab_Cliente.getColumnModel().getColumn(1).setResizable(false);
-            tab_Cliente.getColumnModel().getColumn(2).setResizable(false);
-            tab_Cliente.getColumnModel().getColumn(3).setResizable(false);
-            tab_Cliente.getColumnModel().getColumn(4).setResizable(false);
-            tab_Cliente.getColumnModel().getColumn(5).setResizable(false);
+            tab_Cliente.getColumnModel().getColumn(0).setMinWidth(80);
+            tab_Cliente.getColumnModel().getColumn(0).setMaxWidth(80);
         }
 
         jLabel2.setFont(new java.awt.Font("FreeMono", 1, 36)); // NOI18N
@@ -142,6 +142,17 @@ public class ListaClientes extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Entrenador");
 
+        bt_ModCoach.setBackground(new java.awt.Color(255, 255, 0));
+        bt_ModCoach.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
+        bt_ModCoach.setForeground(new java.awt.Color(0, 0, 0));
+        bt_ModCoach.setText("cambiar");
+        bt_ModCoach.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_ModCoach.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_ModCoachActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout puertaLayout = new javax.swing.GroupLayout(puerta);
         puerta.setLayout(puertaLayout);
         puertaLayout.setHorizontalGroup(
@@ -151,17 +162,20 @@ public class ListaClientes extends javax.swing.JPanel {
                     .addGroup(puertaLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
                             .addGroup(puertaLayout.createSequentialGroup()
                                 .addComponent(bt_Mod)
-                                .addGap(27, 27, 27)
+                                .addGap(18, 18, 18)
                                 .addComponent(bt_Mem)
                                 .addGap(18, 18, 18)
-                                .addComponent(bt_Eli)))
-                        .addGap(138, 138, 138)
+                                .addComponent(bt_Eli))
+                            .addComponent(jLabel4))
+                        .addGap(141, 141, 141)
                         .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
-                            .addComponent(bt_Asig)))
+                            .addGroup(puertaLayout.createSequentialGroup()
+                                .addComponent(bt_Asig)
+                                .addGap(18, 18, 18)
+                                .addComponent(bt_ModCoach))))
                     .addGroup(puertaLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -176,8 +190,8 @@ public class ListaClientes extends javax.swing.JPanel {
             puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(puertaLayout.createSequentialGroup()
                 .addGap(76, 76, 76)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                .addGap(53, 53, 53)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel6))
@@ -185,9 +199,10 @@ public class ListaClientes extends javax.swing.JPanel {
                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bt_Mod)
                     .addComponent(bt_Mem)
+                    .addComponent(bt_Eli)
                     .addComponent(bt_Asig)
-                    .addComponent(bt_Eli))
-                .addGap(123, 123, 123))
+                    .addComponent(bt_ModCoach))
+                .addGap(44, 44, 44))
             .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(puertaLayout.createSequentialGroup()
                     .addGap(16, 16, 16)
@@ -209,7 +224,7 @@ public class ListaClientes extends javax.swing.JPanel {
 
     private void bt_EliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_EliActionPerformed
         // TODO add your handling code here:
-        String dpiStr = Utils.selecDatTable(tab_Cliente, 0, "Seleccione un cliente en la tabla");
+        String dpiStr = Utils.selecDatTable(tab_Cliente, 1, "Seleccione un cliente en la tabla");
         if (dpiStr != null) {
             long dpi = Long.parseLong(dpiStr);
             int filas = dao.eliminar(dpi);
@@ -226,7 +241,7 @@ public class ListaClientes extends javax.swing.JPanel {
 
     private void bt_ModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ModActionPerformed
         // TODO add your handling code here:
-        String dpiStr = Utils.selecDatTable(tab_Cliente, 0, "Seleccione un cliente en la tabla");
+        String dpiStr = Utils.selecDatTable(tab_Cliente, 1, "Seleccione un cliente en la tabla");
         if (dpiStr != null) {
             long mdpi = Long.parseLong(dpiStr);
             Cliente cliente = dao.buscar(mdpi);
@@ -249,7 +264,7 @@ public class ListaClientes extends javax.swing.JPanel {
 
     private void bt_MemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_MemActionPerformed
         // TODO add your handling code here:
-        String dpiStr = Utils.selecDatTable(tab_Cliente, 0, "Seleccione un cliente en la tabla");
+        String dpiStr = Utils.selecDatTable(tab_Cliente, 1, "Seleccione un cliente en la tabla");
         if (dpiStr != null) {
             long dpi = Long.parseLong(dpiStr);
             Utils.mostrarPanel(puerta, new Membresias(dpi));
@@ -258,25 +273,42 @@ public class ListaClientes extends javax.swing.JPanel {
 
     private void bt_AsigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AsigActionPerformed
         // TODO add your handling code here:
-        String dpiStr = Utils.selecDatTable(tab_Cliente, 0, "Seleccione un cliente en la tabla");
+        String dpiStr = Utils.selecDatTable(tab_Cliente, 1, "Seleccione un cliente en la tabla");
         if (dpiStr != null) {
             long dpi = Long.parseLong(dpiStr);
             Utils.mostrarPanel(puerta, new Asignar(dpi));
         }
     }//GEN-LAST:event_bt_AsigActionPerformed
+
+    private void bt_ModCoachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ModCoachActionPerformed
+        // TODO add your handling code here:
+        String dpiStr = Utils.selecDatTable(tab_Cliente, 1, "Seleccione un cliente en la tabla");
+        if (dpiStr != null) {
+            long dpi = Long.parseLong(dpiStr);
+            Entrenador_Cliente enCli = enCliDao.buscarPorCliente(dpi);
+            if (enCli != null) {
+                int idAsig = enCli.getAsignacion();
+                long dpi_entrenador = enCli.getDpi_entrenador();
+                Date fechaAsig = enCli.getFechaAsignacion();
+                Date fechaFin = enCli.getFechaFin();
+                
+                Utils.mostrarPanel(puerta, new mod_Asig(idAsig, dpi_entrenador, dpi, fechaAsig, fechaFin));
+            } else {
+                JOptionPane.showMessageDialog(this, "Error de dato");
+            }
+        }
+    }//GEN-LAST:event_bt_ModCoachActionPerformed
     public void cargarLista() {
         DefaultTableModel modelo = (DefaultTableModel) tab_Cliente.getModel();
         modelo.setRowCount(0);
-        List<Cliente> lista = dao.listar();
+        List<Entrenador_Cliente> lista = enCliDao.listar();
 
-        for (Cliente cliente : lista) {
+        for (Entrenador_Cliente enCli : lista) {
             modelo.addRow(new Object[]{
-                cliente.getDpi(),
-                cliente.getNombre(),
-                cliente.getApellido(),
-                cliente.getTelefono(),
-                cliente.getDireccion(),
-                Utils.clienteEntrenador(cliente.getDpi())
+                enCli.getAsignacion(),
+                enCli.getDpi_cliente(),
+                Utils.nombreCliente(enCli.getDpi_cliente()),
+                Utils.nombreEntrenador(enCli.getDpi_entrenador())
             });
         }
     }
@@ -286,6 +318,7 @@ public class ListaClientes extends javax.swing.JPanel {
     private javax.swing.JButton bt_Eli;
     private javax.swing.JButton bt_Mem;
     private javax.swing.JButton bt_Mod;
+    private javax.swing.JButton bt_ModCoach;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;

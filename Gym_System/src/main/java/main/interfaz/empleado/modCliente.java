@@ -18,7 +18,6 @@ public class modCliente extends javax.swing.JPanel {
     public modCliente(long dpi, String nombre, String apellido, String password,
             String telefono, String direccion) {
         initComponents();
-        Utils.txtNumber(txt_Telefono);
         String strDPI = Long.toString(dpi);
         txt_DPI.setText(strDPI);
         txt_Nombre.setText(nombre);

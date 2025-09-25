@@ -6,10 +6,6 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
-import javax.swing.text.AbstractDocument;
-import javax.swing.text.AttributeSet;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.DocumentFilter;
 import main.dao.*;
 import main.models.*;
 
@@ -69,22 +65,6 @@ public class Utils {
         return true;
     }
 
-    public static boolean validarNumero(JTextField campo, String nombreCampo) {
-        String texto = campo.getText().trim();
-        if (texto.isEmpty()) {
-            JOptionPane.showMessageDialog(null, nombreCampo + " no puede quedar vacio");
-            campo.requestFocus();
-            return false;
-        }
-        try {
-            Long.parseLong(texto);
-            return true;
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, nombreCampo + " debe contener solo numeros");
-            campo.requestFocus();
-            return false;
-        }
-    }
 
     public static String nombreCliente(long dpi) {
         Cliente cli = cliDao.buscar(dpi);
@@ -245,26 +225,5 @@ public class Utils {
             JOptionPane.showMessageDialog(null, mensaje);
             return null;
         }
-    }
-
-    // jtextfield que sea solo numeros
-    public static void txtNumber(JTextField campo) {
-        ((AbstractDocument) campo.getDocument()).setDocumentFilter(new DocumentFilter() {
-            @Override
-            public void insertString(FilterBypass fb, int offset, String string, AttributeSet attr)
-                    throws BadLocationException {
-                if (string.matches("\\d+")) {
-                    super.insertString(fb, offset, string, attr);
-                }
-            }
-
-            @Override
-            public void replace(FilterBypass fb, int offset, int length, String text, AttributeSet attrs)
-                    throws BadLocationException {
-                if (text.matches("\\d+")) {
-                    super.replace(fb, offset, length, text, attrs);
-                }
-            }
-        });
     }
 }

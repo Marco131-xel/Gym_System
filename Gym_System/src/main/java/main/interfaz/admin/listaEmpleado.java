@@ -125,11 +125,11 @@ public class listaEmpleado extends javax.swing.JPanel {
                     .addGroup(puertaLayout.createSequentialGroup()
                         .addGap(56, 56, 56)
                         .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
                             .addGroup(puertaLayout.createSequentialGroup()
                                 .addComponent(bt_modificar)
                                 .addGap(18, 18, 18)
-                                .addComponent(bt_Eliminar))
-                            .addComponent(jLabel3))))
+                                .addComponent(bt_Eliminar)))))
                 .addGap(296, 632, Short.MAX_VALUE))
         );
         puertaLayout.setVerticalGroup(
@@ -138,14 +138,14 @@ public class listaEmpleado extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bt_modificar)
                     .addComponent(bt_Eliminar))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addGap(38, 38, 38))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

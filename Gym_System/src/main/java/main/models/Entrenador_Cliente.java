@@ -24,6 +24,14 @@ public class Entrenador_Cliente {
         this.fechaFin = fechaFin;
     }
 
+    public Entrenador_Cliente(int asignacion, long dpi_entrenador, long dpi_cliente, Date fechaAsignacion, Date fechaFin) {
+        this.asignacion = asignacion;
+        this.dpi_entrenador = dpi_entrenador;
+        this.dpi_cliente = dpi_cliente;
+        this.fechaAsignacion = fechaAsignacion;
+        this.fechaFin = fechaFin;
+    }
+
     public int getAsignacion() {
         return asignacion;
     }

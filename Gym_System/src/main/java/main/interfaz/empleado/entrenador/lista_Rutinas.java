@@ -162,15 +162,15 @@ public class lista_Rutinas extends javax.swing.JPanel {
                 .addGap(15, 15, 15)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addGroup(puertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bt_Eliminar)
                     .addComponent(bt_Ejercicio)
-                    .addComponent(bt_Modficiar))
-                .addContainerGap(89, Short.MAX_VALUE))
+                    .addComponent(bt_Modficiar)
+                    .addComponent(bt_Eliminar))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

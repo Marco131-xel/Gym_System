@@ -20,8 +20,6 @@ public class CrearCliente extends javax.swing.JPanel {
     
     public CrearCliente() {
         initComponents();
-        Utils.txtNumber(txt_DPI);
-        Utils.txtNumber(txt_Telefono);
     }
 
     /**
@@ -213,10 +211,10 @@ public class CrearCliente extends javax.swing.JPanel {
     private void bt_CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_CrearActionPerformed
         // TODO add your handling code here:
         try {
-            if (!Utils.validarNumero(txt_DPI, "DPI")) return;
+            if (!Utils.validarCampoVacio(txt_DPI, "DPI")) return;
             if (!Utils.validarCampoVacio(txt_Nombre, "Nombre")) return;
             if (!Utils.validarCampoVacio(txt_Apellido, "Apellido")) return;
-            if (!Utils.validarNumero(txt_Telefono, "Telefono")) return;
+            if (!Utils.validarCampoVacio(txt_Telefono, "Telefono")) return;
             if (!Utils.validarCampoVacio(txt_Direccion, "Direccion")) return;
             if (!Utils.validarCampoVacio(txt_Password, "Contraseña")) return;
             

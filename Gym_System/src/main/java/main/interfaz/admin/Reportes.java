@@ -5,6 +5,7 @@ import java.util.List;
 import main.dao.*;
 import main.models.*;
 import main.reportes.*;
+import main.utils.Utils;
 
 /**
  *
@@ -57,7 +58,7 @@ public class Reportes extends javax.swing.JPanel {
 
         txt_Reportes.setBackground(new java.awt.Color(255, 255, 255));
         txt_Reportes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 85, 30)));
-        txt_Reportes.setFont(new java.awt.Font("FreeMono", 1, 14)); // NOI18N
+        txt_Reportes.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         txt_Reportes.setForeground(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(txt_Reportes);
 
@@ -212,16 +213,15 @@ public class Reportes extends javax.swing.JPanel {
 
         StringBuilder sb = new StringBuilder();
         sb.append(String.format("%-15s %-20s %-20s %-15s %-20s %-15s\n",
-                "DPI", "Nombre", "Apellido", "Asistencias", "Sucursales Distintas", "Ratio"));
-        sb.append("-----------------------------------------------------------------------------------------------------------\n");
-
+                "DPI", "Nombre", "Apellido", "Asistencias", "Sucursal", "Ratio"));
+        sb.append("------------------------------------------------------------------------------------------------------------------\n");
         for (ReporteAsistenciaCruzada r : lista) {
-            sb.append(String.format("%-15d %-20s %-20s %-15d %-20d %-15.3f\n",
+            sb.append(String.format("%-15d %-20s %-20s %-15d %-20s %-15.3f\n",
                     r.getDpi(),
                     r.getNombre(),
                     r.getApellido(),
                     r.getTotalAsistencias(),
-                    r.getSucursalesDistintas(),
+                    Utils.getSucursalNombre(r.getSucursalesDistintas()),
                     r.getRatioDiversidad()));
         }
 
