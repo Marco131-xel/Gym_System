@@ -3,8 +3,11 @@ package main.interfaz;
 import java.awt.Color;
 import javax.swing.JPanel;
 import main.interfaz.admin.Perfil;
+import main.interfaz.admin.Reportes;
 import main.interfaz.admin.crearEmpleado;
 import main.interfaz.admin.listaEmpleado;
+
+import main.utils.Utils;
 /**
  *
  * @author marco
@@ -200,14 +203,17 @@ public class Admin extends javax.swing.JPanel {
 
     private void bt_ReportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ReportesMouseClicked
         // TODO add your handling code here:
+        Utils.mostrarPanel(puerta, new Reportes());
     }//GEN-LAST:event_bt_ReportesMouseClicked
 
     private void bt_ReportesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ReportesMouseEntered
         // TODO add your handling code here:
+        bt_Reportes.setForeground(new Color(242, 140, 40));
     }//GEN-LAST:event_bt_ReportesMouseEntered
 
     private void bt_ReportesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ReportesMouseExited
         // TODO add your handling code here:
+        bt_Reportes.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_bt_ReportesMouseExited
 
     private void BarraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BarraMouseClicked
